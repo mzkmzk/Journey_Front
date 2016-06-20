@@ -21,5 +21,8 @@
   "homepage": "https://github.com/mzkmzk/Journey_Front#readme",
   "dependencies": {
     "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "webpack": "1.13.1"
   }
 }
