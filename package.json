@@ -1,0 +1,25 @@
+{
+  "name": "journey_front",
+  "version": "1.0.0",
+  "description": "Journey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzkmzk/Journey_Front.git"
+  },
+  "keywords": [
+    "Journey"
+  ],
+  "author": "K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mzkmzk/Journey_Front/issues"
+  },
+  "homepage": "https://github.com/mzkmzk/Journey_Front#readme",
+  "dependencies": {
+    "underscore": "1.8.3"
+  }
+}
