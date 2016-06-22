@@ -1,5 +1,12 @@
 
-import Button from '../Components/Button/Button';
+import Header from '../Components/Header/Header'
+import React from 'react'
+import { render } from 'react-dom'
 
-const button = new Button('google.com');
-button.render('a');
+import './index.scss'
+
+render(
+    <Header ></Header>,
+    document.getElementById('root')
+)
+

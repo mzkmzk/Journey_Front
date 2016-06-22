@@ -1,10 +1,16 @@
-/**
- * Created by maizhikun on 16/6/21.
- */
 import React, { Component} from 'react'
+import { render } from 'react-dom'
+
+import  './Header.scss'
 
 class Header extends Component {
+
     render() {
+        return (
+            <header>
+                <nav>Journey</nav>
+            </header>
+        )
 
     }
 }
