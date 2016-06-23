@@ -1,0 +1,23 @@
+.time_axis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    article {
+        flex: 0 1 80%;
+        display: flex;
+        section {
+            padding-left: 1%;
+            margin-left: 1%;
+            padding-bottom: 50px;
+            border-left: 1px solid black;
+            flex: 0 0 86%;
+
+        }
+       /* &:last-child {
+            section {
+                padding-bottom: 0;
+            }
+        }*/
+    }
+}

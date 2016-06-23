@@ -46,21 +46,34 @@
 
 	'use strict';
 
-	var _Header = __webpack_require__(1);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactDom = __webpack_require__(39);
 
+	var _Header = __webpack_require__(1);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Time_Axis = __webpack_require__(178);
+
+	var _Time_Axis2 = _interopRequireDefault(_Time_Axis);
+
 	__webpack_require__(173);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	(0, _reactDom.render)(_react2.default.createElement(_Header2.default, null), document.getElementById('root'));
+	(0, _reactDom.render)(_react2.default.createElement(
+	    'article',
+	    null,
+	    _react2.default.createElement(_Header2.default, null),
+	    _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(_Time_Axis2.default, null)
+	    )
+	), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -20447,7 +20460,7 @@
 
 
 	// module
-	exports.push([module.id, "header {\n  display: flex;\n  justify-content: center;\n  padding: 10px 0 0 10px; }\n  header nav {\n    min-width: 800px; }\n", ""]);
+	exports.push([module.id, "header {\n  display: flex;\n  justify-content: center;\n  margin-top: 10px; }\n  header nav {\n    min-width: 80%; }\n", ""]);
 
 	// exports
 
@@ -20796,6 +20809,143 @@
 
 	// module
 	exports.push([module.id, "body {\n  margin: 0; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(39);
+
+	__webpack_require__(179);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Time_Axis = function (_Component) {
+	    _inherits(Time_Axis, _Component);
+
+	    function Time_Axis() {
+	        _classCallCheck(this, Time_Axis);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Time_Axis).apply(this, arguments));
+	    }
+
+	    _createClass(Time_Axis, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'section',
+	                { className: 'time_axis' },
+	                _react2.default.createElement(
+	                    'article',
+	                    null,
+	                    _react2.default.createElement(
+	                        'time',
+	                        { datatime: '2016-06-20 19:34', className: 'time_axis_item_time' },
+	                        '2016-06-20 19:34'
+	                    ),
+	                    _react2.default.createElement(
+	                        'section',
+	                        null,
+	                        '今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'article',
+	                    null,
+	                    _react2.default.createElement(
+	                        'time',
+	                        { datatime: '2016-06-20 19:34', className: 'time_axis_item_time' },
+	                        '2016-06-20 19:34'
+	                    ),
+	                    _react2.default.createElement(
+	                        'section',
+	                        null,
+	                        '今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'article',
+	                    null,
+	                    _react2.default.createElement(
+	                        'time',
+	                        { datatime: '2016-06-20 19:34', className: 'time_axis_item_time' },
+	                        '2016-06-20 19:34'
+	                    ),
+	                    _react2.default.createElement(
+	                        'section',
+	                        null,
+	                        '今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结 今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Time_Axis;
+	}(_react.Component);
+
+	exports.default = Time_Axis;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(180);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(172)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./Time_Axis.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./Time_Axis.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(171)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".time_axis {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin-top: 50px; }\n  .time_axis article {\n    flex: 0 1 80%;\n    display: flex;\n    /* &:last-child {\n            section {\n                padding-bottom: 0;\n            }\n        }*/ }\n    .time_axis article section {\n      padding-left: 1%;\n      margin-left: 1%;\n      padding-bottom: 50px;\n      border-left: 1px solid black;\n      flex: 0 0 86%; }\n", ""]);
 
 	// exports
 
