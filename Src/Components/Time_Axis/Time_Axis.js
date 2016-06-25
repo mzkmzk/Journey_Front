@@ -8,7 +8,7 @@ class Time_Axis extends Component {
         return (
             <section className="time_axis">
                 <article>
-                    <time datatime="2016-06-20 19:34" className="time_axis_item_time">2016-06-20 19:34</time>
+                    <time datatime="2016-06-20 19:34">2016-06-20 19:34</time>
                     <section >
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结
@@ -19,7 +19,7 @@ class Time_Axis extends Component {
                     </section>
                 </article>
                 <article>
-                    <time datatime="2016-06-20 19:34" className="time_axis_item_time">2016-06-20 19:34</time>
+                    <time datatime="2016-06-20 19:34">2016-06-20 19:34</time>
                     <section >
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结
@@ -30,7 +30,7 @@ class Time_Axis extends Component {
                     </section>
                 </article>
                 <article>
-                    <time datatime="2016-06-20 19:34" className="time_axis_item_time">2016-06-20 19:34</time>
+                    <time datatime="2016-06-20 19:34">2016-06-20 19:34</time>
                     <section >
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结
                         今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结今天有点小纠结

@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 
 import Header from '../Components/Header/Header'
 import Time_Axis from '../Components/Time_Axis/Time_Axis'
+import Text_Input from '../Components/Text_Input/Text_Input'
 
 import './index.scss'
 
@@ -11,6 +12,7 @@ render(
     <article>
         <Header></Header>
         <section>
+            <Text_Input></Text_Input>
             <Time_Axis></Time_Axis>
         </section>
     </article>
