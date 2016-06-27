@@ -1,22 +1,16 @@
-
 import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
-import Header from '../Components/Header/Header'
-import Time_Axis from '../Components/Time_Axis/Time_Axis'
-import Text_Input from '../Components/Text_Input/Text_Input'
+import Index from '../Containers/Index/Index'
 
-import './index.scss'
+import { configure_index_store } from '../Store/configure_store.js'
+
+const store = configure_index_store();
 
 render(
-    <article>
-        <Header></Header>
-        <section>
-            <Text_Input></Text_Input>
-            <Time_Axis></Time_Axis>
-        </section>
-    </article>
-    ,
-    document.getElementById('root')
+    <Provider store={store}>
+        <Index />
+    </Provider>
+    ,document.getElementById('root')
 )
-
