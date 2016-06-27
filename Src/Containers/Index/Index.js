@@ -18,6 +18,12 @@ class Index extends Component {
         actions.load_activity()
     }
 
+   /* componentWillReceiveProps(nextProps) {
+        if (nextProps._list.data.length !==0  && this.props._list.lastScollTop !==0) {
+            this.props.actions.ChangeLastScollTop(0)
+        }
+    }*/
+
     render() {
         const { activity,actions } = this.props
         return (

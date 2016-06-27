@@ -21979,6 +21979,13 @@
 
 	            actions.load_activity();
 	        }
+
+	        /* componentWillReceiveProps(nextProps) {
+	             if (nextProps._list.data.length !==0  && this.props._list.lastScollTop !==0) {
+	                 this.props.actions.ChangeLastScollTop(0)
+	             }
+	         }*/
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -22474,7 +22481,7 @@
 	                        _react2.default.createElement(
 	                            'time',
 	                            { datatime: activity.created_at },
-	                            activity.created_at
+	                            activity.created_at.slice(0, -3)
 	                        ),
 	                        _react2.default.createElement(
 	                            'section',
@@ -22659,7 +22666,6 @@
 	    return function (dispatch, getState) {
 	        dispatch(exports.is_fetching());
 	        _jquery2.default.getJSON("http://inner.journey.404mzk.com/v1/Activity_Controller/query", [], function (result) {
-	            console.log(result);
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action(result.data));
 	        });
@@ -22667,11 +22673,11 @@
 	};
 
 	function load_activity_action() {
-	    var activitys = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var activities = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
 	    return {
 	        type: 'LOAD_ACTIVITY',
-	        activitys: activitys
+	        activities: activities
 	    };
 	}
 
@@ -22684,7 +22690,7 @@
 	        };
 	        _jquery2.default.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert', params, function (result) {
 	            dispatch(exports.is_fetching());
-	            dispatch(load_activity_action(result.activity));
+	            dispatch(load_activity_action([result]));
 	        });
 	    };
 	};
@@ -32852,10 +32858,12 @@
 	 */
 	var initial_state = {
 	    is_fetching: false,
-	    activities: [{
-	        text: "我擦",
-	        created_at: '2016-05-03: 11:11'
-	    }]
+	    activities: [
+	        /*{
+	            text: "我擦",
+	            created_at: '2016-05-03: 11:11',
+	        }*/
+	    ]
 	};
 
 	exports.activity = function () {
@@ -32865,7 +32873,7 @@
 	    switch (action.type) {
 	        case 'LOAD_ACTIVITY':
 	            var stateData = state.activities;
-	            var newData = stateData.concat(action.activities);
+	            var newData = action.activities.concat(stateData);
 	            return Object.assign({}, state, { activities: newData, is_fetching: false });
 	        default:
 	            return state;
