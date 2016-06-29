@@ -11,7 +11,7 @@ const initial_state = {
     ],
 }
 
-exports.activity = function(state = initial_state, action) {
+exports.activity = function(state = initial_state, action = null) {
     switch (action.type) {
         case 'LOAD_ACTIVITY':
             const stateData= state.activities;

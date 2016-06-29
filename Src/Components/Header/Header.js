@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                <nav>Journey</nav>
+                <nav><h1>Journey</h1></nav>
             </header>
         )
 

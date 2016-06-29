@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import Header from '../../Components/Header/Header'
 import Time_Axis from '../../Components/Time_Axis/Time_Axis'
-import Text_Input from '../../Components/Text_Input/Text_Input'
+import Select_Handle from '../../Components/Select_Handle/Select_Handle'
 
 import action_activity from '../../Actions/activity'
 
@@ -18,19 +18,13 @@ class Index extends Component {
         actions.load_activity()
     }
 
-   /* componentWillReceiveProps(nextProps) {
-        if (nextProps._list.data.length !==0  && this.props._list.lastScollTop !==0) {
-            this.props.actions.ChangeLastScollTop(0)
-        }
-    }*/
-
     render() {
         const { activity,actions } = this.props
         return (
             <article>
                 <Header></Header>
                 <section>
-                    <Text_Input add_activity={actions.add_activity}></Text_Input>
+                    <Select_Handle add_activity={actions.add_activity}></Select_Handle>
                     <Time_Axis activities={activity.activities}></Time_Axis>
                 </section>
             </article>
