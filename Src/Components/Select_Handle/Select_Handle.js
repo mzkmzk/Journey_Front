@@ -12,8 +12,14 @@ import './Select_Handle.scss'
 
 export default class Select_Handle extends Component {
 
+
+
     constructor(props) {
         super(props)
+        //this.props.open = false;
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.send = this.send.bind(this);
         this.state = {
             open: false,
         }
@@ -21,10 +27,23 @@ export default class Select_Handle extends Component {
 
     handleOpen() {
         console.log('open');
+        //this.props.open = true;
+
+
         this.setState({open: true});
+
     };
 
     handleClose() {
+        //this.props.open = false;
+
+
+        this.setState({open: false});
+
+    }
+
+    send(send) {
+        send.apply(this,[document.getElementById('text_input_textarea').value])
         this.setState({open: false});
     }
 
@@ -35,13 +54,13 @@ export default class Select_Handle extends Component {
             <FlatButton
                 label="Cancel"
                 primary={true}
-                onTouchTap={this.handleClose}
+                onClick={this.handleClose}
                 />,
             <FlatButton
                 label="Submit"
                 primary={true}
                 keyboardFocused={true}
-                onTouchTap={this.handleClose}
+                onClick={() => this.send(add_activity)}
                 />,
         ];
 
@@ -58,7 +77,6 @@ export default class Select_Handle extends Component {
                     onRequestClose={this.handleClose}
                     >
                     <textarea id="text_input_textarea"/>
-                    <buttom onClick={ ()=> add_activity(document.getElementById('text_input_textarea').value) }>提交</buttom>
                 </Dialog>
                 {/*<textarea id="text_input_textarea"/>
                 <buttom onClick={ ()=> add_activity(document.getElementById('text_input_textarea').value) }>提交</buttom>*/}

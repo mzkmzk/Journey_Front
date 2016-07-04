@@ -22599,8 +22599,13 @@
 	    function Select_Handle(props) {
 	        _classCallCheck(this, Select_Handle);
 
+	        //this.props.open = false;
+
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Select_Handle).call(this, props));
 
+	        _this.handleOpen = _this.handleOpen.bind(_this);
+	        _this.handleClose = _this.handleClose.bind(_this);
+	        _this.send = _this.send.bind(_this);
 	        _this.state = {
 	            open: false
 	        };
@@ -22611,28 +22616,42 @@
 	        key: 'handleOpen',
 	        value: function handleOpen() {
 	            console.log('open');
+	            //this.props.open = true;
+
 	            this.setState({ open: true });
 	        }
 	    }, {
 	        key: 'handleClose',
 	        value: function handleClose() {
+	            //this.props.open = false;
+
+	            this.setState({ open: false });
+	        }
+	    }, {
+	        key: 'send',
+	        value: function send(_send) {
+	            _send.apply(this, [document.getElementById('text_input_textarea').value]);
 	            this.setState({ open: false });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            var add_activity = this.props.add_activity;
 
 
 	            var actions = [_react2.default.createElement(_FlatButton2.default, {
 	                label: 'Cancel',
 	                primary: true,
-	                onTouchTap: this.handleClose
+	                onClick: this.handleClose
 	            }), _react2.default.createElement(_FlatButton2.default, {
 	                label: 'Submit',
 	                primary: true,
 	                keyboardFocused: true,
-	                onTouchTap: this.handleClose
+	                onClick: function onClick() {
+	                    return _this2.send(add_activity);
+	                }
 	            })];
 
 	            return _react2.default.createElement(
@@ -22650,14 +22669,7 @@
 	                        open: this.state.open,
 	                        onRequestClose: this.handleClose
 	                    },
-	                    _react2.default.createElement('textarea', { id: 'text_input_textarea' }),
-	                    _react2.default.createElement(
-	                        'buttom',
-	                        { onClick: function onClick() {
-	                                return add_activity(document.getElementById('text_input_textarea').value);
-	                            } },
-	                        '提交'
-	                    )
+	                    _react2.default.createElement('textarea', { id: 'text_input_textarea' })
 	                )
 	            );
 	        }
