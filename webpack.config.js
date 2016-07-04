@@ -5,6 +5,13 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
+        preLoaders: [
+            {
+                test: /\.js/,
+                loader: 'jshint-loader',
+                include: __dirname+ '/Src',
+            }
+        ],
 		loaders: [
             {
                 test: /\.js/,
