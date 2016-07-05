@@ -7,9 +7,9 @@ module.exports = {
 	module: {
         preLoaders: [
             {
-                test: /\.js/,
-                loader: 'jshint-loader',
-                include: __dirname+ '/Src',
+               // test: /\.js/,
+               // loader: 'jshint-loader',
+               // include: __dirname+ '/Src',
             }
         ],
 		loaders: [
