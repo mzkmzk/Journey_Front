@@ -12,11 +12,8 @@ import './Select_Handle.scss'
 
 export default class Select_Handle extends Component {
 
-
-
     constructor(props) {
         super(props)
-        //this.props.open = false;
         this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.send = this.send.bind(this);

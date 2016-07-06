@@ -1,6 +1,3 @@
-/**
- * Created by maizhikun on 16/6/26.
- */
 const initial_state = {
     is_fetching: false,
     activities: [

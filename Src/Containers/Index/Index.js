@@ -1,7 +1,8 @@
 import React , { Component } from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux'
+import Qi_Niu from '../../Global/JS/Qi_Niu'
 
 import Header from '../../Components/Header/Header'
 import Time_Axis from '../../Components/Time_Axis/Time_Axis'
