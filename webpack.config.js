@@ -10,6 +10,7 @@ module.exports = {
                 test: /\.js/,
                 loader: 'eslint-loader',
                 include: __dirname+ '/Src',
+                exclude: __dirname+ '/Src/Utils'
             }
         ],
 		loaders: [

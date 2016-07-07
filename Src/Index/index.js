@@ -9,6 +9,8 @@ import { configure_index_store } from '../Store/configure_store.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import '../Global/Font/set_font.scss'
 
+
+
 const store = configure_index_store()
 
 render(

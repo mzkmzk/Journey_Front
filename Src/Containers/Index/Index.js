@@ -2,7 +2,7 @@ import React , { Component } from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Qi_Niu from '../../Global/JS/Qi_Niu'
+
 
 import Header from '../../Components/Header/Header'
 import Time_Axis from '../../Components/Time_Axis/Time_Axis'
@@ -27,6 +27,7 @@ class Index extends Component {
                 <section>
                     <Select_Handle add_activity={actions.add_activity}></Select_Handle>
                     <Time_Axis activities={activity.activities}></Time_Axis>
+
                 </section>
             </article>
         )

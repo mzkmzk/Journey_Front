@@ -1,13 +1,14 @@
-import  'qiniu'
+import '../../Utils/QiNiu/plupload.dev'
+import '../../Utils/QiNiu/qiniu'
 
-export default Qi_Niu = function(browse_button){
+var Qi_Niu = function(browse_button){
     return Qiniu.uploader({
         runtimes: 'html5,flash,html4',      // 上传模式，依次退化
-        browse_button: 'pickfiles',         // 上传选择的点选按钮，必需
+        browse_button: 'upload_file',         // 上传选择的点选按钮，必需
         // 在初始化时，uptoken，uptoken_url，uptoken_func三个参数中必须有一个被设置
         // 切如果提供了多个，其优先级为uptoken > uptoken_url > uptoken_func
         // 其中uptoken是直接提供上传凭证，uptoken_url是提供了获取上传凭证的地址，如果需要定制获取uptoken的过程则可以设置uptoken_func
-        // uptoken : '<Your upload token>', // uptoken是上传凭证，由其他程序生成
+         uptoken : '7SXiYZNWBQyXvS8eRg0PFNMlcRIxS9xQ2NaunjXn', // uptoken是上传凭证，由其他程序生成
         // uptoken_url: '/uptoken',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
         // uptoken_func: function(file){    // 在需要获取uptoken时，该方法会被调用
         //    // do something
@@ -44,7 +45,7 @@ export default Qi_Niu = function(browse_button){
             'FilesAdded': function(up, files) {
                 plupload.each(files, function(file) {
                     // 文件添加进队列后，处理相关的事情
-                });
+                })
             },
             'BeforeUpload': function(up, file) {
                 // 每个文件上传前，处理相关的事情
@@ -74,10 +75,12 @@ export default Qi_Niu = function(browse_button){
                 // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
                 // 该配置必须要在unique_names: false，save_key: false时才生效
 
-                var key = "";
+                var key = ''
                 // do something with key here
                 return key
             }
         }
-    });
+    })
 }
+
+export default Qi_Niu

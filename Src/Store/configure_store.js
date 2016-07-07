@@ -6,5 +6,5 @@ import thunk from 'redux-thunk'
 import { index } from '../Reducers/index'
 
 exports.configure_index_store = function(initial_state) {
-    return createStore(index,initial_state,applyMiddleware(thunk));
+    return createStore(index,initial_state,applyMiddleware(thunk))
 }

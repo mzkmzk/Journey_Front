@@ -58,13 +58,13 @@
 
 	var _Index2 = _interopRequireDefault(_Index);
 
-	var _configure_store = __webpack_require__(240);
+	var _configure_store = __webpack_require__(243);
 
-	var _MuiThemeProvider = __webpack_require__(244);
+	var _MuiThemeProvider = __webpack_require__(247);
 
 	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 
-	__webpack_require__(400);
+	__webpack_require__(403);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21959,11 +21959,11 @@
 
 	var _Select_Handle2 = _interopRequireDefault(_Select_Handle);
 
-	var _activity = __webpack_require__(236);
+	var _activity = __webpack_require__(239);
 
 	var _activity2 = _interopRequireDefault(_activity);
 
-	__webpack_require__(238);
+	__webpack_require__(241);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22211,7 +22211,7 @@
 		styleElementsInsertedAtTop = [];
 
 	module.exports = function(list, options) {
-		if(true) {
+		if(false) {
 			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
 		}
 
@@ -22464,6 +22464,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var STRING_START = 0;
+	var REMOVE_SECOND = -3;
+
 	var Time_Axis = function (_Component) {
 	    _inherits(Time_Axis, _Component);
 
@@ -22491,7 +22494,7 @@
 	                            _react2.default.createElement(
 	                                'blockquote',
 	                                null,
-	                                activity.created_at.slice(0, -3)
+	                                activity.created_at.slice(STRING_START, REMOVE_SECOND)
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -22580,7 +22583,11 @@
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	__webpack_require__(234);
+	var _Qi_Niu = __webpack_require__(234);
+
+	var _Qi_Niu2 = _interopRequireDefault(_Qi_Niu);
+
+	__webpack_require__(237);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22599,8 +22606,6 @@
 	    function Select_Handle(props) {
 	        _classCallCheck(this, Select_Handle);
 
-	        //this.props.open = false;
-
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Select_Handle).call(this, props));
 
 	        _this.handleOpen = _this.handleOpen.bind(_this);
@@ -22613,9 +22618,13 @@
 	    }
 
 	    _createClass(Select_Handle, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var qi_niu = (0, _Qi_Niu2.default)('upload_file');
+	        }
+	    }, {
 	        key: 'handleOpen',
 	        value: function handleOpen() {
-	            console.log('open');
 	            //this.props.open = true;
 
 	            this.setState({ open: true });
@@ -22669,7 +22678,16 @@
 	                        open: this.state.open,
 	                        onRequestClose: this.handleClose
 	                    },
-	                    _react2.default.createElement('textarea', { id: 'text_input_textarea' })
+	                    _react2.default.createElement('textarea', { id: 'text_input_textarea' }),
+	                    _react2.default.createElement(
+	                        'a',
+	                        { id: 'upload_file', href: '#' },
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '选择文件'
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -27308,10 +27326,3747 @@
 /* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	__webpack_require__(235);
+
+	__webpack_require__(236);
+
+	var Qi_Niu = function Qi_Niu(browse_button) {
+	    return Qiniu.uploader({
+	        runtimes: 'html5,flash,html4', // 上传模式，依次退化
+	        browse_button: 'upload_file', // 上传选择的点选按钮，必需
+	        // 在初始化时，uptoken，uptoken_url，uptoken_func三个参数中必须有一个被设置
+	        // 切如果提供了多个，其优先级为uptoken > uptoken_url > uptoken_func
+	        // 其中uptoken是直接提供上传凭证，uptoken_url是提供了获取上传凭证的地址，如果需要定制获取uptoken的过程则可以设置uptoken_func
+	        uptoken: '7SXiYZNWBQyXvS8eRg0PFNMlcRIxS9xQ2NaunjXn', // uptoken是上传凭证，由其他程序生成
+	        // uptoken_url: '/uptoken',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
+	        // uptoken_func: function(file){    // 在需要获取uptoken时，该方法会被调用
+	        //    // do something
+	        //    return uptoken;
+	        // },
+	        get_new_uptoken: false, // 设置上传文件的时候是否每次都重新获取新的uptoken
+	        // downtoken_url: '/downtoken',
+	        // Ajax请求downToken的Url，私有空间时使用，JS-SDK将向该地址POST文件的key和domain，服务端返回的JSON必须包含url字段，url值为该文件的下载地址
+	        // unique_names: true,              // 默认false，key为文件名。若开启该选项，JS-SDK会为每个文件自动生成key（文件名）
+	        // save_key: true,                  // 默认false。若在服务端生成uptoken的上传策略中指定了sava_key，则开启，SDK在前端将不对key进行任何处理
+	        domain: 'journey.404mzk.com', // bucket域名，下载资源时用到，必需
+	        //container: 'container',             // 上传区域DOM ID，默认是browser_button的父元素
+	        max_file_size: '100mb', // 最大文件体积限制
+	        flash_swf_url: 'path/of/plupload/Moxie.swf', //引入flash，相对路径
+	        max_retries: 3, // 上传失败最大重试次数
+	        dragdrop: true, // 开启可拖曳上传
+	        drop_element: 'container', // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+	        chunk_size: '4mb', // 分块上传时，每块的体积
+	        auto_start: true, // 选择文件后自动上传，若关闭需要自己绑定事件触发上传
+	        //x_vars : {
+	        //    查看自定义变量
+	        //    'time' : function(up,file) {
+	        //        var time = (new Date()).getTime();
+	        // do something with 'time'
+	        //        return time;
+	        //    },
+	        //    'size' : function(up,file) {
+	        //        var size = file.size;
+	        // do something with 'size'
+	        //        return size;
+	        //    }
+	        //},
+	        init: {
+	            'FilesAdded': function FilesAdded(up, files) {
+	                plupload.each(files, function (file) {
+	                    // 文件添加进队列后，处理相关的事情
+	                });
+	            },
+	            'BeforeUpload': function BeforeUpload(up, file) {
+	                // 每个文件上传前，处理相关的事情
+	            },
+	            'UploadProgress': function UploadProgress(up, file) {
+	                // 每个文件上传时，处理相关的事情
+	            },
+	            'FileUploaded': function FileUploaded(up, file, info) {
+	                // 每个文件上传成功后，处理相关的事情
+	                // 其中info是文件上传成功后，服务端返回的json，形式如：
+	                // {
+	                //    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
+	                //    "key": "gogopher.jpg"
+	                //  }
+	                // 查看简单反馈
+	                // var domain = up.getOption('domain');
+	                // var res = parseJSON(info);
+	                // var sourceLink = domain + res.key; 获取上传成功后的文件的Url
+	            },
+	            'Error': function Error(up, err, errTip) {
+	                //上传出错时，处理相关的事情
+	            },
+	            'UploadComplete': function UploadComplete() {
+	                //队列文件处理完毕后，处理相关的事情
+	            },
+	            'Key': function Key(up, file) {
+	                // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+	                // 该配置必须要在unique_names: false，save_key: false时才生效
+
+	                var key = '';
+	                // do something with key here
+	                return key;
+	            }
+	        }
+	    });
+	};
+
+	exports.default = Qi_Niu;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/**
+	 * Plupload - multi-runtime File Uploader
+	 * v2.1.1
+	 *
+	 * Copyright 2013, Moxiecode Systems AB
+	 * Released under GPL License.
+	 *
+	 * License: http://www.plupload.com/license
+	 * Contributing: http://www.plupload.com/contributing
+	 *
+	 * Date: 2014-01-16
+	 */
+	/**
+	 * Plupload.js
+	 *
+	 * Copyright 2013, Moxiecode Systems AB
+	 * Released under GPL License.
+	 *
+	 * License: http://www.plupload.com/license
+	 * Contributing: http://www.plupload.com/contributing
+	 */
+
+	/*global mOxie:true */
+
+	;(function (window, o, undef) {
+
+	    var delay = window.setTimeout,
+	        fileFilters = {};
+
+	    // convert plupload features to caps acceptable by mOxie
+	    function normalizeCaps(settings) {
+	        var features = settings.required_features,
+	            caps = {};
+
+	        function resolve(feature, value, strict) {
+	            // Feature notation is deprecated, use caps (this thing here is required for backward compatibility)
+	            var map = {
+	                chunks: 'slice_blob',
+	                jpgresize: 'send_binary_string',
+	                pngresize: 'send_binary_string',
+	                progress: 'report_upload_progress',
+	                multi_selection: 'select_multiple',
+	                dragdrop: 'drag_and_drop',
+	                drop_element: 'drag_and_drop',
+	                headers: 'send_custom_headers',
+	                canSendBinary: 'send_binary',
+	                triggerDialog: 'summon_file_dialog'
+	            };
+
+	            if (map[feature]) {
+	                caps[map[feature]] = value;
+	            } else if (!strict) {
+	                caps[feature] = value;
+	            }
+	        }
+
+	        if (typeof features === 'string') {
+	            plupload.each(features.split(/\s*,\s*/), function (feature) {
+	                resolve(feature, true);
+	            });
+	        } else if ((typeof features === 'undefined' ? 'undefined' : _typeof(features)) === 'object') {
+	            plupload.each(features, function (value, feature) {
+	                resolve(feature, value);
+	            });
+	        } else if (features === true) {
+	            // check settings for required features
+	            if (!settings.multipart) {
+	                // special care for multipart: false
+	                caps.send_binary_string = true;
+	            }
+
+	            if (settings.chunk_size > 0) {
+	                caps.slice_blob = true;
+	            }
+
+	            if (settings.resize.enabled) {
+	                caps.send_binary_string = true;
+	            }
+
+	            plupload.each(settings, function (value, feature) {
+	                resolve(feature, !!value, true); // strict check
+	            });
+	        }
+
+	        return caps;
+	    }
+
+	    /**
+	     * @module plupload
+	     * @static
+	     */
+	    var plupload = {
+	        /**
+	         * Plupload version will be replaced on build.
+	         *
+	         * @property VERSION
+	         * @for Plupload
+	         * @static
+	         * @final
+	         */
+	        VERSION: '2.1.1',
+
+	        /**
+	         * Inital state of the queue and also the state ones it's finished all it's uploads.
+	         *
+	         * @property STOPPED
+	         * @static
+	         * @final
+	         */
+	        STOPPED: 1,
+
+	        /**
+	         * Upload process is running
+	         *
+	         * @property STARTED
+	         * @static
+	         * @final
+	         */
+	        STARTED: 2,
+
+	        /**
+	         * File is queued for upload
+	         *
+	         * @property QUEUED
+	         * @static
+	         * @final
+	         */
+	        QUEUED: 1,
+
+	        /**
+	         * File is being uploaded
+	         *
+	         * @property UPLOADING
+	         * @static
+	         * @final
+	         */
+	        UPLOADING: 2,
+
+	        /**
+	         * File has failed to be uploaded
+	         *
+	         * @property FAILED
+	         * @static
+	         * @final
+	         */
+	        FAILED: 4,
+
+	        /**
+	         * File has been uploaded successfully
+	         *
+	         * @property DONE
+	         * @static
+	         * @final
+	         */
+	        DONE: 5,
+
+	        // Error constants used by the Error event
+
+	        /**
+	         * Generic error for example if an exception is thrown inside Silverlight.
+	         *
+	         * @property GENERIC_ERROR
+	         * @static
+	         * @final
+	         */
+	        GENERIC_ERROR: -100,
+
+	        /**
+	         * HTTP transport error. For example if the server produces a HTTP status other than 200.
+	         *
+	         * @property HTTP_ERROR
+	         * @static
+	         * @final
+	         */
+	        HTTP_ERROR: -200,
+
+	        /**
+	         * Generic I/O error. For exampe if it wasn't possible to open the file stream on local machine.
+	         *
+	         * @property IO_ERROR
+	         * @static
+	         * @final
+	         */
+	        IO_ERROR: -300,
+
+	        /**
+	         * Generic I/O error. For exampe if it wasn't possible to open the file stream on local machine.
+	         *
+	         * @property SECURITY_ERROR
+	         * @static
+	         * @final
+	         */
+	        SECURITY_ERROR: -400,
+
+	        /**
+	         * Initialization error. Will be triggered if no runtime was initialized.
+	         *
+	         * @property INIT_ERROR
+	         * @static
+	         * @final
+	         */
+	        INIT_ERROR: -500,
+
+	        /**
+	         * File size error. If the user selects a file that is too large it will be blocked and an error of this type will be triggered.
+	         *
+	         * @property FILE_SIZE_ERROR
+	         * @static
+	         * @final
+	         */
+	        FILE_SIZE_ERROR: -600,
+
+	        /**
+	         * File extension error. If the user selects a file that isn't valid according to the filters setting.
+	         *
+	         * @property FILE_EXTENSION_ERROR
+	         * @static
+	         * @final
+	         */
+	        FILE_EXTENSION_ERROR: -601,
+
+	        /**
+	         * Duplicate file error. If prevent_duplicates is set to true and user selects the same file again.
+	         *
+	         * @property FILE_DUPLICATE_ERROR
+	         * @static
+	         * @final
+	         */
+	        FILE_DUPLICATE_ERROR: -602,
+
+	        /**
+	         * Runtime will try to detect if image is proper one. Otherwise will throw this error.
+	         *
+	         * @property IMAGE_FORMAT_ERROR
+	         * @static
+	         * @final
+	         */
+	        IMAGE_FORMAT_ERROR: -700,
+
+	        /**
+	         * While working on the image runtime will try to detect if the operation may potentially run out of memeory and will throw this error.
+	         *
+	         * @property IMAGE_MEMORY_ERROR
+	         * @static
+	         * @final
+	         */
+	        IMAGE_MEMORY_ERROR: -701,
+
+	        /**
+	         * Each runtime has an upper limit on a dimension of the image it can handle. If bigger, will throw this error.
+	         *
+	         * @property IMAGE_DIMENSIONS_ERROR
+	         * @static
+	         * @final
+	         */
+	        IMAGE_DIMENSIONS_ERROR: -702,
+
+	        /**
+	         * Mime type lookup table.
+	         *
+	         * @property mimeTypes
+	         * @type Object
+	         * @final
+	         */
+	        mimeTypes: o.mimes,
+
+	        /**
+	         * In some cases sniffing is the only way around :(
+	         */
+	        ua: o.ua,
+
+	        /**
+	         * Gets the true type of the built-in object (better version of typeof).
+	         * @credits Angus Croll (http://javascriptweblog.wordpress.com/)
+	         *
+	         * @method typeOf
+	         * @static
+	         * @param {Object} o Object to check.
+	         * @return {String} Object [[Class]]
+	         */
+	        typeOf: o.typeOf,
+
+	        /**
+	         * Extends the specified object with another object.
+	         *
+	         * @method extend
+	         * @static
+	         * @param {Object} target Object to extend.
+	         * @param {Object..} obj Multiple objects to extend with.
+	         * @return {Object} Same as target, the extended object.
+	         */
+	        extend: o.extend,
+
+	        /**
+	         * Generates an unique ID. This is 99.99% unique since it takes the current time and 5 random numbers.
+	         * The only way a user would be able to get the same ID is if the two persons at the same exact milisecond manages
+	         * to get 5 the same random numbers between 0-65535 it also uses a counter so each call will be guaranteed to be page unique.
+	         * It's more probable for the earth to be hit with an ansteriod. You can also if you want to be 100% sure set the plupload.guidPrefix property
+	         * to an user unique key.
+	         *
+	         * @method guid
+	         * @static
+	         * @return {String} Virtually unique id.
+	         */
+	        guid: o.guid,
+
+	        /**
+	         * Get array of DOM Elements by their ids.
+	         *
+	         * @method get
+	         * @for Utils
+	         * @param {String} id Identifier of the DOM Element
+	         * @return {Array}
+	         */
+	        get: function get(ids) {
+	            var els = [],
+	                el;
+
+	            if (o.typeOf(ids) !== 'array') {
+	                ids = [ids];
+	            }
+
+	            var i = ids.length;
+	            while (i--) {
+	                el = o.get(ids[i]);
+	                if (el) {
+	                    els.push(el);
+	                }
+	            }
+
+	            return els.length ? els : null;
+	        },
+
+	        /**
+	         * Executes the callback function for each item in array/object. If you return false in the
+	         * callback it will break the loop.
+	         *
+	         * @method each
+	         * @static
+	         * @param {Object} obj Object to iterate.
+	         * @param {function} callback Callback function to execute for each item.
+	         */
+	        each: o.each,
+
+	        /**
+	         * Returns the absolute x, y position of an Element. The position will be returned in a object with x, y fields.
+	         *
+	         * @method getPos
+	         * @static
+	         * @param {Element} node HTML element or element id to get x, y position from.
+	         * @param {Element} root Optional root element to stop calculations at.
+	         * @return {object} Absolute position of the specified element object with x, y fields.
+	         */
+	        getPos: o.getPos,
+
+	        /**
+	         * Returns the size of the specified node in pixels.
+	         *
+	         * @method getSize
+	         * @static
+	         * @param {Node} node Node to get the size of.
+	         * @return {Object} Object with a w and h property.
+	         */
+	        getSize: o.getSize,
+
+	        /**
+	         * Encodes the specified string.
+	         *
+	         * @method xmlEncode
+	         * @static
+	         * @param {String} s String to encode.
+	         * @return {String} Encoded string.
+	         */
+	        xmlEncode: function xmlEncode(str) {
+	            var xmlEncodeChars = { '<': 'lt', '>': 'gt', '&': 'amp', '"': 'quot', '\'': '#39' },
+	                xmlEncodeRegExp = /[<>&\"\']/g;
+
+	            return str ? ('' + str).replace(xmlEncodeRegExp, function (chr) {
+	                return xmlEncodeChars[chr] ? '&' + xmlEncodeChars[chr] + ';' : chr;
+	            }) : str;
+	        },
+
+	        /**
+	         * Forces anything into an array.
+	         *
+	         * @method toArray
+	         * @static
+	         * @param {Object} obj Object with length field.
+	         * @return {Array} Array object containing all items.
+	         */
+	        toArray: o.toArray,
+
+	        /**
+	         * Find an element in array and return it's index if present, otherwise return -1.
+	         *
+	         * @method inArray
+	         * @static
+	         * @param {mixed} needle Element to find
+	         * @param {Array} array
+	         * @return {Int} Index of the element, or -1 if not found
+	         */
+	        inArray: o.inArray,
+
+	        /**
+	         * Extends the language pack object with new items.
+	         *
+	         * @method addI18n
+	         * @static
+	         * @param {Object} pack Language pack items to add.
+	         * @return {Object} Extended language pack object.
+	         */
+	        addI18n: o.addI18n,
+
+	        /**
+	         * Translates the specified string by checking for the english string in the language pack lookup.
+	         *
+	         * @method translate
+	         * @static
+	         * @param {String} str String to look for.
+	         * @return {String} Translated string or the input string if it wasn't found.
+	         */
+	        translate: o.translate,
+
+	        /**
+	         * Checks if object is empty.
+	         *
+	         * @method isEmptyObj
+	         * @static
+	         * @param {Object} obj Object to check.
+	         * @return {Boolean}
+	         */
+	        isEmptyObj: o.isEmptyObj,
+
+	        /**
+	         * Checks if specified DOM element has specified class.
+	         *
+	         * @method hasClass
+	         * @static
+	         * @param {Object} obj DOM element like object to add handler to.
+	         * @param {String} name Class name
+	         */
+	        hasClass: o.hasClass,
+
+	        /**
+	         * Adds specified className to specified DOM element.
+	         *
+	         * @method addClass
+	         * @static
+	         * @param {Object} obj DOM element like object to add handler to.
+	         * @param {String} name Class name
+	         */
+	        addClass: o.addClass,
+
+	        /**
+	         * Removes specified className from specified DOM element.
+	         *
+	         * @method removeClass
+	         * @static
+	         * @param {Object} obj DOM element like object to add handler to.
+	         * @param {String} name Class name
+	         */
+	        removeClass: o.removeClass,
+
+	        /**
+	         * Returns a given computed style of a DOM element.
+	         *
+	         * @method getStyle
+	         * @static
+	         * @param {Object} obj DOM element like object.
+	         * @param {String} name Style you want to get from the DOM element
+	         */
+	        getStyle: o.getStyle,
+
+	        /**
+	         * Adds an event handler to the specified object and store reference to the handler
+	         * in objects internal Plupload registry (@see removeEvent).
+	         *
+	         * @method addEvent
+	         * @static
+	         * @param {Object} obj DOM element like object to add handler to.
+	         * @param {String} name Name to add event listener to.
+	         * @param {Function} callback Function to call when event occurs.
+	         * @param {String} (optional) key that might be used to add specifity to the event record.
+	         */
+	        addEvent: o.addEvent,
+
+	        /**
+	         * Remove event handler from the specified object. If third argument (callback)
+	         * is not specified remove all events with the specified name.
+	         *
+	         * @method removeEvent
+	         * @static
+	         * @param {Object} obj DOM element to remove event listener(s) from.
+	         * @param {String} name Name of event listener to remove.
+	         * @param {Function|String} (optional) might be a callback or unique key to match.
+	         */
+	        removeEvent: o.removeEvent,
+
+	        /**
+	         * Remove all kind of events from the specified object
+	         *
+	         * @method removeAllEvents
+	         * @static
+	         * @param {Object} obj DOM element to remove event listeners from.
+	         * @param {String} (optional) unique key to match, when removing events.
+	         */
+	        removeAllEvents: o.removeAllEvents,
+
+	        /**
+	         * Cleans the specified name from national characters (diacritics). The result will be a name with only a-z, 0-9 and _.
+	         *
+	         * @method cleanName
+	         * @static
+	         * @param {String} s String to clean up.
+	         * @return {String} Cleaned string.
+	         */
+	        cleanName: function cleanName(name) {
+	            var i, lookup;
+
+	            // Replace diacritics
+	            lookup = [/[\300-\306]/g, 'A', /[\340-\346]/g, 'a', /\307/g, 'C', /\347/g, 'c', /[\310-\313]/g, 'E', /[\350-\353]/g, 'e', /[\314-\317]/g, 'I', /[\354-\357]/g, 'i', /\321/g, 'N', /\361/g, 'n', /[\322-\330]/g, 'O', /[\362-\370]/g, 'o', /[\331-\334]/g, 'U', /[\371-\374]/g, 'u'];
+
+	            for (i = 0; i < lookup.length; i += 2) {
+	                name = name.replace(lookup[i], lookup[i + 1]);
+	            }
+
+	            // Replace whitespace
+	            name = name.replace(/\s+/g, '_');
+
+	            // Remove anything else
+	            name = name.replace(/[^a-z0-9_\-\.]+/gi, '');
+
+	            return name;
+	        },
+
+	        /**
+	         * Builds a full url out of a base URL and an object with items to append as query string items.
+	         *
+	         * @method buildUrl
+	         * @static
+	         * @param {String} url Base URL to append query string items to.
+	         * @param {Object} items Name/value object to serialize as a querystring.
+	         * @return {String} String with url + serialized query string items.
+	         */
+	        buildUrl: function buildUrl(url, items) {
+	            var query = '';
+
+	            plupload.each(items, function (value, name) {
+	                query += (query ? '&' : '') + encodeURIComponent(name) + '=' + encodeURIComponent(value);
+	            });
+
+	            if (query) {
+	                url += (url.indexOf('?') > 0 ? '&' : '?') + query;
+	            }
+
+	            return url;
+	        },
+
+	        /**
+	         * Formats the specified number as a size string for example 1024 becomes 1 KB.
+	         *
+	         * @method formatSize
+	         * @static
+	         * @param {Number} size Size to format as string.
+	         * @return {String} Formatted size string.
+	         */
+	        formatSize: function formatSize(size) {
+
+	            if (size === undef || /\D/.test(size)) {
+	                return plupload.translate('N/A');
+	            }
+
+	            function round(num, precision) {
+	                return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+	            }
+
+	            var boundary = Math.pow(1024, 4);
+
+	            // TB
+	            if (size > boundary) {
+	                return round(size / boundary, 1) + " " + plupload.translate('tb');
+	            }
+
+	            // GB
+	            if (size > (boundary /= 1024)) {
+	                return round(size / boundary, 1) + " " + plupload.translate('gb');
+	            }
+
+	            // MB
+	            if (size > (boundary /= 1024)) {
+	                return round(size / boundary, 1) + " " + plupload.translate('mb');
+	            }
+
+	            // KB
+	            if (size > 1024) {
+	                return Math.round(size / 1024) + " " + plupload.translate('kb');
+	            }
+
+	            return size + " " + plupload.translate('b');
+	        },
+
+	        /**
+	         * Parses the specified size string into a byte value. For example 10kb becomes 10240.
+	         *
+	         * @method parseSize
+	         * @static
+	         * @param {String|Number} size String to parse or number to just pass through.
+	         * @return {Number} Size in bytes.
+	         */
+	        parseSize: o.parseSizeStr,
+
+	        /**
+	         * A way to predict what runtime will be choosen in the current environment with the
+	         * specified settings.
+	         *
+	         * @method predictRuntime
+	         * @static
+	         * @param {Object|String} config Plupload settings to check
+	         * @param {String} [runtimes] Comma-separated list of runtimes to check against
+	         * @return {String} Type of compatible runtime
+	         */
+	        predictRuntime: function predictRuntime(config, runtimes) {
+	            var up, runtime;
+
+	            up = new plupload.Uploader(config);
+	            runtime = o.Runtime.thatCan(up.getOption().required_features, runtimes || config.runtimes);
+	            up.destroy();
+	            return runtime;
+	        },
+
+	        /**
+	         * Registers a filter that will be executed for each file added to the queue.
+	         * If callback returns false, file will not be added.
+	         *
+	         * Callback receives two arguments: a value for the filter as it was specified in settings.filters
+	         * and a file to be filtered. Callback is executed in the context of uploader instance.
+	         *
+	         * @method addFileFilter
+	         * @static
+	         * @param {String} name Name of the filter by which it can be referenced in settings.filters
+	         * @param {String} cb Callback - the actual routine that every added file must pass
+	         */
+	        addFileFilter: function addFileFilter(name, cb) {
+	            fileFilters[name] = cb;
+	        }
+	    };
+
+	    plupload.addFileFilter('mime_types', function (filters, file, cb) {
+	        if (filters.length && !filters.regexp.test(file.name)) {
+	            this.trigger('Error', {
+	                code: plupload.FILE_EXTENSION_ERROR,
+	                message: plupload.translate('File extension error.'),
+	                file: file
+	            });
+	            cb(false);
+	        } else {
+	            cb(true);
+	        }
+	    });
+
+	    plupload.addFileFilter('max_file_size', function (maxSize, file, cb) {
+	        var undef;
+
+	        maxSize = plupload.parseSize(maxSize);
+
+	        // Invalid file size
+	        if (file.size !== undef && maxSize && file.size > maxSize) {
+	            this.trigger('Error', {
+	                code: plupload.FILE_SIZE_ERROR,
+	                message: plupload.translate('File size error.'),
+	                file: file
+	            });
+	            cb(false);
+	        } else {
+	            cb(true);
+	        }
+	    });
+
+	    plupload.addFileFilter('prevent_duplicates', function (value, file, cb) {
+	        if (value) {
+	            var ii = this.files.length;
+	            while (ii--) {
+	                // Compare by name and size (size might be 0 or undefined, but still equivalent for both)
+	                if (file.name === this.files[ii].name && file.size === this.files[ii].size) {
+	                    this.trigger('Error', {
+	                        code: plupload.FILE_DUPLICATE_ERROR,
+	                        message: plupload.translate('Duplicate file error.'),
+	                        file: file
+	                    });
+	                    cb(false);
+	                    return;
+	                }
+	            }
+	        }
+	        cb(true);
+	    });
+
+	    /**
+	     @class Uploader
+	     @constructor
+	      @param {Object} settings For detailed information about each option check documentation.
+	     @param {String|DOMElement} settings.browse_button id of the DOM element or DOM element itself to use as file dialog trigger.
+	     @param {String} settings.url URL of the server-side upload handler.
+	     @param {Number|String} [settings.chunk_size=0] Chunk size in bytes to slice the file into. Shorcuts with b, kb, mb, gb, tb suffixes also supported. `e.g. 204800 or "204800b" or "200kb"`. By default - disabled.
+	     @param {String} [settings.container] id of the DOM element to use as a container for uploader structures. Defaults to document.body.
+	     @param {String|DOMElement} [settings.drop_element] id of the DOM element or DOM element itself to use as a drop zone for Drag-n-Drop.
+	     @param {String} [settings.file_data_name="file"] Name for the file field in Multipart formated message.
+	     @param {Object} [settings.filters={}] Set of file type filters.
+	     @param {Array} [settings.filters.mime_types=[]] List of file types to accept, each one defined by title and list of extensions. `e.g. {title : "Image files", extensions : "jpg,jpeg,gif,png"}`. Dispatches `plupload.FILE_EXTENSION_ERROR`
+	     @param {String|Number} [settings.filters.max_file_size=0] Maximum file size that the user can pick, in bytes. Optionally supports b, kb, mb, gb, tb suffixes. `e.g. "10mb" or "1gb"`. By default - not set. Dispatches `plupload.FILE_SIZE_ERROR`.
+	     @param {Boolean} [settings.filters.prevent_duplicates=false] Do not let duplicates into the queue. Dispatches `plupload.FILE_DUPLICATE_ERROR`.
+	     @param {String} [settings.flash_swf_url] URL of the Flash swf.
+	     @param {Object} [settings.headers] Custom headers to send with the upload. Hash of name/value pairs.
+	     @param {Number} [settings.max_retries=0] How many times to retry the chunk or file, before triggering Error event.
+	     @param {Boolean} [settings.multipart=true] Whether to send file and additional parameters as Multipart formated message.
+	     @param {Object} [settings.multipart_params] Hash of key/value pairs to send with every file upload.
+	     @param {Boolean} [settings.multi_selection=true] Enable ability to select multiple files at once in file dialog.
+	     @param {String|Object} [settings.required_features] Either comma-separated list or hash of required features that chosen runtime should absolutely possess.
+	     @param {Object} [settings.resize] Enable resizng of images on client-side. Applies to `image/jpeg` and `image/png` only. `e.g. {width : 200, height : 200, quality : 90, crop: true}`
+	     @param {Number} [settings.resize.width] If image is bigger, it will be resized.
+	     @param {Number} [settings.resize.height] If image is bigger, it will be resized.
+	     @param {Number} [settings.resize.quality=90] Compression quality for jpegs (1-100).
+	     @param {Boolean} [settings.resize.crop=false] Whether to crop images to exact dimensions. By default they will be resized proportionally.
+	     @param {String} [settings.runtimes="html5,flash,silverlight,html4"] Comma separated list of runtimes, that Plupload will try in turn, moving to the next if previous fails.
+	     @param {String} [settings.silverlight_xap_url] URL of the Silverlight xap.
+	     @param {Boolean} [settings.unique_names=false] If true will generate unique filenames for uploaded files.
+	     */
+	    plupload.Uploader = function (options) {
+	        /**
+	         * Fires when the current RunTime has been initialized.
+	         *
+	         * @event Init
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+
+	        /**
+	         * Fires after the init event incase you need to perform actions there.
+	         *
+	         * @event PostInit
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+
+	        /**
+	         * Fires when the option is changed in via uploader.setOption().
+	         *
+	         * @event OptionChanged
+	         * @since 2.1
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {String} name Name of the option that was changed
+	         * @param {Mixed} value New value for the specified option
+	         * @param {Mixed} oldValue Previous value of the option
+	         */
+
+	        /**
+	         * Fires when the silverlight/flash or other shim needs to move.
+	         *
+	         * @event Refresh
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+
+	        /**
+	         * Fires when the overall state is being changed for the upload queue.
+	         *
+	         * @event StateChanged
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+
+	        /**
+	         * Fires when a file is to be uploaded by the runtime.
+	         *
+	         * @event UploadFile
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file File to be uploaded.
+	         */
+
+	        /**
+	         * Fires when just before a file is uploaded. This event enables you to override settings
+	         * on the uploader instance before the file is uploaded.
+	         *
+	         * @event BeforeUpload
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file File to be uploaded.
+	         */
+
+	        /**
+	         * Fires when the file queue is changed. In other words when files are added/removed to the files array of the uploader instance.
+	         *
+	         * @event QueueChanged
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+
+	        /**
+	         * Fires while a file is being uploaded. Use this event to update the current file upload progress.
+	         *
+	         * @event UploadProgress
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file File that is currently being uploaded.
+	         */
+
+	        /**
+	         * Fires when file is removed from the queue.
+	         *
+	         * @event FilesRemoved
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {Array} files Array of files that got removed.
+	         */
+
+	        /**
+	         * Fires for every filtered file before it is added to the queue.
+	         *
+	         * @event FileFiltered
+	         * @since 2.1
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file Another file that has to be added to the queue.
+	         */
+
+	        /**
+	         * Fires after files were filtered and added to the queue.
+	         *
+	         * @event FilesAdded
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {Array} files Array of file objects that were added to queue by the user.
+	         */
+
+	        /**
+	         * Fires when a file is successfully uploaded.
+	         *
+	         * @event FileUploaded
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file File that was uploaded.
+	         * @param {Object} response Object with response properties.
+	         */
+
+	        /**
+	         * Fires when file chunk is uploaded.
+	         *
+	         * @event ChunkUploaded
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {plupload.File} file File that the chunk was uploaded for.
+	         * @param {Object} response Object with response properties.
+	         */
+
+	        /**
+	         * Fires when all files in a queue are uploaded.
+	         *
+	         * @event UploadComplete
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {Array} files Array of file objects that was added to queue/selected by the user.
+	         */
+
+	        /**
+	         * Fires when a error occurs.
+	         *
+	         * @event Error
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         * @param {Object} error Contains code, message and sometimes file and other details.
+	         */
+
+	        /**
+	         * Fires when destroy method is called.
+	         *
+	         * @event Destroy
+	         * @param {plupload.Uploader} uploader Uploader instance sending the event.
+	         */
+	        var uid = plupload.guid(),
+	            settings,
+	            files = [],
+	            preferred_caps = {},
+	            fileInputs = [],
+	            fileDrops = [],
+	            startTime,
+	            total,
+	            disabled = false,
+	            xhr;
+
+	        // Private methods
+	        function uploadNext() {
+	            var file,
+	                count = 0,
+	                i;
+
+	            if (this.state == plupload.STARTED) {
+	                // Find first QUEUED file
+	                for (i = 0; i < files.length; i++) {
+	                    if (!file && files[i].status == plupload.QUEUED) {
+	                        file = files[i];
+	                        if (this.trigger("BeforeUpload", file)) {
+	                            file.status = plupload.UPLOADING;
+	                            this.trigger("UploadFile", file);
+	                        }
+	                    } else {
+	                        count++;
+	                    }
+	                }
+
+	                // All files are DONE or FAILED
+	                if (count == files.length) {
+	                    if (this.state !== plupload.STOPPED) {
+	                        this.state = plupload.STOPPED;
+	                        this.trigger("StateChanged");
+	                    }
+	                    this.trigger("UploadComplete", files);
+	                }
+	            }
+	        }
+
+	        function calcFile(file) {
+	            file.percent = file.size > 0 ? Math.ceil(file.loaded / file.size * 100) : 100;
+	            calc();
+	        }
+
+	        function calc() {
+	            var i, file;
+
+	            // Reset stats
+	            total.reset();
+
+	            // Check status, size, loaded etc on all files
+	            for (i = 0; i < files.length; i++) {
+	                file = files[i];
+
+	                if (file.size !== undef) {
+	                    // We calculate totals based on original file size
+	                    total.size += file.origSize;
+
+	                    // Since we cannot predict file size after resize, we do opposite and
+	                    // interpolate loaded amount to match magnitude of total
+	                    total.loaded += file.loaded * file.origSize / file.size;
+	                } else {
+	                    total.size = undef;
+	                }
+
+	                if (file.status == plupload.DONE) {
+	                    total.uploaded++;
+	                } else if (file.status == plupload.FAILED) {
+	                    total.failed++;
+	                } else {
+	                    total.queued++;
+	                }
+	            }
+
+	            // If we couldn't calculate a total file size then use the number of files to calc percent
+	            if (total.size === undef) {
+	                total.percent = files.length > 0 ? Math.ceil(total.uploaded / files.length * 100) : 0;
+	            } else {
+	                total.bytesPerSec = Math.ceil(total.loaded / ((+new Date() - startTime || 1) / 1000.0));
+	                total.percent = total.size > 0 ? Math.ceil(total.loaded / total.size * 100) : 0;
+	            }
+	        }
+
+	        function getRUID() {
+	            var ctrl = fileInputs[0] || fileDrops[0];
+	            if (ctrl) {
+	                return ctrl.getRuntime().uid;
+	            }
+	            return false;
+	        }
+
+	        function runtimeCan(file, cap) {
+	            if (file.ruid) {
+	                var info = o.Runtime.getInfo(file.ruid);
+	                if (info) {
+	                    return info.can(cap);
+	                }
+	            }
+	            return false;
+	        }
+
+	        function bindEventListeners() {
+	            this.bind('FilesAdded', onFilesAdded);
+
+	            this.bind('CancelUpload', onCancelUpload);
+
+	            this.bind('BeforeUpload', onBeforeUpload);
+
+	            this.bind('UploadFile', onUploadFile);
+
+	            this.bind('UploadProgress', onUploadProgress);
+
+	            this.bind('StateChanged', onStateChanged);
+
+	            this.bind('QueueChanged', calc);
+
+	            this.bind('Error', onError);
+
+	            this.bind('FileUploaded', onFileUploaded);
+
+	            this.bind('Destroy', onDestroy);
+	        }
+
+	        function initControls(settings, cb) {
+	            var self = this,
+	                inited = 0,
+	                queue = [];
+
+	            // common settings
+	            var options = {
+	                accept: settings.filters.mime_types,
+	                runtime_order: settings.runtimes,
+	                required_caps: settings.required_features,
+	                preferred_caps: preferred_caps,
+	                swf_url: settings.flash_swf_url,
+	                xap_url: settings.silverlight_xap_url
+	            };
+
+	            // add runtime specific options if any
+	            plupload.each(settings.runtimes.split(/\s*,\s*/), function (runtime) {
+	                if (settings[runtime]) {
+	                    options[runtime] = settings[runtime];
+	                }
+	            });
+
+	            // initialize file pickers - there can be many
+	            if (settings.browse_button) {
+	                plupload.each(settings.browse_button, function (el) {
+	                    queue.push(function (cb) {
+	                        var fileInput = new o.FileInput(plupload.extend({}, options, {
+	                            name: settings.file_data_name,
+	                            multiple: settings.multi_selection,
+	                            container: settings.container,
+	                            browse_button: el
+	                        }));
+
+	                        fileInput.onready = function () {
+	                            var info = o.Runtime.getInfo(this.ruid);
+
+	                            // for backward compatibility
+	                            o.extend(self.features, {
+	                                chunks: info.can('slice_blob'),
+	                                multipart: info.can('send_multipart'),
+	                                multi_selection: info.can('select_multiple')
+	                            });
+
+	                            inited++;
+	                            fileInputs.push(this);
+	                            cb();
+	                        };
+
+	                        fileInput.onchange = function () {
+	                            self.addFile(this.files);
+	                        };
+
+	                        fileInput.bind('mouseenter mouseleave mousedown mouseup', function (e) {
+	                            if (!disabled) {
+	                                if (settings.browse_button_hover) {
+	                                    if ('mouseenter' === e.type) {
+	                                        o.addClass(el, settings.browse_button_hover);
+	                                    } else if ('mouseleave' === e.type) {
+	                                        o.removeClass(el, settings.browse_button_hover);
+	                                    }
+	                                }
+
+	                                if (settings.browse_button_active) {
+	                                    if ('mousedown' === e.type) {
+	                                        o.addClass(el, settings.browse_button_active);
+	                                    } else if ('mouseup' === e.type) {
+	                                        o.removeClass(el, settings.browse_button_active);
+	                                    }
+	                                }
+	                            }
+	                        });
+
+	                        fileInput.bind('error runtimeerror', function () {
+	                            fileInput = null;
+	                            cb();
+	                        });
+
+	                        fileInput.init();
+	                    });
+	                });
+	            }
+
+	            // initialize drop zones
+	            if (settings.drop_element) {
+	                plupload.each(settings.drop_element, function (el) {
+	                    queue.push(function (cb) {
+	                        var fileDrop = new o.FileDrop(plupload.extend({}, options, {
+	                            drop_zone: el
+	                        }));
+
+	                        fileDrop.onready = function () {
+	                            var info = o.Runtime.getInfo(this.ruid);
+
+	                            self.features.dragdrop = info.can('drag_and_drop'); // for backward compatibility
+
+	                            inited++;
+	                            fileDrops.push(this);
+	                            cb();
+	                        };
+
+	                        fileDrop.ondrop = function () {
+	                            self.addFile(this.files);
+	                        };
+
+	                        fileDrop.bind('error runtimeerror', function () {
+	                            fileDrop = null;
+	                            cb();
+	                        });
+
+	                        fileDrop.init();
+	                    });
+	                });
+	            }
+
+	            o.inSeries(queue, function () {
+	                if (typeof cb === 'function') {
+	                    cb(inited);
+	                }
+	            });
+	        }
+
+	        function resizeImage(blob, params, cb) {
+	            var img = new o.Image();
+
+	            try {
+	                img.onload = function () {
+	                    img.downsize(params.width, params.height, params.crop, params.preserve_headers);
+	                };
+
+	                img.onresize = function () {
+	                    cb(this.getAsBlob(blob.type, params.quality));
+	                    this.destroy();
+	                };
+
+	                img.onerror = function () {
+	                    cb(blob);
+	                };
+
+	                img.load(blob);
+	            } catch (ex) {
+	                cb(blob);
+	            }
+	        }
+
+	        function _setOption2(option, value, init) {
+	            var self = this,
+	                reinitRequired = false;
+
+	            function _setOption(option, value, init) {
+	                var oldValue = settings[option];
+
+	                switch (option) {
+	                    case 'max_file_size':
+	                        if (option === 'max_file_size') {
+	                            settings.max_file_size = settings.filters.max_file_size = value;
+	                        }
+	                        break;
+
+	                    case 'chunk_size':
+	                        if (value = plupload.parseSize(value)) {
+	                            settings[option] = value;
+	                        }
+	                        break;
+
+	                    case 'filters':
+	                        // for sake of backward compatibility
+	                        if (plupload.typeOf(value) === 'array') {
+	                            value = {
+	                                mime_types: value
+	                            };
+	                        }
+
+	                        if (init) {
+	                            plupload.extend(settings.filters, value);
+	                        } else {
+	                            settings.filters = value;
+	                        }
+
+	                        // if file format filters are being updated, regenerate the matching expressions
+	                        if (value.mime_types) {
+	                            settings.filters.mime_types.regexp = function (filters) {
+	                                var extensionsRegExp = [];
+
+	                                plupload.each(filters, function (filter) {
+	                                    plupload.each(filter.extensions.split(/,/), function (ext) {
+	                                        if (/^\s*\*\s*$/.test(ext)) {
+	                                            extensionsRegExp.push('\\.*');
+	                                        } else {
+	                                            extensionsRegExp.push('\\.' + ext.replace(new RegExp('[' + '/^$.*+?|()[]{}\\'.replace(/./g, '\\$&') + ']', 'g'), '\\$&'));
+	                                        }
+	                                    });
+	                                });
+
+	                                return new RegExp('(' + extensionsRegExp.join('|') + ')$', 'i');
+	                            }(settings.filters.mime_types);
+	                        }
+	                        break;
+
+	                    case 'resize':
+	                        if (init) {
+	                            plupload.extend(settings.resize, value, {
+	                                enabled: true
+	                            });
+	                        } else {
+	                            settings.resize = value;
+	                        }
+	                        break;
+
+	                    case 'prevent_duplicates':
+	                        settings.prevent_duplicates = settings.filters.prevent_duplicates = !!value;
+	                        break;
+
+	                    case 'browse_button':
+	                    case 'drop_element':
+	                        value = plupload.get(value);
+
+	                    case 'container':
+	                    case 'runtimes':
+	                    case 'multi_selection':
+	                    case 'flash_swf_url':
+	                    case 'silverlight_xap_url':
+	                        settings[option] = value;
+	                        if (!init) {
+	                            reinitRequired = true;
+	                        }
+	                        break;
+
+	                    default:
+	                        settings[option] = value;
+	                }
+
+	                if (!init) {
+	                    self.trigger('OptionChanged', option, value, oldValue);
+	                }
+	            }
+
+	            if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) === 'object') {
+	                plupload.each(option, function (value, option) {
+	                    _setOption(option, value, init);
+	                });
+	            } else {
+	                _setOption(option, value, init);
+	            }
+
+	            if (init) {
+	                // Normalize the list of required capabilities
+	                settings.required_features = normalizeCaps(plupload.extend({}, settings));
+
+	                // Come up with the list of capabilities that can affect default mode in a multi-mode runtimes
+	                preferred_caps = normalizeCaps(plupload.extend({}, settings, {
+	                    required_features: true
+	                }));
+	            } else if (reinitRequired) {
+	                self.trigger('Destroy');
+
+	                initControls.call(self, settings, function (inited) {
+	                    if (inited) {
+	                        self.runtime = o.Runtime.getInfo(getRUID()).type;
+	                        self.trigger('Init', { runtime: self.runtime });
+	                        self.trigger('PostInit');
+	                    } else {
+	                        self.trigger('Error', {
+	                            code: plupload.INIT_ERROR,
+	                            message: plupload.translate('Init error.')
+	                        });
+	                    }
+	                });
+	            }
+	        }
+
+	        // Internal event handlers
+	        function onFilesAdded(up, filteredFiles) {
+	            // Add files to queue
+	            [].push.apply(files, filteredFiles);
+
+	            up.trigger('QueueChanged');
+	            up.refresh();
+	        }
+
+	        function onBeforeUpload(up, file) {
+	            // Generate unique target filenames
+	            if (settings.unique_names) {
+	                var matches = file.name.match(/\.([^.]+)$/),
+	                    ext = "part";
+	                if (matches) {
+	                    ext = matches[1];
+	                }
+	                file.target_name = file.id + '.' + ext;
+	            }
+	        }
+
+	        function onUploadFile(up, file) {
+	            var url = up.settings.url,
+	                chunkSize = up.settings.chunk_size,
+	                retries = up.settings.max_retries,
+	                features = up.features,
+	                offset = 0,
+	                blob;
+
+	            // make sure we start at a predictable offset
+	            if (file.loaded) {
+	                offset = file.loaded = chunkSize * Math.floor(file.loaded / chunkSize);
+	            }
+
+	            function handleError() {
+	                if (retries-- > 0) {
+	                    delay(uploadNextChunk, 1000);
+	                } else {
+	                    file.loaded = offset; // reset all progress
+
+	                    up.trigger('Error', {
+	                        code: plupload.HTTP_ERROR,
+	                        message: plupload.translate('HTTP Error.'),
+	                        file: file,
+	                        response: xhr.responseText,
+	                        status: xhr.status,
+	                        responseHeaders: xhr.getAllResponseHeaders()
+	                    });
+	                }
+	            }
+
+	            function uploadNextChunk() {
+	                var chunkBlob, formData, args, curChunkSize;
+
+	                // File upload finished
+	                if (file.status == plupload.DONE || file.status == plupload.FAILED || up.state == plupload.STOPPED) {
+	                    return;
+	                }
+
+	                // Standard arguments
+	                args = { name: file.target_name || file.name };
+
+	                if (chunkSize && features.chunks && blob.size > chunkSize) {
+	                    // blob will be of type string if it was loaded in memory
+	                    curChunkSize = Math.min(chunkSize, blob.size - offset);
+	                    chunkBlob = blob.slice(offset, offset + curChunkSize);
+	                } else {
+	                    curChunkSize = blob.size;
+	                    chunkBlob = blob;
+	                }
+
+	                // If chunking is enabled add corresponding args, no matter if file is bigger than chunk or smaller
+	                if (chunkSize && features.chunks) {
+	                    // Setup query string arguments
+	                    if (up.settings.send_chunk_number) {
+	                        args.chunk = Math.ceil(offset / chunkSize);
+	                        args.chunks = Math.ceil(blob.size / chunkSize);
+	                    } else {
+	                        // keep support for experimental chunk format, just in case
+	                        args.offset = offset;
+	                        args.total = blob.size;
+	                    }
+	                }
+
+	                xhr = new o.XMLHttpRequest();
+
+	                // Do we have upload progress support
+	                if (xhr.upload) {
+	                    xhr.upload.onprogress = function (e) {
+	                        file.loaded = Math.min(file.size, offset + e.loaded);
+	                        up.trigger('UploadProgress', file);
+	                    };
+	                }
+
+	                xhr.onload = function () {
+	                    // check if upload made itself through
+	                    if (xhr.status >= 400) {
+	                        handleError();
+	                        return;
+	                    }
+
+	                    retries = up.settings.max_retries; // reset the counter
+
+	                    // Handle chunk response
+	                    if (curChunkSize < blob.size) {
+	                        chunkBlob.destroy();
+
+	                        offset += curChunkSize;
+	                        file.loaded = Math.min(offset, blob.size);
+
+	                        up.trigger('ChunkUploaded', file, {
+	                            offset: file.loaded,
+	                            total: blob.size,
+	                            response: xhr.responseText,
+	                            status: xhr.status,
+	                            responseHeaders: xhr.getAllResponseHeaders()
+	                        });
+
+	                        // stock Android browser doesn't fire upload progress events, but in chunking mode we can fake them
+	                        if (o.Env.browser === 'Android Browser') {
+	                            // doesn't harm in general, but is not required anywhere else
+	                            up.trigger('UploadProgress', file);
+	                        }
+	                    } else {
+	                        file.loaded = file.size;
+	                    }
+
+	                    chunkBlob = formData = null; // Free memory
+
+	                    // Check if file is uploaded
+	                    if (!offset || offset >= blob.size) {
+	                        // If file was modified, destory the copy
+	                        if (file.size != file.origSize) {
+	                            blob.destroy();
+	                            blob = null;
+	                        }
+
+	                        up.trigger('UploadProgress', file);
+
+	                        file.status = plupload.DONE;
+
+	                        up.trigger('FileUploaded', file, {
+	                            response: xhr.responseText,
+	                            status: xhr.status,
+	                            responseHeaders: xhr.getAllResponseHeaders()
+	                        });
+	                    } else {
+	                        // Still chunks left
+	                        delay(uploadNextChunk, 1); // run detached, otherwise event handlers interfere
+	                    }
+	                };
+
+	                xhr.onerror = function () {
+	                    handleError();
+	                };
+
+	                xhr.onloadend = function () {
+	                    this.destroy();
+	                    xhr = null;
+	                };
+
+	                // Build multipart request
+	                if (up.settings.multipart && features.multipart) {
+
+	                    args.name = file.target_name || file.name;
+
+	                    xhr.open("post", url, true);
+
+	                    // Set custom headers
+	                    plupload.each(up.settings.headers, function (value, name) {
+	                        xhr.setRequestHeader(name, value);
+	                    });
+
+	                    formData = new o.FormData();
+
+	                    // Add multipart params
+	                    plupload.each(plupload.extend(args, up.settings.multipart_params), function (value, name) {
+	                        formData.append(name, value);
+	                    });
+
+	                    // Add file and send it
+	                    formData.append(up.settings.file_data_name, chunkBlob);
+	                    xhr.send(formData, {
+	                        runtime_order: up.settings.runtimes,
+	                        required_caps: up.settings.required_features,
+	                        preferred_caps: preferred_caps,
+	                        swf_url: up.settings.flash_swf_url,
+	                        xap_url: up.settings.silverlight_xap_url
+	                    });
+	                } else {
+	                    // if no multipart, send as binary stream
+	                    url = plupload.buildUrl(up.settings.url, plupload.extend(args, up.settings.multipart_params));
+
+	                    xhr.open("post", url, true);
+
+	                    xhr.setRequestHeader('Content-Type', 'application/octet-stream'); // Binary stream header
+
+	                    // Set custom headers
+	                    plupload.each(up.settings.headers, function (value, name) {
+	                        xhr.setRequestHeader(name, value);
+	                    });
+
+	                    xhr.send(chunkBlob, {
+	                        runtime_order: up.settings.runtimes,
+	                        required_caps: up.settings.required_features,
+	                        preferred_caps: preferred_caps,
+	                        swf_url: up.settings.flash_swf_url,
+	                        xap_url: up.settings.silverlight_xap_url
+	                    });
+	                }
+	            }
+
+	            blob = file.getSource();
+
+	            // Start uploading chunks
+	            if (up.settings.resize.enabled && runtimeCan(blob, 'send_binary_string') && !!~o.inArray(blob.type, ['image/jpeg', 'image/png'])) {
+	                // Resize if required
+	                resizeImage.call(this, blob, up.settings.resize, function (resizedBlob) {
+	                    blob = resizedBlob;
+	                    file.size = resizedBlob.size;
+	                    uploadNextChunk();
+	                });
+	            } else {
+	                uploadNextChunk();
+	            }
+	        }
+
+	        function onUploadProgress(up, file) {
+	            calcFile(file);
+	        }
+
+	        function onStateChanged(up) {
+	            if (up.state == plupload.STARTED) {
+	                // Get start time to calculate bps
+	                startTime = +new Date();
+	            } else if (up.state == plupload.STOPPED) {
+	                // Reset currently uploading files
+	                for (var i = up.files.length - 1; i >= 0; i--) {
+	                    if (up.files[i].status == plupload.UPLOADING) {
+	                        up.files[i].status = plupload.QUEUED;
+	                        calc();
+	                    }
+	                }
+	            }
+	        }
+
+	        function onCancelUpload() {
+	            if (xhr) {
+	                xhr.abort();
+	            }
+	        }
+
+	        function onFileUploaded(up) {
+	            calc();
+
+	            // Upload next file but detach it from the error event
+	            // since other custom listeners might want to stop the queue
+	            delay(function () {
+	                uploadNext.call(up);
+	            }, 1);
+	        }
+
+	        function onError(up, err) {
+	            // Set failed status if an error occured on a file
+	            if (err.file) {
+	                err.file.status = plupload.FAILED;
+	                calcFile(err.file);
+
+	                // Upload next file but detach it from the error event
+	                // since other custom listeners might want to stop the queue
+	                if (up.state == plupload.STARTED) {
+	                    // upload in progress
+	                    up.trigger('CancelUpload');
+	                    delay(function () {
+	                        uploadNext.call(up);
+	                    }, 1);
+	                }
+	            }
+	        }
+
+	        function onDestroy(up) {
+	            up.stop();
+
+	            // Purge the queue
+	            plupload.each(files, function (file) {
+	                file.destroy();
+	            });
+	            files = [];
+
+	            if (fileInputs.length) {
+	                plupload.each(fileInputs, function (fileInput) {
+	                    fileInput.destroy();
+	                });
+	                fileInputs = [];
+	            }
+
+	            if (fileDrops.length) {
+	                plupload.each(fileDrops, function (fileDrop) {
+	                    fileDrop.destroy();
+	                });
+	                fileDrops = [];
+	            }
+
+	            preferred_caps = {};
+	            disabled = false;
+	            startTime = xhr = null;
+	            total.reset();
+	        }
+
+	        // Default settings
+	        settings = {
+	            runtimes: o.Runtime.order,
+	            max_retries: 0,
+	            chunk_size: 0,
+	            multipart: true,
+	            multi_selection: true,
+	            file_data_name: 'file',
+	            flash_swf_url: 'js/Moxie.swf',
+	            silverlight_xap_url: 'js/Moxie.xap',
+	            filters: {
+	                mime_types: [],
+	                prevent_duplicates: false,
+	                max_file_size: 0
+	            },
+	            resize: {
+	                enabled: false,
+	                preserve_headers: true,
+	                crop: false
+	            },
+	            send_chunk_number: true // whether to send chunks and chunk numbers, or total and offset bytes
+	        };
+
+	        _setOption2.call(this, options, null, true);
+
+	        // Inital total state
+	        total = new plupload.QueueProgress();
+
+	        // Add public methods
+	        plupload.extend(this, {
+
+	            /**
+	             * Unique id for the Uploader instance.
+	             *
+	             * @property id
+	             * @type String
+	             */
+	            id: uid,
+	            uid: uid, // mOxie uses this to differentiate between event targets
+
+	            /**
+	             * Current state of the total uploading progress. This one can either be plupload.STARTED or plupload.STOPPED.
+	             * These states are controlled by the stop/start methods. The default value is STOPPED.
+	             *
+	             * @property state
+	             * @type Number
+	             */
+	            state: plupload.STOPPED,
+
+	            /**
+	             * Map of features that are available for the uploader runtime. Features will be filled
+	             * before the init event is called, these features can then be used to alter the UI for the end user.
+	             * Some of the current features that might be in this map is: dragdrop, chunks, jpgresize, pngresize.
+	             *
+	             * @property features
+	             * @type Object
+	             */
+	            features: {},
+
+	            /**
+	             * Current runtime name.
+	             *
+	             * @property runtime
+	             * @type String
+	             */
+	            runtime: null,
+
+	            /**
+	             * Current upload queue, an array of File instances.
+	             *
+	             * @property files
+	             * @type Array
+	             * @see plupload.File
+	             */
+	            files: files,
+
+	            /**
+	             * Object with name/value settings.
+	             *
+	             * @property settings
+	             * @type Object
+	             */
+	            settings: settings,
+
+	            /**
+	             * Total progess information. How many files has been uploaded, total percent etc.
+	             *
+	             * @property total
+	             * @type plupload.QueueProgress
+	             */
+	            total: total,
+
+	            /**
+	             * Initializes the Uploader instance and adds internal event listeners.
+	             *
+	             * @method init
+	             */
+	            init: function init() {
+	                var self = this;
+
+	                if (typeof settings.preinit == "function") {
+	                    settings.preinit(self);
+	                } else {
+	                    plupload.each(settings.preinit, function (func, name) {
+	                        self.bind(name, func);
+	                    });
+	                }
+
+	                // Check for required options
+	                if (!settings.browse_button || !settings.url) {
+	                    this.trigger('Error', {
+	                        code: plupload.INIT_ERROR,
+	                        message: plupload.translate('Init error.')
+	                    });
+	                    return;
+	                }
+
+	                bindEventListeners.call(this);
+
+	                initControls.call(this, settings, function (inited) {
+	                    if (typeof settings.init == "function") {
+	                        settings.init(self);
+	                    } else {
+	                        plupload.each(settings.init, function (func, name) {
+	                            self.bind(name, func);
+	                        });
+	                    }
+
+	                    if (inited) {
+	                        self.runtime = o.Runtime.getInfo(getRUID()).type;
+	                        self.trigger('Init', { runtime: self.runtime });
+	                        self.trigger('PostInit');
+	                    } else {
+	                        self.trigger('Error', {
+	                            code: plupload.INIT_ERROR,
+	                            message: plupload.translate('Init error.')
+	                        });
+	                    }
+	                });
+	            },
+
+	            /**
+	             * Set the value for the specified option(s).
+	             *
+	             * @method setOption
+	             * @since 2.1
+	             * @param {String|Object} option Name of the option to change or the set of key/value pairs
+	             * @param {Mixed} [value] Value for the option (is ignored, if first argument is object)
+	             */
+	            setOption: function setOption(option, value) {
+	                _setOption2.call(this, option, value, !this.runtime); // until runtime not set we do not need to reinitialize
+	            },
+
+	            /**
+	             * Get the value for the specified option or the whole configuration, if not specified.
+	             *
+	             * @method getOption
+	             * @since 2.1
+	             * @param {String} [option] Name of the option to get
+	             * @return {Mixed} Value for the option or the whole set
+	             */
+	            getOption: function getOption(option) {
+	                if (!option) {
+	                    return settings;
+	                }
+	                return settings[option];
+	            },
+
+	            /**
+	             * Refreshes the upload instance by dispatching out a refresh event to all runtimes.
+	             * This would for example reposition flash/silverlight shims on the page.
+	             *
+	             * @method refresh
+	             */
+	            refresh: function refresh() {
+	                if (fileInputs.length) {
+	                    plupload.each(fileInputs, function (fileInput) {
+	                        fileInput.trigger('Refresh');
+	                    });
+	                }
+	                this.trigger('Refresh');
+	            },
+
+	            /**
+	             * Starts uploading the queued files.
+	             *
+	             * @method start
+	             */
+	            start: function start() {
+	                if (this.state != plupload.STARTED) {
+	                    this.state = plupload.STARTED;
+	                    this.trigger('StateChanged');
+
+	                    uploadNext.call(this);
+	                }
+	            },
+
+	            /**
+	             * Stops the upload of the queued files.
+	             *
+	             * @method stop
+	             */
+	            stop: function stop() {
+	                if (this.state != plupload.STOPPED) {
+	                    this.state = plupload.STOPPED;
+	                    this.trigger('StateChanged');
+	                    this.trigger('CancelUpload');
+	                }
+	            },
+
+	            /**
+	             * Disables/enables browse button on request.
+	             *
+	             * @method disableBrowse
+	             * @param {Boolean} disable Whether to disable or enable (default: true)
+	             */
+	            disableBrowse: function disableBrowse() {
+	                disabled = arguments[0] !== undef ? arguments[0] : true;
+
+	                if (fileInputs.length) {
+	                    plupload.each(fileInputs, function (fileInput) {
+	                        fileInput.disable(disabled);
+	                    });
+	                }
+
+	                this.trigger('DisableBrowse', disabled);
+	            },
+
+	            /**
+	             * Returns the specified file object by id.
+	             *
+	             * @method getFile
+	             * @param {String} id File id to look for.
+	             * @return {plupload.File} File object or undefined if it wasn't found;
+	             */
+	            getFile: function getFile(id) {
+	                var i;
+	                for (i = files.length - 1; i >= 0; i--) {
+	                    if (files[i].id === id) {
+	                        return files[i];
+	                    }
+	                }
+	            },
+
+	            /**
+	             * Adds file to the queue programmatically. Can be native file, instance of Plupload.File,
+	             * instance of mOxie.File, input[type="file"] element, or array of these. Fires FilesAdded,
+	             * if any files were added to the queue. Otherwise nothing happens.
+	             *
+	             * @method addFile
+	             * @since 2.0
+	             * @param {plupload.File|mOxie.File|File|Node|Array} file File or files to add to the queue.
+	             * @param {String} [fileName] If specified, will be used as a name for the file
+	             */
+	            addFile: function addFile(file, fileName) {
+	                var self = this,
+	                    queue = [],
+	                    files = [],
+	                    ruid;
+
+	                function filterFile(file, cb) {
+	                    var queue = [];
+	                    o.each(self.settings.filters, function (rule, name) {
+	                        if (fileFilters[name]) {
+	                            queue.push(function (cb) {
+	                                fileFilters[name].call(self, rule, file, function (res) {
+	                                    cb(!res);
+	                                });
+	                            });
+	                        }
+	                    });
+	                    o.inSeries(queue, cb);
+	                }
+
+	                /**
+	                 * @method resolveFile
+	                 * @private
+	                 * @param {o.File|o.Blob|plupload.File|File|Blob|input[type="file"]} file
+	                 */
+	                function resolveFile(file) {
+	                    var type = o.typeOf(file);
+
+	                    // o.File
+	                    if (file instanceof o.File) {
+	                        if (!file.ruid && !file.isDetached()) {
+	                            if (!ruid) {
+	                                // weird case
+	                                return false;
+	                            }
+	                            file.ruid = ruid;
+	                            file.connectRuntime(ruid);
+	                        }
+	                        resolveFile(new plupload.File(file));
+	                    }
+	                    // o.Blob
+	                    else if (file instanceof o.Blob) {
+	                            resolveFile(file.getSource());
+	                            file.destroy();
+	                        }
+	                        // plupload.File - final step for other branches
+	                        else if (file instanceof plupload.File) {
+	                                if (fileName) {
+	                                    file.name = fileName;
+	                                }
+
+	                                queue.push(function (cb) {
+	                                    // run through the internal and user-defined filters, if any
+	                                    filterFile(file, function (err) {
+	                                        if (!err) {
+	                                            files.push(file);
+	                                            self.trigger("FileFiltered", file);
+	                                        }
+	                                        delay(cb, 1); // do not build up recursions or eventually we might hit the limits
+	                                    });
+	                                });
+	                            }
+	                            // native File or blob
+	                            else if (o.inArray(type, ['file', 'blob']) !== -1) {
+	                                    resolveFile(new o.File(null, file));
+	                                }
+	                                // input[type="file"]
+	                                else if (type === 'node' && o.typeOf(file.files) === 'filelist') {
+	                                        // if we are dealing with input[type="file"]
+	                                        o.each(file.files, resolveFile);
+	                                    }
+	                                    // mixed array of any supported types (see above)
+	                                    else if (type === 'array') {
+	                                            fileName = null; // should never happen, but unset anyway to avoid funny situations
+	                                            o.each(file, resolveFile);
+	                                        }
+	                }
+
+	                ruid = getRUID();
+
+	                resolveFile(file);
+
+	                if (queue.length) {
+	                    o.inSeries(queue, function () {
+	                        // if any files left after filtration, trigger FilesAdded
+	                        if (files.length) {
+	                            self.trigger("FilesAdded", files);
+	                        }
+	                    });
+	                }
+	            },
+
+	            /**
+	             * Removes a specific file.
+	             *
+	             * @method removeFile
+	             * @param {plupload.File|String} file File to remove from queue.
+	             */
+	            removeFile: function removeFile(file) {
+	                var id = typeof file === 'string' ? file : file.id;
+
+	                for (var i = files.length - 1; i >= 0; i--) {
+	                    if (files[i].id === id) {
+	                        return this.splice(i, 1)[0];
+	                    }
+	                }
+	            },
+
+	            /**
+	             * Removes part of the queue and returns the files removed. This will also trigger the FilesRemoved and QueueChanged events.
+	             *
+	             * @method splice
+	             * @param {Number} start (Optional) Start index to remove from.
+	             * @param {Number} length (Optional) Lengh of items to remove.
+	             * @return {Array} Array of files that was removed.
+	             */
+	            splice: function splice(start, length) {
+	                // Splice and trigger events
+	                var removed = files.splice(start === undef ? 0 : start, length === undef ? files.length : length);
+
+	                // if upload is in progress we need to stop it and restart after files are removed
+	                var restartRequired = false;
+	                if (this.state == plupload.STARTED) {
+	                    // upload in progress
+	                    restartRequired = true;
+	                    this.stop();
+	                }
+
+	                this.trigger("FilesRemoved", removed);
+
+	                // Dispose any resources allocated by those files
+	                plupload.each(removed, function (file) {
+	                    file.destroy();
+	                });
+
+	                this.trigger("QueueChanged");
+	                this.refresh();
+
+	                if (restartRequired) {
+	                    this.start();
+	                }
+
+	                return removed;
+	            },
+
+	            /**
+	             * Dispatches the specified event name and it's arguments to all listeners.
+	             *
+	             *
+	             * @method trigger
+	             * @param {String} name Event name to fire.
+	             * @param {Object..} Multiple arguments to pass along to the listener functions.
+	             */
+
+	            /**
+	             * Check whether uploader has any listeners to the specified event.
+	             *
+	             * @method hasEventListener
+	             * @param {String} name Event name to check for.
+	             */
+
+	            /**
+	             * Adds an event listener by name.
+	             *
+	             * @method bind
+	             * @param {String} name Event name to listen for.
+	             * @param {function} func Function to call ones the event gets fired.
+	             * @param {Object} scope Optional scope to execute the specified function in.
+	             */
+	            bind: function bind(name, func, scope) {
+	                var self = this;
+	                // adapt moxie EventTarget style to Plupload-like
+	                plupload.Uploader.prototype.bind.call(this, name, function () {
+	                    var args = [].slice.call(arguments);
+	                    args.splice(0, 1, self); // replace event object with uploader instance
+	                    return func.apply(this, args);
+	                }, 0, scope);
+	            },
+
+	            /**
+	             * Removes the specified event listener.
+	             *
+	             * @method unbind
+	             * @param {String} name Name of event to remove.
+	             * @param {function} func Function to remove from listener.
+	             */
+
+	            /**
+	             * Removes all event listeners.
+	             *
+	             * @method unbindAll
+	             */
+
+	            /**
+	             * Destroys Plupload instance and cleans after itself.
+	             *
+	             * @method destroy
+	             */
+	            destroy: function destroy() {
+	                this.trigger('Destroy');
+	                settings = total = null; // purge these exclusively
+	                this.unbindAll();
+	            }
+	        });
+	    };
+
+	    plupload.Uploader.prototype = o.EventTarget.instance;
+
+	    /**
+	     * Constructs a new file instance.
+	     *
+	     * @class File
+	     * @constructor
+	     *
+	     * @param {Object} file Object containing file properties
+	     * @param {String} file.name Name of the file.
+	     * @param {Number} file.size File size.
+	     */
+	    plupload.File = function () {
+	        var filepool = {};
+
+	        function PluploadFile(file) {
+
+	            plupload.extend(this, {
+
+	                /**
+	                 * File id this is a globally unique id for the specific file.
+	                 *
+	                 * @property id
+	                 * @type String
+	                 */
+	                id: plupload.guid(),
+
+	                /**
+	                 * File name for example "myfile.gif".
+	                 *
+	                 * @property name
+	                 * @type String
+	                 */
+	                name: file.name || file.fileName,
+
+	                /**
+	                 * File type, `e.g image/jpeg`
+	                 *
+	                 * @property type
+	                 * @type String
+	                 */
+	                type: file.type || '',
+
+	                /**
+	                 * File size in bytes (may change after client-side manupilation).
+	                 *
+	                 * @property size
+	                 * @type Number
+	                 */
+	                size: file.size || file.fileSize,
+
+	                /**
+	                 * Original file size in bytes.
+	                 *
+	                 * @property origSize
+	                 * @type Number
+	                 */
+	                origSize: file.size || file.fileSize,
+
+	                /**
+	                 * Number of bytes uploaded of the files total size.
+	                 *
+	                 * @property loaded
+	                 * @type Number
+	                 */
+	                loaded: 0,
+
+	                /**
+	                 * Number of percentage uploaded of the file.
+	                 *
+	                 * @property percent
+	                 * @type Number
+	                 */
+	                percent: 0,
+
+	                /**
+	                 * Status constant matching the plupload states QUEUED, UPLOADING, FAILED, DONE.
+	                 *
+	                 * @property status
+	                 * @type Number
+	                 * @see plupload
+	                 */
+	                status: plupload.QUEUED,
+
+	                /**
+	                 * Date of last modification.
+	                 *
+	                 * @property lastModifiedDate
+	                 * @type {String}
+	                 */
+	                lastModifiedDate: file.lastModifiedDate || new Date().toLocaleString(), // Thu Aug 23 2012 19:40:00 GMT+0400 (GET)
+
+	                /**
+	                 * Returns native window.File object, when it's available.
+	                 *
+	                 * @method getNative
+	                 * @return {window.File} or null, if plupload.File is of different origin
+	                 */
+	                getNative: function getNative() {
+	                    var file = this.getSource().getSource();
+	                    return o.inArray(o.typeOf(file), ['blob', 'file']) !== -1 ? file : null;
+	                },
+
+	                /**
+	                 * Returns mOxie.File - unified wrapper object that can be used across runtimes.
+	                 *
+	                 * @method getSource
+	                 * @return {mOxie.File} or null
+	                 */
+	                getSource: function getSource() {
+	                    if (!filepool[this.id]) {
+	                        return null;
+	                    }
+	                    return filepool[this.id];
+	                },
+
+	                /**
+	                 * Destroys plupload.File object.
+	                 *
+	                 * @method destroy
+	                 */
+	                destroy: function destroy() {
+	                    var src = this.getSource();
+	                    if (src) {
+	                        src.destroy();
+	                        delete filepool[this.id];
+	                    }
+	                }
+	            });
+
+	            filepool[this.id] = file;
+	        }
+
+	        return PluploadFile;
+	    }();
+
+	    /**
+	     * Constructs a queue progress.
+	     *
+	     * @class QueueProgress
+	     * @constructor
+	     */
+	    plupload.QueueProgress = function () {
+	        var self = this; // Setup alias for self to reduce code size when it's compressed
+
+	        /**
+	         * Total queue file size.
+	         *
+	         * @property size
+	         * @type Number
+	         */
+	        self.size = 0;
+
+	        /**
+	         * Total bytes uploaded.
+	         *
+	         * @property loaded
+	         * @type Number
+	         */
+	        self.loaded = 0;
+
+	        /**
+	         * Number of files uploaded.
+	         *
+	         * @property uploaded
+	         * @type Number
+	         */
+	        self.uploaded = 0;
+
+	        /**
+	         * Number of files failed to upload.
+	         *
+	         * @property failed
+	         * @type Number
+	         */
+	        self.failed = 0;
+
+	        /**
+	         * Number of files yet to be uploaded.
+	         *
+	         * @property queued
+	         * @type Number
+	         */
+	        self.queued = 0;
+
+	        /**
+	         * Total percent of the uploaded bytes.
+	         *
+	         * @property percent
+	         * @type Number
+	         */
+	        self.percent = 0;
+
+	        /**
+	         * Bytes uploaded per second.
+	         *
+	         * @property bytesPerSec
+	         * @type Number
+	         */
+	        self.bytesPerSec = 0;
+
+	        /**
+	         * Resets the progress to it's initial values.
+	         *
+	         * @method reset
+	         */
+	        self.reset = function () {
+	            self.size = self.loaded = self.uploaded = self.failed = self.queued = self.percent = self.bytesPerSec = 0;
+	        };
+	    };
+
+	    window.plupload = plupload;
+	})(window, mOxie);
+
+/***/ },
+/* 236 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/*!
+	 * qiniu-js-sdk v1.0.13-beta
+	 *
+	 * Copyright 2015 by Qiniu
+	 * Released under GPL V2 License.
+	 *
+	 * GitHub: http://github.com/qiniu/js-sdk
+	 *
+	 * Date: 2016-1-26
+	*/
+
+	/*global plupload ,mOxie*/
+	/*global ActiveXObject */
+	/*exported Qiniu */
+	/*exported QiniuJsSDK */
+
+	;(function (global) {
+
+	    /**
+	     * Creates new cookie or removes cookie with negative expiration
+	     * @param  key       The key or identifier for the store
+	     * @param  value     Contents of the store
+	     * @param  exp       Expiration - creation defaults to 30 days
+	     */
+	    function createCookie(key, value, exp) {
+	        var date = new Date();
+	        date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+	        var expires = "; expires=" + date.toGMTString();
+	        document.cookie = key + "=" + value + expires + "; path=/";
+	    }
+
+	    /**
+	     * Returns contents of cookie
+	     * @param  key       The key or identifier for the store
+	     */
+	    function readCookie(key) {
+	        var nameEQ = key + "=";
+	        var ca = document.cookie.split(';');
+	        for (var i = 0, max = ca.length; i < max; i++) {
+	            var c = ca[i];
+	            while (c.charAt(0) === ' ') {
+	                c = c.substring(1, c.length);
+	            }
+	            if (c.indexOf(nameEQ) === 0) {
+	                return c.substring(nameEQ.length, c.length);
+	            }
+	        }
+	        return null;
+	    }
+
+	    // if current browser is not support localStorage
+	    // use cookie to make a polyfill
+	    if (!window.localStorage) {
+	        window.localStorage = {
+	            setItem: function setItem(key, value) {
+	                createCookie(key, value, 30);
+	            },
+	            getItem: function getItem(key) {
+	                return readCookie(key);
+	            },
+	            removeItem: function removeItem(key) {
+	                createCookie(key, '', -1);
+	            }
+	        };
+	    }
+
+	    function QiniuJsSDK() {
+
+	        var that = this;
+
+	        /**
+	         * detect IE version
+	         * if current browser is not IE
+	         *     it will return false
+	         * else
+	         *     it will return version of current IE browser
+	         * @return {Number|Boolean} IE version or false
+	         */
+	        this.detectIEVersion = function () {
+	            var v = 4,
+	                div = document.createElement('div'),
+	                all = div.getElementsByTagName('i');
+	            while (div.innerHTML = '<!--[if gt IE ' + v + ']><i></i><![endif]-->', all[0]) {
+	                v++;
+	            }
+	            return v > 4 ? v : false;
+	        };
+
+	        var logger = {
+	            MUTE: 0,
+	            FATA: 1,
+	            ERROR: 2,
+	            WARN: 3,
+	            INFO: 4,
+	            DEBUG: 5,
+	            TRACE: 6,
+	            level: 0
+	        };
+
+	        function log(type, args) {
+	            var header = "[qiniu-js-sdk][" + type + "]";
+	            if (that.detectIEVersion()) {
+	                // http://stackoverflow.com/questions/5538972/console-log-apply-not-working-in-ie9
+	                //var log = Function.prototype.bind.call(console.log, console);
+	                //log.apply(console, args);
+	                var msg = header;
+	                for (var i = 0; i < args.length; i++) {
+	                    msg += that.stringifyJSON(args[i]);
+	                }
+	                console.log(msg);
+	            } else {
+	                args.unshift(header);
+	                console.log.apply(console, args);
+	            }
+	        }
+
+	        function makeLogFunc(code) {
+	            var func = code.toLowerCase();
+	            logger[func] = function () {
+	                // logger[func].history = logger[func].history || [];
+	                // logger[func].history.push(arguments);
+	                if (window.console && window.console.log && logger.level >= logger[code]) {
+	                    var args = Array.prototype.slice.call(arguments);
+	                    log(func, args);
+	                }
+	            };
+	        }
+
+	        for (var property in logger) {
+	            if (logger.hasOwnProperty(property) && typeof logger[property] === "number" && !logger.hasOwnProperty(property.toLowerCase())) {
+	                makeLogFunc(property);
+	            }
+	        }
+
+	        var qiniuUploadUrl;
+	        if (window.location.protocol === 'https:') {
+	            qiniuUploadUrl = 'https://up.qbox.me';
+	        } else {
+	            qiniuUploadUrl = 'http://upload.qiniu.com';
+	        }
+
+	        /**
+	         * qiniu upload urls
+	         * 'qiniuUploadUrls' is used to change target when current url is not avaliable
+	         * @type {Array}
+	         */
+	        var qiniuUploadUrls = ["http://upload.qiniu.com", "http://up.qiniu.com"];
+
+	        var changeUrlTimes = 0;
+
+	        /**
+	         * reset upload url
+	         * if current page protocal is https
+	         *     it will always return 'https://up.qbox.me'
+	         * else
+	         *     it will set 'qiniuUploadUrl' value with 'qiniuUploadUrls' looply
+	         */
+	        this.resetUploadUrl = function () {
+	            if (window.location.protocol === 'https:') {
+	                qiniuUploadUrl = 'https://up.qbox.me';
+	            } else {
+	                var i = changeUrlTimes % qiniuUploadUrls.length;
+	                qiniuUploadUrl = qiniuUploadUrls[i];
+	                changeUrlTimes++;
+	            }
+	            logger.debug('resetUploadUrl: ' + qiniuUploadUrl);
+	        };
+
+	        this.resetUploadUrl();
+
+	        /**
+	         * is image
+	         * @param  {String}  url of a file
+	         * @return {Boolean} file is a image or not
+	         */
+	        this.isImage = function (url) {
+	            var res,
+	                suffix = "";
+	            var imageSuffixes = ["png", "jpg", "jpeg", "gif", "bmp"];
+	            var suffixMatch = /\.([a-zA-Z0-9]+)(\?|\@|$)/;
+
+	            if (!url || !suffixMatch.test(url)) {
+	                return false;
+	            }
+	            res = suffixMatch.exec(url);
+	            suffix = res[1].toLowerCase();
+	            for (var i = 0, l = imageSuffixes.length; i < l; i++) {
+	                if (suffix === imageSuffixes[i]) {
+	                    return true;
+	                }
+	            }
+	            return false;
+	        };
+
+	        /**
+	         * get file extension
+	         * @param  {String} filename
+	         * @return {String} file extension
+	         * @example
+	         *     input: test.txt
+	         *     output: txt
+	         */
+	        this.getFileExtension = function (filename) {
+	            var tempArr = filename.split(".");
+	            var ext;
+	            if (tempArr.length === 1 || tempArr[0] === "" && tempArr.length === 2) {
+	                ext = "";
+	            } else {
+	                ext = tempArr.pop().toLowerCase(); //get the extension and make it lower-case
+	            }
+	            return ext;
+	        };
+
+	        /**
+	         * encode string by utf8
+	         * @param  {String} string to encode
+	         * @return {String} encoded string
+	         */
+	        this.utf8_encode = function (argString) {
+	            // http://kevin.vanzonneveld.net
+	            // +   original by: Webtoolkit.info (http://www.webtoolkit.info/)
+	            // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	            // +   improved by: sowberry
+	            // +    tweaked by: Jack
+	            // +   bugfixed by: Onno Marsman
+	            // +   improved by: Yves Sucaet
+	            // +   bugfixed by: Onno Marsman
+	            // +   bugfixed by: Ulrich
+	            // +   bugfixed by: Rafal Kukawski
+	            // +   improved by: kirilloid
+	            // +   bugfixed by: kirilloid
+	            // *     example 1: this.utf8_encode('Kevin van Zonneveld');
+	            // *     returns 1: 'Kevin van Zonneveld'
+
+	            if (argString === null || typeof argString === 'undefined') {
+	                return '';
+	            }
+
+	            var string = argString + ''; // .replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+	            var utftext = '',
+	                start,
+	                end,
+	                stringl = 0;
+
+	            start = end = 0;
+	            stringl = string.length;
+	            for (var n = 0; n < stringl; n++) {
+	                var c1 = string.charCodeAt(n);
+	                var enc = null;
+
+	                if (c1 < 128) {
+	                    end++;
+	                } else if (c1 > 127 && c1 < 2048) {
+	                    enc = String.fromCharCode(c1 >> 6 | 192, c1 & 63 | 128);
+	                } else if (c1 & 0xF800 ^ 0xD800 > 0) {
+	                    enc = String.fromCharCode(c1 >> 12 | 224, c1 >> 6 & 63 | 128, c1 & 63 | 128);
+	                } else {
+	                    // surrogate pairs
+	                    if (c1 & 0xFC00 ^ 0xD800 > 0) {
+	                        throw new RangeError('Unmatched trail surrogate at ' + n);
+	                    }
+	                    var c2 = string.charCodeAt(++n);
+	                    if (c2 & 0xFC00 ^ 0xDC00 > 0) {
+	                        throw new RangeError('Unmatched lead surrogate at ' + (n - 1));
+	                    }
+	                    c1 = ((c1 & 0x3FF) << 10) + (c2 & 0x3FF) + 0x10000;
+	                    enc = String.fromCharCode(c1 >> 18 | 240, c1 >> 12 & 63 | 128, c1 >> 6 & 63 | 128, c1 & 63 | 128);
+	                }
+	                if (enc !== null) {
+	                    if (end > start) {
+	                        utftext += string.slice(start, end);
+	                    }
+	                    utftext += enc;
+	                    start = end = n + 1;
+	                }
+	            }
+
+	            if (end > start) {
+	                utftext += string.slice(start, stringl);
+	            }
+
+	            return utftext;
+	        };
+
+	        /**
+	         * encode data by base64
+	         * @param  {String} data to encode
+	         * @return {String} encoded data
+	         */
+	        this.base64_encode = function (data) {
+	            // http://kevin.vanzonneveld.net
+	            // +   original by: Tyler Akins (http://rumkin.com)
+	            // +   improved by: Bayron Guevara
+	            // +   improved by: Thunder.m
+	            // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	            // +   bugfixed by: Pellentesque Malesuada
+	            // +   improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	            // -    depends on: this.utf8_encode
+	            // *     example 1: this.base64_encode('Kevin van Zonneveld');
+	            // *     returns 1: 'S2V2aW4gdmFuIFpvbm5ldmVsZA=='
+	            // mozilla has this native
+	            // - but breaks in 2.0.0.12!
+	            //if (typeof this.window['atob'] == 'function') {
+	            //    return atob(data);
+	            //}
+	            var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+	            var o1,
+	                o2,
+	                o3,
+	                h1,
+	                h2,
+	                h3,
+	                h4,
+	                bits,
+	                i = 0,
+	                ac = 0,
+	                enc = '',
+	                tmp_arr = [];
+
+	            if (!data) {
+	                return data;
+	            }
+
+	            data = this.utf8_encode(data + '');
+
+	            do {
+	                // pack three octets into four hexets
+	                o1 = data.charCodeAt(i++);
+	                o2 = data.charCodeAt(i++);
+	                o3 = data.charCodeAt(i++);
+
+	                bits = o1 << 16 | o2 << 8 | o3;
+
+	                h1 = bits >> 18 & 0x3f;
+	                h2 = bits >> 12 & 0x3f;
+	                h3 = bits >> 6 & 0x3f;
+	                h4 = bits & 0x3f;
+
+	                // use hexets to index into b64, and append result to encoded string
+	                tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+	            } while (i < data.length);
+
+	            enc = tmp_arr.join('');
+
+	            switch (data.length % 3) {
+	                case 1:
+	                    enc = enc.slice(0, -2) + '==';
+	                    break;
+	                case 2:
+	                    enc = enc.slice(0, -1) + '=';
+	                    break;
+	            }
+
+	            return enc;
+	        };
+
+	        /**
+	         * encode string in url by base64
+	         * @param {String} string in url
+	         * @return {String} encoded string
+	         */
+	        this.URLSafeBase64Encode = function (v) {
+	            v = this.base64_encode(v);
+	            return v.replace(/\//g, '_').replace(/\+/g, '-');
+	        };
+
+	        // TODO: use mOxie
+	        /**
+	         * craete object used to AJAX
+	         * @return {Object}
+	         */
+	        this.createAjax = function (argument) {
+	            var xmlhttp = {};
+	            if (window.XMLHttpRequest) {
+	                xmlhttp = new XMLHttpRequest();
+	            } else {
+	                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	            }
+	            return xmlhttp;
+	        };
+
+	        // TODO: enhance IE compatibility
+	        /**
+	         * parse json string to javascript object
+	         * @param  {String} json string
+	         * @return {Object} object
+	         */
+	        this.parseJSON = function (data) {
+	            // Attempt to parse using the native JSON parser first
+	            if (window.JSON && window.JSON.parse) {
+	                return window.JSON.parse(data);
+	            }
+
+	            //var rx_one = /^[\],:{}\s]*$/,
+	            //    rx_two = /\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,
+	            //    rx_three = /"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,
+	            //    rx_four = /(?:^|:|,)(?:\s*\[)+/g,
+	            var rx_dangerous = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+
+	            //var json;
+
+	            var text = String(data);
+	            rx_dangerous.lastIndex = 0;
+	            if (rx_dangerous.test(text)) {
+	                text = text.replace(rx_dangerous, function (a) {
+	                    return "\\u" + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+	                });
+	            }
+
+	            // todo 使用一下判断,增加安全性
+	            //if (
+	            //    rx_one.test(
+	            //        text
+	            //            .replace(rx_two, '@')
+	            //            .replace(rx_three, ']')
+	            //            .replace(rx_four, '')
+	            //    )
+	            //) {
+	            //    return eval('(' + text + ')');
+	            //}
+
+	            return eval('(' + text + ')');
+	        };
+
+	        /**
+	         * parse javascript object to json string
+	         * @param  {Object} object
+	         * @return {String} json string
+	         */
+	        this.stringifyJSON = function (obj) {
+	            // Attempt to parse using the native JSON parser first
+	            if (window.JSON && window.JSON.stringify) {
+	                return window.JSON.stringify(obj);
+	            }
+	            switch (typeof obj === "undefined" ? "undefined" : _typeof(obj)) {
+	                case 'string':
+	                    return '"' + obj.replace(/(["\\])/g, '\\$1') + '"';
+	                case 'array':
+	                    return '[' + obj.map(that.stringifyJSON).join(',') + ']';
+	                case 'object':
+	                    if (obj instanceof Array) {
+	                        var strArr = [];
+	                        var len = obj.length;
+	                        for (var i = 0; i < len; i++) {
+	                            strArr.push(that.stringifyJSON(obj[i]));
+	                        }
+	                        return '[' + strArr.join(',') + ']';
+	                    } else if (obj === null) {
+	                        return 'null';
+	                    } else {
+	                        var string = [];
+	                        for (var property in obj) {
+	                            if (obj.hasOwnProperty(property)) {
+	                                string.push(that.stringifyJSON(property) + ':' + that.stringifyJSON(obj[property]));
+	                            }
+	                        }
+	                        return '{' + string.join(',') + '}';
+	                    }
+	                    break;
+	                case 'number':
+	                    return obj;
+	                case false:
+	                    return obj;
+	                case 'boolean':
+	                    return obj;
+	            }
+	        };
+
+	        /**
+	         * trim space beside text
+	         * @param  {String} untrimed string
+	         * @return {String} trimed string
+	         */
+	        this.trim = function (text) {
+	            return text === null ? "" : text.replace(/^\s+|\s+$/g, '');
+	        };
+
+	        /**
+	         * create a uploader by QiniuJsSDK
+	         * @param  {object} options to create a new uploader
+	         * @return {object} uploader
+	         */
+	        this.uploader = function (op) {
+
+	            /********** inner function define start **********/
+
+	            // according the different condition to reset chunk size
+	            // and the upload strategy according with the chunk size
+	            // when chunk size is zero will cause to direct upload
+	            // see the statement binded on 'BeforeUpload' event
+	            var reset_chunk_size = function reset_chunk_size() {
+	                var ie = that.detectIEVersion();
+	                var BLOCK_BITS, MAX_CHUNK_SIZE, chunk_size;
+	                // case Safari 5、Windows 7、iOS 7 set isSpecialSafari to true
+	                var isSpecialSafari = mOxie.Env.browser === "Safari" && mOxie.Env.version <= 5 && mOxie.Env.os === "Windows" && mOxie.Env.osVersion === "7" || mOxie.Env.browser === "Safari" && mOxie.Env.os === "iOS" && mOxie.Env.osVersion === "7";
+	                // case IE 9-，chunk_size is not empty and flash is included in runtimes
+	                // set op.chunk_size to zero
+	                //if (ie && ie <= 9 && op.chunk_size && op.runtimes.indexOf('flash') >= 0) {
+	                if (ie && ie <= 9 && op.chunk_size && op.runtimes.indexOf('flash') < 0) {
+	                    //  link: http://www.plupload.com/docs/Frequently-Asked-Questions#when-to-use-chunking-and-when-not
+	                    //  when plupload chunk_size setting is't null ,it cause bug in ie8/9  which runs  flash runtimes (not support html5) .
+	                    op.chunk_size = 0;
+	                } else if (isSpecialSafari) {
+	                    // win7 safari / iOS7 safari have bug when in chunk upload mode
+	                    // reset chunk_size to 0
+	                    // disable chunk in special version safari
+	                    op.chunk_size = 0;
+	                } else {
+	                    BLOCK_BITS = 20;
+	                    MAX_CHUNK_SIZE = 4 << BLOCK_BITS; //4M
+
+	                    chunk_size = plupload.parseSize(op.chunk_size);
+	                    if (chunk_size > MAX_CHUNK_SIZE) {
+	                        op.chunk_size = MAX_CHUNK_SIZE;
+	                    }
+	                    // qiniu service  max_chunk_size is 4m
+	                    // reset chunk_size to max_chunk_size(4m) when chunk_size > 4m
+	                }
+	                // if op.chunk_size set 0 will be cause to direct upload
+	            };
+
+	            // if op.uptoken has no value
+	            //      get token from 'uptoken_url'
+	            // else
+	            //      set token to be op.uptoken
+	            var getUpToken = function getUpToken() {
+	                if (!op.uptoken) {
+	                    // TODO: use mOxie
+	                    var ajax = that.createAjax();
+	                    ajax.open('GET', that.uptoken_url, true);
+	                    ajax.setRequestHeader("If-Modified-Since", "0");
+	                    ajax.onreadystatechange = function () {
+	                        if (ajax.readyState === 4 && ajax.status === 200) {
+	                            var res = that.parseJSON(ajax.responseText);
+	                            that.token = res.uptoken;
+	                        }
+	                    };
+	                    ajax.send();
+	                } else {
+	                    that.token = op.uptoken;
+	                }
+	            };
+
+	            // get file key according with the user passed options
+	            var getFileKey = function getFileKey(up, file, func) {
+	                // TODO: save_key can read from scope of token
+	                var key = '',
+	                    unique_names = false;
+	                if (!op.save_key) {
+	                    unique_names = up.getOption && up.getOption('unique_names');
+	                    unique_names = unique_names || up.settings && up.settings.unique_names;
+	                    if (unique_names) {
+	                        var ext = that.getFileExtension(file.name);
+	                        key = ext ? file.id + '.' + ext : file.id;
+	                    } else if (typeof func === 'function') {
+	                        key = func(up, file);
+	                    } else {
+	                        key = file.name;
+	                    }
+	                }
+	                return key;
+	            };
+
+	            /********** inner function define end **********/
+
+	            if (op.log_level) {
+	                logger.level = op.log_level;
+	            }
+
+	            if (!op.domain) {
+	                throw 'domain setting in options is required!';
+	            }
+
+	            if (!op.browse_button) {
+	                throw 'browse_button setting in options is required!';
+	            }
+
+	            logger.debug("init uploader start");
+
+	            logger.debug("environment: ", mOxie.Env);
+
+	            logger.debug("userAgent: ", navigator.userAgent);
+
+	            var option = {};
+
+	            // hold the handler from user passed options
+	            var _Error_Handler = op.init && op.init.Error;
+	            var _FileUploaded_Handler = op.init && op.init.FileUploaded;
+
+	            // replace the handler for intercept
+	            op.init.Error = function () {};
+	            op.init.FileUploaded = function () {};
+
+	            that.uptoken_url = op.uptoken_url;
+	            that.token = '';
+	            that.key_handler = typeof op.init.Key === 'function' ? op.init.Key : '';
+	            this.domain = op.domain;
+	            // TODO: ctx is global in scope of a uploader instance
+	            // this maybe cause error
+	            var ctx = '';
+	            var speedCalInfo = {
+	                isResumeUpload: false,
+	                resumeFilesize: 0,
+	                startTime: '',
+	                currentTime: ''
+	            };
+
+	            reset_chunk_size();
+	            logger.debug("invoke reset_chunk_size()");
+	            logger.debug("op.chunk_size: ", op.chunk_size);
+
+	            // compose options with user passed options and default setting
+	            plupload.extend(option, op, {
+	                url: qiniuUploadUrl,
+	                multipart_params: {
+	                    token: ''
+	                }
+	            });
+
+	            logger.debug("option: ", option);
+
+	            // create a new uploader with composed options
+	            var uploader = new plupload.Uploader(option);
+
+	            logger.debug("new plupload.Uploader(option)");
+
+	            // bind getUpToken to 'Init' event
+	            uploader.bind('Init', function (up, params) {
+	                logger.debug("Init event activated");
+	                // if op.get_new_uptoken is not true
+	                //      invoke getUptoken when uploader init
+	                // else
+	                //      getUptoken everytime before a new file upload
+	                if (!op.get_new_uptoken) {
+	                    getUpToken();
+	                }
+	                getUpToken();
+	            });
+
+	            logger.debug("bind Init event");
+
+	            // bind 'FilesAdded' event
+	            // when file be added and auto_start has set value
+	            // uploader will auto start upload the file
+	            uploader.bind('FilesAdded', function (up, files) {
+	                logger.debug("FilesAdded event activated");
+	                var auto_start = up.getOption && up.getOption('auto_start');
+	                auto_start = auto_start || up.settings && up.settings.auto_start;
+	                logger.debug("auto_start: ", auto_start);
+	                logger.debug("files: ", files);
+	                if (auto_start) {
+	                    setTimeout(function () {
+	                        up.start();
+	                        logger.debug("invoke up.start()");
+	                    }, 0);
+	                    // up.start();
+	                    // plupload.each(files, function(i, file) {
+	                    //     up.start();
+	                    //     logger.debug("invoke up.start()")
+	                    //     logger.debug("file: ", file);
+	                    // });
+	                }
+	                up.refresh(); // Reposition Flash/Silverlight
+	            });
+
+	            logger.debug("bind FilesAdded event");
+
+	            // bind 'BeforeUpload' event
+	            // intercept the process of upload
+	            // - prepare uptoken
+	            // - according the chunk size to make differnt upload strategy
+	            // - resume upload with the last breakpoint of file
+	            uploader.bind('BeforeUpload', function (up, file) {
+	                logger.debug("BeforeUpload event activated");
+	                // add a key named speed for file object
+	                file.speed = file.speed || 0;
+	                ctx = '';
+
+	                if (op.get_new_uptoken) {
+	                    getUpToken();
+	                }
+
+	                var directUpload = function directUpload(up, file, func) {
+	                    speedCalInfo.startTime = new Date().getTime();
+	                    var multipart_params_obj;
+	                    if (op.save_key) {
+	                        multipart_params_obj = {
+	                            'token': that.token
+	                        };
+	                    } else {
+	                        multipart_params_obj = {
+	                            'key': getFileKey(up, file, func),
+	                            'token': that.token
+	                        };
+	                    }
+
+	                    logger.debug("directUpload multipart_params_obj: ", multipart_params_obj);
+
+	                    var x_vars = op.x_vars;
+	                    if (x_vars !== undefined && (typeof x_vars === "undefined" ? "undefined" : _typeof(x_vars)) === 'object') {
+	                        for (var x_key in x_vars) {
+	                            if (x_vars.hasOwnProperty(x_key)) {
+	                                if (typeof x_vars[x_key] === 'function') {
+	                                    multipart_params_obj['x:' + x_key] = x_vars[x_key](up, file);
+	                                } else if (_typeof(x_vars[x_key]) !== 'object') {
+	                                    multipart_params_obj['x:' + x_key] = x_vars[x_key];
+	                                }
+	                            }
+	                        }
+	                    }
+
+	                    up.setOption({
+	                        'url': qiniuUploadUrl,
+	                        'multipart': true,
+	                        'chunk_size': is_android_weixin_or_qq() ? op.max_file_size : undefined,
+	                        'multipart_params': multipart_params_obj
+	                    });
+	                };
+
+	                // detect is weixin or qq inner browser
+	                var is_android_weixin_or_qq = function is_android_weixin_or_qq() {
+	                    var ua = navigator.userAgent.toLowerCase();
+	                    if ((ua.match(/MicroMessenger/i) || mOxie.Env.browser === "QQBrowser" || ua.match(/V1_AND_SQ/i)) && mOxie.Env.OS.toLowerCase() === "android") {
+	                        return true;
+	                    } else {
+	                        return false;
+	                    }
+	                };
+
+	                var chunk_size = up.getOption && up.getOption('chunk_size');
+	                chunk_size = chunk_size || up.settings && up.settings.chunk_size;
+
+	                logger.debug("uploader.runtime: ", uploader.runtime);
+	                logger.debug("chunk_size: ", chunk_size);
+
+	                // TODO: flash support chunk upload
+	                if ((uploader.runtime === 'html5' || uploader.runtime === 'flash') && chunk_size) {
+	                    if (file.size < chunk_size || is_android_weixin_or_qq()) {
+	                        logger.debug("directUpload because file.size < chunk_size || is_android_weixin_or_qq()");
+	                        // direct upload if file size is less then the chunk size
+	                        directUpload(up, file, that.key_handler);
+	                    } else {
+	                        // TODO: need a polifill to make it work in IE 9-
+	                        // ISSUE: if file.name is existed in localStorage
+	                        // but not the same file maybe cause error
+	                        var localFileInfo = localStorage.getItem(file.name);
+	                        var blockSize = chunk_size;
+	                        if (localFileInfo) {
+	                            // TODO: although only the html5 runtime will enter this statement
+	                            // but need uniform way to make convertion between string and json
+	                            localFileInfo = that.parseJSON(localFileInfo);
+	                            var now = new Date().getTime();
+	                            var before = localFileInfo.time || 0;
+	                            var aDay = 24 * 60 * 60 * 1000; //  milliseconds of one day
+	                            // if the last upload time is within one day
+	                            //      will upload continuously follow the last breakpoint
+	                            // else
+	                            //      will reupload entire file
+	                            if (now - before < aDay) {
+
+	                                if (localFileInfo.percent !== 100) {
+	                                    if (file.size === localFileInfo.total) {
+	                                        // TODO: if file.name and file.size is the same
+	                                        // but not the same file will cause error
+	                                        file.percent = localFileInfo.percent;
+	                                        file.loaded = localFileInfo.offset;
+	                                        ctx = localFileInfo.ctx;
+
+	                                        // set speed info
+	                                        speedCalInfo.isResumeUpload = true;
+	                                        speedCalInfo.resumeFilesize = localFileInfo.offset;
+
+	                                        // set block size
+	                                        if (localFileInfo.offset + blockSize > file.size) {
+	                                            blockSize = file.size - localFileInfo.offset;
+	                                        }
+	                                    } else {
+	                                        // remove file info when file.size is conflict with file info
+	                                        localStorage.removeItem(file.name);
+	                                    }
+	                                } else {
+	                                    // remove file info when upload percent is 100%
+	                                    // avoid 499 bug
+	                                    localStorage.removeItem(file.name);
+	                                }
+	                            } else {
+	                                // remove file info when last upload time is over one day
+	                                localStorage.removeItem(file.name);
+	                            }
+	                        }
+	                        speedCalInfo.startTime = new Date().getTime();
+	                        // TODO: to support bput
+	                        // http://developer.qiniu.com/docs/v6/api/reference/up/bput.html
+	                        up.setOption({
+	                            'url': qiniuUploadUrl + '/mkblk/' + blockSize,
+	                            'multipart': false,
+	                            'chunk_size': chunk_size,
+	                            'required_features': "chunks",
+	                            'headers': {
+	                                'Authorization': 'UpToken ' + that.token
+	                            },
+	                            'multipart_params': {}
+	                        });
+	                    }
+	                } else {
+	                    logger.debug("directUpload because uploader.runtime !== 'html5' || uploader.runtime !== 'flash' || !chunk_size");
+	                    // direct upload if runtime is not html5
+	                    directUpload(up, file, that.key_handler);
+	                }
+	            });
+
+	            logger.debug("bind BeforeUpload event");
+
+	            // bind 'UploadProgress' event
+	            // calculate upload speed
+	            uploader.bind('UploadProgress', function (up, file) {
+	                logger.trace("UploadProgress event activated");
+	                speedCalInfo.currentTime = new Date().getTime();
+	                var timeUsed = speedCalInfo.currentTime - speedCalInfo.startTime; // ms
+	                var fileUploaded = file.loaded || 0;
+	                if (speedCalInfo.isResumeUpload) {
+	                    fileUploaded = file.loaded - speedCalInfo.resumeFilesize;
+	                }
+	                file.speed = (fileUploaded / timeUsed * 1000).toFixed(0) || 0; // unit: byte/s
+	            });
+
+	            logger.debug("bind UploadProgress event");
+
+	            // bind 'ChunkUploaded' event
+	            // store the chunk upload info and set next chunk upload url
+	            uploader.bind('ChunkUploaded', function (up, file, info) {
+	                logger.debug("ChunkUploaded event activated");
+	                logger.debug("file: ", file);
+	                logger.debug("info: ", info);
+	                var res = that.parseJSON(info.response);
+	                logger.debug("res: ", res);
+	                // ctx should look like '[chunk01_ctx],[chunk02_ctx],[chunk03_ctx],...'
+	                ctx = ctx ? ctx + ',' + res.ctx : res.ctx;
+	                var leftSize = info.total - info.offset;
+	                var chunk_size = up.getOption && up.getOption('chunk_size');
+	                chunk_size = chunk_size || up.settings && up.settings.chunk_size;
+	                if (leftSize < chunk_size) {
+	                    up.setOption({
+	                        'url': qiniuUploadUrl + '/mkblk/' + leftSize
+	                    });
+	                    logger.debug("up.setOption url: ", qiniuUploadUrl + '/mkblk/' + leftSize);
+	                }
+	                localStorage.setItem(file.name, that.stringifyJSON({
+	                    ctx: ctx,
+	                    percent: file.percent,
+	                    total: info.total,
+	                    offset: info.offset,
+	                    time: new Date().getTime()
+	                }));
+	            });
+
+	            logger.debug("bind ChunkUploaded event");
+
+	            var retries = qiniuUploadUrls.length;
+
+	            // if error is unkown switch upload url and retry
+	            var unknow_error_retry = function unknow_error_retry(file) {
+	                if (retries-- > 0) {
+	                    setTimeout(function () {
+	                        that.resetUploadUrl();
+	                        file.status = plupload.QUEUED;
+	                        uploader.stop();
+	                        uploader.start();
+	                    }, 0);
+	                    return true;
+	                } else {
+	                    retries = qiniuUploadUrls.length;
+	                    return false;
+	                }
+	            };
+
+	            // bind 'Error' event
+	            // check the err.code and return the errTip
+	            uploader.bind('Error', function (_Error_Handler) {
+	                return function (up, err) {
+	                    logger.error("Error event activated");
+	                    logger.error("err: ", err);
+	                    var errTip = '';
+	                    var file = err.file;
+	                    if (file) {
+	                        switch (err.code) {
+	                            case plupload.FAILED:
+	                                errTip = '上传失败。请稍后再试。';
+	                                break;
+	                            case plupload.FILE_SIZE_ERROR:
+	                                var max_file_size = up.getOption && up.getOption('max_file_size');
+	                                max_file_size = max_file_size || up.settings && up.settings.max_file_size;
+	                                errTip = '浏览器最大可上传' + max_file_size + '。更大文件请使用命令行工具。';
+	                                break;
+	                            case plupload.FILE_EXTENSION_ERROR:
+	                                errTip = '文件验证失败。请稍后重试。';
+	                                break;
+	                            case plupload.HTTP_ERROR:
+	                                if (err.response === '') {
+	                                    // Fix parseJSON error ,when http error is like net::ERR_ADDRESS_UNREACHABLE
+	                                    errTip = err.message || '未知网络错误。';
+	                                    if (!unknow_error_retry(file)) {
+	                                        return;
+	                                    }
+	                                    break;
+	                                }
+	                                var errorObj = that.parseJSON(err.response);
+	                                var errorText = errorObj.error;
+	                                switch (err.status) {
+	                                    case 400:
+	                                        errTip = "请求报文格式错误。";
+	                                        break;
+	                                    case 401:
+	                                        errTip = "客户端认证授权失败。请重试或提交反馈。";
+	                                        break;
+	                                    case 405:
+	                                        errTip = "客户端请求错误。请重试或提交反馈。";
+	                                        break;
+	                                    case 579:
+	                                        errTip = "资源上传成功，但回调失败。";
+	                                        break;
+	                                    case 599:
+	                                        errTip = "网络连接异常。请重试或提交反馈。";
+	                                        if (!unknow_error_retry(file)) {
+	                                            return;
+	                                        }
+	                                        break;
+	                                    case 614:
+	                                        errTip = "文件已存在。";
+	                                        try {
+	                                            errorObj = that.parseJSON(errorObj.error);
+	                                            errorText = errorObj.error || 'file exists';
+	                                        } catch (e) {
+	                                            errorText = errorObj.error || 'file exists';
+	                                        }
+	                                        break;
+	                                    case 631:
+	                                        errTip = "指定空间不存在。";
+	                                        break;
+	                                    case 701:
+	                                        errTip = "上传数据块校验出错。请重试或提交反馈。";
+	                                        break;
+	                                    default:
+	                                        errTip = "未知错误。";
+	                                        if (!unknow_error_retry(file)) {
+	                                            return;
+	                                        }
+	                                        break;
+	                                }
+	                                errTip = errTip + '(' + err.status + '：' + errorText + ')';
+	                                break;
+	                            case plupload.SECURITY_ERROR:
+	                                errTip = '安全配置错误。请联系网站管理员。';
+	                                break;
+	                            case plupload.GENERIC_ERROR:
+	                                errTip = '上传失败。请稍后再试。';
+	                                break;
+	                            case plupload.IO_ERROR:
+	                                errTip = '上传失败。请稍后再试。';
+	                                break;
+	                            case plupload.INIT_ERROR:
+	                                errTip = '网站配置错误。请联系网站管理员。';
+	                                uploader.destroy();
+	                                break;
+	                            default:
+	                                errTip = err.message + err.details;
+	                                if (!unknow_error_retry(file)) {
+	                                    return;
+	                                }
+	                                break;
+	                        }
+	                        if (_Error_Handler) {
+	                            _Error_Handler(up, err, errTip);
+	                        }
+	                    }
+	                    up.refresh(); // Reposition Flash/Silverlight
+	                };
+	            }(_Error_Handler));
+
+	            logger.debug("bind Error event");
+
+	            // bind 'FileUploaded' event
+	            // intercept the complete of upload
+	            // - get downtoken from downtoken_url if bucket is private
+	            // - invoke mkfile api to compose chunks if upload strategy is chunk upload
+	            uploader.bind('FileUploaded', function (_FileUploaded_Handler) {
+	                return function (up, file, info) {
+	                    logger.debug("FileUploaded event activated");
+	                    logger.debug("file: ", file);
+	                    logger.debug("info: ", info);
+	                    var last_step = function last_step(up, file, info) {
+	                        if (op.downtoken_url) {
+	                            // if op.dowontoken_url is not empty
+	                            // need get downtoken before invoke the _FileUploaded_Handler
+	                            var ajax_downtoken = that.createAjax();
+	                            ajax_downtoken.open('POST', op.downtoken_url, true);
+	                            ajax_downtoken.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	                            ajax_downtoken.onreadystatechange = function () {
+	                                if (ajax_downtoken.readyState === 4) {
+	                                    if (ajax_downtoken.status === 200) {
+	                                        var res_downtoken;
+	                                        try {
+	                                            res_downtoken = that.parseJSON(ajax_downtoken.responseText);
+	                                        } catch (e) {
+	                                            throw 'invalid json format';
+	                                        }
+	                                        var info_extended = {};
+	                                        plupload.extend(info_extended, that.parseJSON(info), res_downtoken);
+	                                        if (_FileUploaded_Handler) {
+	                                            _FileUploaded_Handler(up, file, that.stringifyJSON(info_extended));
+	                                        }
+	                                    } else {
+	                                        uploader.trigger('Error', {
+	                                            status: ajax_downtoken.status,
+	                                            response: ajax_downtoken.responseText,
+	                                            file: file,
+	                                            code: plupload.HTTP_ERROR
+	                                        });
+	                                    }
+	                                }
+	                            };
+	                            ajax_downtoken.send('key=' + that.parseJSON(info).key + '&domain=' + op.domain);
+	                        } else if (_FileUploaded_Handler) {
+	                            _FileUploaded_Handler(up, file, info);
+	                        }
+	                    };
+
+	                    var res = that.parseJSON(info.response);
+	                    ctx = ctx ? ctx : res.ctx;
+	                    // if ctx is not empty
+	                    //      that means the upload strategy is chunk upload
+	                    //      befroe the invoke the last_step
+	                    //      we need request the mkfile to compose all uploaded chunks
+	                    // else
+	                    //      invalke the last_step
+	                    logger.debug("ctx: ", ctx);
+	                    if (ctx) {
+	                        var key = '';
+	                        logger.debug("save_key: ", op.save_key);
+	                        if (!op.save_key) {
+	                            key = getFileKey(up, file, that.key_handler);
+	                            key = key ? '/key/' + that.URLSafeBase64Encode(key) : '';
+	                        }
+
+	                        var fname = '/fname/' + that.URLSafeBase64Encode(file.name);
+
+	                        logger.debug("op.x_vars: ", op.x_vars);
+	                        var x_vars = op.x_vars,
+	                            x_val = '',
+	                            x_vars_url = '';
+	                        if (x_vars !== undefined && (typeof x_vars === "undefined" ? "undefined" : _typeof(x_vars)) === 'object') {
+	                            for (var x_key in x_vars) {
+	                                if (x_vars.hasOwnProperty(x_key)) {
+	                                    if (typeof x_vars[x_key] === 'function') {
+	                                        x_val = that.URLSafeBase64Encode(x_vars[x_key](up, file));
+	                                    } else if (_typeof(x_vars[x_key]) !== 'object') {
+	                                        x_val = that.URLSafeBase64Encode(x_vars[x_key]);
+	                                    }
+	                                    x_vars_url += '/x:' + x_key + '/' + x_val;
+	                                }
+	                            }
+	                        }
+
+	                        var url = qiniuUploadUrl + '/mkfile/' + file.size + key + fname + x_vars_url;
+
+	                        var ie = that.detectIEVersion();
+	                        var ajax;
+	                        if (ie && ie <= 9) {
+	                            ajax = new mOxie.XMLHttpRequest();
+	                            mOxie.Env.swf_url = op.flash_swf_url;
+	                        } else {
+	                            ajax = that.createAjax();
+	                        }
+	                        ajax.open('POST', url, true);
+	                        ajax.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');
+	                        ajax.setRequestHeader('Authorization', 'UpToken ' + that.token);
+	                        var onreadystatechange = function onreadystatechange() {
+	                            logger.debug("ajax.readyState: ", ajax.readyState);
+	                            if (ajax.readyState === 4) {
+	                                localStorage.removeItem(file.name);
+	                                var info;
+	                                if (ajax.status === 200) {
+	                                    info = ajax.responseText;
+	                                    logger.debug("mkfile is success: ", info);
+	                                    last_step(up, file, info);
+	                                } else {
+	                                    info = {
+	                                        status: ajax.status,
+	                                        response: ajax.responseText,
+	                                        file: file,
+	                                        code: -200
+	                                    };
+	                                    logger.debug("mkfile is error: ", info);
+	                                    uploader.trigger('Error', info);
+	                                }
+	                            }
+	                        };
+	                        if (ie && ie <= 9) {
+	                            ajax.bind('readystatechange', onreadystatechange);
+	                        } else {
+	                            ajax.onreadystatechange = onreadystatechange;
+	                        }
+	                        ajax.send(ctx);
+	                        logger.debug("mkfile: ", url);
+	                    } else {
+	                        last_step(up, file, info.response);
+	                    }
+	                };
+	            }(_FileUploaded_Handler));
+
+	            logger.debug("bind FileUploaded event");
+
+	            // init uploader
+	            uploader.init();
+
+	            logger.debug("invoke uploader.init()");
+
+	            logger.debug("init uploader end");
+
+	            return uploader;
+	        };
+
+	        /**
+	         * get url by key
+	         * @param  {String} key of file
+	         * @return {String} url of file
+	         */
+	        this.getUrl = function (key) {
+	            if (!key) {
+	                return false;
+	            }
+	            key = encodeURI(key);
+	            var domain = this.domain;
+	            if (domain.slice(domain.length - 1) !== '/') {
+	                domain = domain + '/';
+	            }
+	            return domain + key;
+	        };
+
+	        /**
+	         * invoke the imageView2 api of Qiniu
+	         * @param  {Object} api params
+	         * @param  {String} key of file
+	         * @return {String} url of processed image
+	         */
+	        this.imageView2 = function (op, key) {
+	            var mode = op.mode || '',
+	                w = op.w || '',
+	                h = op.h || '',
+	                q = op.q || '',
+	                format = op.format || '';
+	            if (!mode) {
+	                return false;
+	            }
+	            if (!w && !h) {
+	                return false;
+	            }
+
+	            var imageUrl = 'imageView2/' + mode;
+	            imageUrl += w ? '/w/' + w : '';
+	            imageUrl += h ? '/h/' + h : '';
+	            imageUrl += q ? '/q/' + q : '';
+	            imageUrl += format ? '/format/' + format : '';
+	            if (key) {
+	                imageUrl = this.getUrl(key) + '?' + imageUrl;
+	            }
+	            return imageUrl;
+	        };
+
+	        /**
+	         * invoke the imageMogr2 api of Qiniu
+	         * @param  {Object} api params
+	         * @param  {String} key of file
+	         * @return {String} url of processed image
+	         */
+	        this.imageMogr2 = function (op, key) {
+	            var auto_orient = op['auto-orient'] || '',
+	                thumbnail = op.thumbnail || '',
+	                strip = op.strip || '',
+	                gravity = op.gravity || '',
+	                crop = op.crop || '',
+	                quality = op.quality || '',
+	                rotate = op.rotate || '',
+	                format = op.format || '',
+	                blur = op.blur || '';
+	            //Todo check option
+
+	            var imageUrl = 'imageMogr2';
+
+	            imageUrl += auto_orient ? '/auto-orient' : '';
+	            imageUrl += thumbnail ? '/thumbnail/' + thumbnail : '';
+	            imageUrl += strip ? '/strip' : '';
+	            imageUrl += gravity ? '/gravity/' + gravity : '';
+	            imageUrl += quality ? '/quality/' + quality : '';
+	            imageUrl += crop ? '/crop/' + crop : '';
+	            imageUrl += rotate ? '/rotate/' + rotate : '';
+	            imageUrl += format ? '/format/' + format : '';
+	            imageUrl += blur ? '/blur/' + blur : '';
+
+	            if (key) {
+	                imageUrl = this.getUrl(key) + '?' + imageUrl;
+	            }
+	            return imageUrl;
+	        };
+
+	        /**
+	         * invoke the watermark api of Qiniu
+	         * @param  {Object} api params
+	         * @param  {String} key of file
+	         * @return {String} url of processed image
+	         */
+	        this.watermark = function (op, key) {
+	            var mode = op.mode;
+	            if (!mode) {
+	                return false;
+	            }
+
+	            var imageUrl = 'watermark/' + mode;
+
+	            if (mode === 1) {
+	                var image = op.image || '';
+	                if (!image) {
+	                    return false;
+	                }
+	                imageUrl += image ? '/image/' + this.URLSafeBase64Encode(image) : '';
+	            } else if (mode === 2) {
+	                var text = op.text ? op.text : '',
+	                    font = op.font ? op.font : '',
+	                    fontsize = op.fontsize ? op.fontsize : '',
+	                    fill = op.fill ? op.fill : '';
+	                if (!text) {
+	                    return false;
+	                }
+	                imageUrl += text ? '/text/' + this.URLSafeBase64Encode(text) : '';
+	                imageUrl += font ? '/font/' + this.URLSafeBase64Encode(font) : '';
+	                imageUrl += fontsize ? '/fontsize/' + fontsize : '';
+	                imageUrl += fill ? '/fill/' + this.URLSafeBase64Encode(fill) : '';
+	            } else {
+	                // Todo mode3
+	                return false;
+	            }
+
+	            var dissolve = op.dissolve || '',
+	                gravity = op.gravity || '',
+	                dx = op.dx || '',
+	                dy = op.dy || '';
+
+	            imageUrl += dissolve ? '/dissolve/' + dissolve : '';
+	            imageUrl += gravity ? '/gravity/' + gravity : '';
+	            imageUrl += dx ? '/dx/' + dx : '';
+	            imageUrl += dy ? '/dy/' + dy : '';
+
+	            if (key) {
+	                imageUrl = this.getUrl(key) + '?' + imageUrl;
+	            }
+	            return imageUrl;
+	        };
+
+	        /**
+	         * invoke the imageInfo api of Qiniu
+	         * @param  {String} key of file
+	         * @return {Object} image info
+	         */
+	        this.imageInfo = function (key) {
+	            if (!key) {
+	                return false;
+	            }
+	            var url = this.getUrl(key) + '?imageInfo';
+	            var xhr = this.createAjax();
+	            var info;
+	            var that = this;
+	            xhr.open('GET', url, false);
+	            xhr.onreadystatechange = function () {
+	                if (xhr.readyState === 4 && xhr.status === 200) {
+	                    info = that.parseJSON(xhr.responseText);
+	                }
+	            };
+	            xhr.send();
+	            return info;
+	        };
+
+	        /**
+	         * invoke the exif api of Qiniu
+	         * @param  {String} key of file
+	         * @return {Object} image exif
+	         */
+	        this.exif = function (key) {
+	            if (!key) {
+	                return false;
+	            }
+	            var url = this.getUrl(key) + '?exif';
+	            var xhr = this.createAjax();
+	            var info;
+	            var that = this;
+	            xhr.open('GET', url, false);
+	            xhr.onreadystatechange = function () {
+	                if (xhr.readyState === 4 && xhr.status === 200) {
+	                    info = that.parseJSON(xhr.responseText);
+	                }
+	            };
+	            xhr.send();
+	            return info;
+	        };
+
+	        /**
+	         * invoke the exif or imageInfo api of Qiniu
+	         * according with type param
+	         * @param  {String} ['exif'|'imageInfo']type of info
+	         * @param  {String} key of file
+	         * @return {Object} image exif or info
+	         */
+	        this.get = function (type, key) {
+	            if (!key || !type) {
+	                return false;
+	            }
+	            if (type === 'exif') {
+	                return this.exif(key);
+	            } else if (type === 'imageInfo') {
+	                return this.imageInfo(key);
+	            }
+	            return false;
+	        };
+
+	        /**
+	         * invoke api of Qiniu like a pipeline
+	         * @param  {Array of Object} params of a series api call
+	         * each object in array is options of api which name is set as 'fop' property
+	         * each api's output will be next api's input
+	         * @param  {String} key of file
+	         * @return {String|Boolean} url of processed image
+	         */
+	        this.pipeline = function (arr, key) {
+	            var isArray = Object.prototype.toString.call(arr) === '[object Array]';
+	            var option,
+	                errOp,
+	                imageUrl = '';
+	            if (isArray) {
+	                for (var i = 0, len = arr.length; i < len; i++) {
+	                    option = arr[i];
+	                    if (!option.fop) {
+	                        return false;
+	                    }
+	                    switch (option.fop) {
+	                        case 'watermark':
+	                            imageUrl += this.watermark(option) + '|';
+	                            break;
+	                        case 'imageView2':
+	                            imageUrl += this.imageView2(option) + '|';
+	                            break;
+	                        case 'imageMogr2':
+	                            imageUrl += this.imageMogr2(option) + '|';
+	                            break;
+	                        default:
+	                            errOp = true;
+	                            break;
+	                    }
+	                    if (errOp) {
+	                        return false;
+	                    }
+	                }
+	                if (key) {
+	                    imageUrl = this.getUrl(key) + '?' + imageUrl;
+	                    var length = imageUrl.length;
+	                    if (imageUrl.slice(length - 1) === '|') {
+	                        imageUrl = imageUrl.slice(0, length - 1);
+	                    }
+	                }
+	                return imageUrl;
+	            }
+	            return false;
+	        };
+	    }
+
+	    var Qiniu = new QiniuJsSDK();
+
+	    global.Qiniu = Qiniu;
+
+	    global.QiniuJsSDK = QiniuJsSDK;
+	})(window);
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(235);
+	var content = __webpack_require__(238);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(195)(content, {});
@@ -27331,7 +31086,7 @@
 	}
 
 /***/ },
-/* 235 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(194)();
@@ -27345,12 +31100,12 @@
 
 
 /***/ },
-/* 236 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _jquery = __webpack_require__(237);
+	var _jquery = __webpack_require__(240);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -27365,7 +31120,7 @@
 	exports.load_activity = function () {
 	    return function (dispatch, getState) {
 	        dispatch(exports.is_fetching());
-	        _jquery2.default.getJSON("http://inner.journey.404mzk.com/v1/Activity_Controller/query", [], function (result) {
+	        _jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query', [], function (result) {
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action(result.data));
 	        });
@@ -27396,7 +31151,7 @@
 	};
 
 /***/ },
-/* 237 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -37439,13 +41194,13 @@
 
 
 /***/ },
-/* 238 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(239);
+	var content = __webpack_require__(242);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(195)(content, {});
@@ -37465,7 +41220,7 @@
 	}
 
 /***/ },
-/* 239 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(194)();
@@ -37479,18 +41234,18 @@
 
 
 /***/ },
-/* 240 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _redux = __webpack_require__(175);
 
-	var _reduxThunk = __webpack_require__(241);
+	var _reduxThunk = __webpack_require__(244);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _index = __webpack_require__(242);
+	var _index = __webpack_require__(245);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37501,7 +41256,7 @@
 	    */
 
 /***/ },
-/* 241 */
+/* 244 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37529,14 +41284,14 @@
 	exports['default'] = thunk;
 
 /***/ },
-/* 242 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _redux = __webpack_require__(175);
 
-	var _activity = __webpack_require__(243);
+	var _activity = __webpack_require__(246);
 
 	/**
 	 * Created by maizhikun on 16/6/26.
@@ -37548,7 +41303,7 @@
 	});
 
 /***/ },
-/* 243 */
+/* 246 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37578,7 +41333,7 @@
 	};
 
 /***/ },
-/* 244 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37591,7 +41346,7 @@
 
 	var _react = __webpack_require__(1);
 
-	var _getMuiTheme = __webpack_require__(245);
+	var _getMuiTheme = __webpack_require__(248);
 
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
@@ -37639,7 +41394,7 @@
 	exports.default = MuiThemeProvider;
 
 /***/ },
-/* 245 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37649,41 +41404,41 @@
 	});
 	exports.default = getMuiTheme;
 
-	var _merge = __webpack_require__(246);
+	var _merge = __webpack_require__(249);
 
 	var _merge2 = _interopRequireDefault(_merge);
 
 	var _colorManipulator = __webpack_require__(221);
 
-	var _lightBaseTheme = __webpack_require__(358);
+	var _lightBaseTheme = __webpack_require__(361);
 
 	var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
 
-	var _zIndex = __webpack_require__(361);
+	var _zIndex = __webpack_require__(364);
 
 	var _zIndex2 = _interopRequireDefault(_zIndex);
 
-	var _autoprefixer = __webpack_require__(362);
+	var _autoprefixer = __webpack_require__(365);
 
 	var _autoprefixer2 = _interopRequireDefault(_autoprefixer);
 
-	var _callOnce = __webpack_require__(396);
+	var _callOnce = __webpack_require__(399);
 
 	var _callOnce2 = _interopRequireDefault(_callOnce);
 
-	var _rtl = __webpack_require__(397);
+	var _rtl = __webpack_require__(400);
 
 	var _rtl2 = _interopRequireDefault(_rtl);
 
-	var _compose = __webpack_require__(398);
+	var _compose = __webpack_require__(401);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _typography = __webpack_require__(399);
+	var _typography = __webpack_require__(402);
 
 	var _typography2 = _interopRequireDefault(_typography);
 
-	var _colors = __webpack_require__(359);
+	var _colors = __webpack_require__(362);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38009,11 +41764,11 @@
 	}
 
 /***/ },
-/* 246 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseMerge = __webpack_require__(247),
-	    createAssigner = __webpack_require__(350);
+	var baseMerge = __webpack_require__(250),
+	    createAssigner = __webpack_require__(353);
 
 	/**
 	 * This method is like `_.assign` except that it recursively merges own and
@@ -38054,17 +41809,17 @@
 
 
 /***/ },
-/* 247 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stack = __webpack_require__(248),
-	    arrayEach = __webpack_require__(288),
-	    assignMergeValue = __webpack_require__(289),
-	    baseMergeDeep = __webpack_require__(290),
-	    isArray = __webpack_require__(306),
-	    isObject = __webpack_require__(270),
-	    isTypedArray = __webpack_require__(344),
-	    keysIn = __webpack_require__(346);
+	var Stack = __webpack_require__(251),
+	    arrayEach = __webpack_require__(291),
+	    assignMergeValue = __webpack_require__(292),
+	    baseMergeDeep = __webpack_require__(293),
+	    isArray = __webpack_require__(309),
+	    isObject = __webpack_require__(273),
+	    isTypedArray = __webpack_require__(347),
+	    keysIn = __webpack_require__(349);
 
 	/**
 	 * The base implementation of `_.merge` without support for multiple sources.
@@ -38110,15 +41865,15 @@
 
 
 /***/ },
-/* 248 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249),
-	    stackClear = __webpack_require__(257),
-	    stackDelete = __webpack_require__(258),
-	    stackGet = __webpack_require__(259),
-	    stackHas = __webpack_require__(260),
-	    stackSet = __webpack_require__(261);
+	var ListCache = __webpack_require__(252),
+	    stackClear = __webpack_require__(260),
+	    stackDelete = __webpack_require__(261),
+	    stackGet = __webpack_require__(262),
+	    stackHas = __webpack_require__(263),
+	    stackSet = __webpack_require__(264);
 
 	/**
 	 * Creates a stack cache object to store key-value pairs.
@@ -38142,14 +41897,14 @@
 
 
 /***/ },
-/* 249 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var listCacheClear = __webpack_require__(250),
-	    listCacheDelete = __webpack_require__(251),
-	    listCacheGet = __webpack_require__(254),
-	    listCacheHas = __webpack_require__(255),
-	    listCacheSet = __webpack_require__(256);
+	var listCacheClear = __webpack_require__(253),
+	    listCacheDelete = __webpack_require__(254),
+	    listCacheGet = __webpack_require__(257),
+	    listCacheHas = __webpack_require__(258),
+	    listCacheSet = __webpack_require__(259);
 
 	/**
 	 * Creates an list cache object.
@@ -38180,7 +41935,7 @@
 
 
 /***/ },
-/* 250 */
+/* 253 */
 /***/ function(module, exports) {
 
 	/**
@@ -38198,10 +41953,10 @@
 
 
 /***/ },
-/* 251 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(255);
 
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -38238,10 +41993,10 @@
 
 
 /***/ },
-/* 252 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253);
+	var eq = __webpack_require__(256);
 
 	/**
 	 * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -38265,7 +42020,7 @@
 
 
 /***/ },
-/* 253 */
+/* 256 */
 /***/ function(module, exports) {
 
 	/**
@@ -38308,10 +42063,10 @@
 
 
 /***/ },
-/* 254 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(255);
 
 	/**
 	 * Gets the list cache value for `key`.
@@ -38333,10 +42088,10 @@
 
 
 /***/ },
-/* 255 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(255);
 
 	/**
 	 * Checks if a list cache value for `key` exists.
@@ -38355,10 +42110,10 @@
 
 
 /***/ },
-/* 256 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(252);
+	var assocIndexOf = __webpack_require__(255);
 
 	/**
 	 * Sets the list cache `key` to `value`.
@@ -38386,10 +42141,10 @@
 
 
 /***/ },
-/* 257 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249);
+	var ListCache = __webpack_require__(252);
 
 	/**
 	 * Removes all key-value entries from the stack.
@@ -38406,7 +42161,7 @@
 
 
 /***/ },
-/* 258 */
+/* 261 */
 /***/ function(module, exports) {
 
 	/**
@@ -38426,7 +42181,7 @@
 
 
 /***/ },
-/* 259 */
+/* 262 */
 /***/ function(module, exports) {
 
 	/**
@@ -38446,7 +42201,7 @@
 
 
 /***/ },
-/* 260 */
+/* 263 */
 /***/ function(module, exports) {
 
 	/**
@@ -38466,11 +42221,11 @@
 
 
 /***/ },
-/* 261 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(249),
-	    MapCache = __webpack_require__(262);
+	var ListCache = __webpack_require__(252),
+	    MapCache = __webpack_require__(265);
 
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -38498,14 +42253,14 @@
 
 
 /***/ },
-/* 262 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var mapCacheClear = __webpack_require__(263),
-	    mapCacheDelete = __webpack_require__(282),
-	    mapCacheGet = __webpack_require__(285),
-	    mapCacheHas = __webpack_require__(286),
-	    mapCacheSet = __webpack_require__(287);
+	var mapCacheClear = __webpack_require__(266),
+	    mapCacheDelete = __webpack_require__(285),
+	    mapCacheGet = __webpack_require__(288),
+	    mapCacheHas = __webpack_require__(289),
+	    mapCacheSet = __webpack_require__(290);
 
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -38536,12 +42291,12 @@
 
 
 /***/ },
-/* 263 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Hash = __webpack_require__(264),
-	    ListCache = __webpack_require__(249),
-	    Map = __webpack_require__(281);
+	var Hash = __webpack_require__(267),
+	    ListCache = __webpack_require__(252),
+	    Map = __webpack_require__(284);
 
 	/**
 	 * Removes all key-value entries from the map.
@@ -38562,14 +42317,14 @@
 
 
 /***/ },
-/* 264 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hashClear = __webpack_require__(265),
-	    hashDelete = __webpack_require__(277),
-	    hashGet = __webpack_require__(278),
-	    hashHas = __webpack_require__(279),
-	    hashSet = __webpack_require__(280);
+	var hashClear = __webpack_require__(268),
+	    hashDelete = __webpack_require__(280),
+	    hashGet = __webpack_require__(281),
+	    hashHas = __webpack_require__(282),
+	    hashSet = __webpack_require__(283);
 
 	/**
 	 * Creates a hash object.
@@ -38600,10 +42355,10 @@
 
 
 /***/ },
-/* 265 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(266);
+	var nativeCreate = __webpack_require__(269);
 
 	/**
 	 * Removes all key-value entries from the hash.
@@ -38620,10 +42375,10 @@
 
 
 /***/ },
-/* 266 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267);
+	var getNative = __webpack_require__(270);
 
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
@@ -38632,11 +42387,11 @@
 
 
 /***/ },
-/* 267 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(268),
-	    getValue = __webpack_require__(276);
+	var baseIsNative = __webpack_require__(271),
+	    getValue = __webpack_require__(279);
 
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -38655,14 +42410,14 @@
 
 
 /***/ },
-/* 268 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(269),
+	var isFunction = __webpack_require__(272),
 	    isHostObject = __webpack_require__(179),
-	    isMasked = __webpack_require__(271),
-	    isObject = __webpack_require__(270),
-	    toSource = __webpack_require__(275);
+	    isMasked = __webpack_require__(274),
+	    isObject = __webpack_require__(273),
+	    toSource = __webpack_require__(278);
 
 	/**
 	 * Used to match `RegExp`
@@ -38708,10 +42463,10 @@
 
 
 /***/ },
-/* 269 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(270);
+	var isObject = __webpack_require__(273);
 
 	/** `Object#toString` result references. */
 	var funcTag = '[object Function]',
@@ -38757,7 +42512,7 @@
 
 
 /***/ },
-/* 270 */
+/* 273 */
 /***/ function(module, exports) {
 
 	/**
@@ -38794,10 +42549,10 @@
 
 
 /***/ },
-/* 271 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(272);
+	var coreJsData = __webpack_require__(275);
 
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -38820,10 +42575,10 @@
 
 
 /***/ },
-/* 272 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(273);
+	var root = __webpack_require__(276);
 
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
@@ -38832,10 +42587,10 @@
 
 
 /***/ },
-/* 273 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {var checkGlobal = __webpack_require__(274);
+	/* WEBPACK VAR INJECTION */(function(global) {var checkGlobal = __webpack_require__(277);
 
 	/** Detect free variable `global` from Node.js. */
 	var freeGlobal = checkGlobal(typeof global == 'object' && global);
@@ -38854,7 +42609,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports) {
 
 	/**
@@ -38872,7 +42627,7 @@
 
 
 /***/ },
-/* 275 */
+/* 278 */
 /***/ function(module, exports) {
 
 	/** Used to resolve the decompiled source of functions. */
@@ -38901,7 +42656,7 @@
 
 
 /***/ },
-/* 276 */
+/* 279 */
 /***/ function(module, exports) {
 
 	/**
@@ -38920,7 +42675,7 @@
 
 
 /***/ },
-/* 277 */
+/* 280 */
 /***/ function(module, exports) {
 
 	/**
@@ -38941,10 +42696,10 @@
 
 
 /***/ },
-/* 278 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(266);
+	var nativeCreate = __webpack_require__(269);
 
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -38977,10 +42732,10 @@
 
 
 /***/ },
-/* 279 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(266);
+	var nativeCreate = __webpack_require__(269);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -39006,10 +42761,10 @@
 
 
 /***/ },
-/* 280 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(266);
+	var nativeCreate = __webpack_require__(269);
 
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -39034,11 +42789,11 @@
 
 
 /***/ },
-/* 281 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267),
-	    root = __webpack_require__(273);
+	var getNative = __webpack_require__(270),
+	    root = __webpack_require__(276);
 
 	/* Built-in method references that are verified to be native. */
 	var Map = getNative(root, 'Map');
@@ -39047,10 +42802,10 @@
 
 
 /***/ },
-/* 282 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(283);
+	var getMapData = __webpack_require__(286);
 
 	/**
 	 * Removes `key` and its value from the map.
@@ -39069,10 +42824,10 @@
 
 
 /***/ },
-/* 283 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(284);
+	var isKeyable = __webpack_require__(287);
 
 	/**
 	 * Gets the data for `map`.
@@ -39093,7 +42848,7 @@
 
 
 /***/ },
-/* 284 */
+/* 287 */
 /***/ function(module, exports) {
 
 	/**
@@ -39114,10 +42869,10 @@
 
 
 /***/ },
-/* 285 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(283);
+	var getMapData = __webpack_require__(286);
 
 	/**
 	 * Gets the map value for `key`.
@@ -39136,10 +42891,10 @@
 
 
 /***/ },
-/* 286 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(283);
+	var getMapData = __webpack_require__(286);
 
 	/**
 	 * Checks if a map value for `key` exists.
@@ -39158,10 +42913,10 @@
 
 
 /***/ },
-/* 287 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(283);
+	var getMapData = __webpack_require__(286);
 
 	/**
 	 * Sets the map `key` to `value`.
@@ -39182,7 +42937,7 @@
 
 
 /***/ },
-/* 288 */
+/* 291 */
 /***/ function(module, exports) {
 
 	/**
@@ -39210,10 +42965,10 @@
 
 
 /***/ },
-/* 289 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253);
+	var eq = __webpack_require__(256);
 
 	/**
 	 * This function is like `assignValue` except that it doesn't assign
@@ -39235,20 +42990,20 @@
 
 
 /***/ },
-/* 290 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignMergeValue = __webpack_require__(289),
-	    baseClone = __webpack_require__(291),
-	    copyArray = __webpack_require__(311),
-	    isArguments = __webpack_require__(300),
-	    isArray = __webpack_require__(306),
-	    isArrayLikeObject = __webpack_require__(301),
-	    isFunction = __webpack_require__(269),
-	    isObject = __webpack_require__(270),
+	var assignMergeValue = __webpack_require__(292),
+	    baseClone = __webpack_require__(294),
+	    copyArray = __webpack_require__(314),
+	    isArguments = __webpack_require__(303),
+	    isArray = __webpack_require__(309),
+	    isArrayLikeObject = __webpack_require__(304),
+	    isFunction = __webpack_require__(272),
+	    isObject = __webpack_require__(273),
 	    isPlainObject = __webpack_require__(177),
-	    isTypedArray = __webpack_require__(344),
-	    toPlainObject = __webpack_require__(345);
+	    isTypedArray = __webpack_require__(347),
+	    toPlainObject = __webpack_require__(348);
 
 	/**
 	 * A specialized version of `baseMerge` for arrays and objects which performs
@@ -39324,26 +43079,26 @@
 
 
 /***/ },
-/* 291 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stack = __webpack_require__(248),
-	    arrayEach = __webpack_require__(288),
-	    assignValue = __webpack_require__(292),
-	    baseAssign = __webpack_require__(293),
-	    cloneBuffer = __webpack_require__(310),
-	    copyArray = __webpack_require__(311),
-	    copySymbols = __webpack_require__(312),
-	    getAllKeys = __webpack_require__(315),
-	    getTag = __webpack_require__(318),
-	    initCloneArray = __webpack_require__(323),
-	    initCloneByTag = __webpack_require__(324),
-	    initCloneObject = __webpack_require__(339),
-	    isArray = __webpack_require__(306),
-	    isBuffer = __webpack_require__(341),
+	var Stack = __webpack_require__(251),
+	    arrayEach = __webpack_require__(291),
+	    assignValue = __webpack_require__(295),
+	    baseAssign = __webpack_require__(296),
+	    cloneBuffer = __webpack_require__(313),
+	    copyArray = __webpack_require__(314),
+	    copySymbols = __webpack_require__(315),
+	    getAllKeys = __webpack_require__(318),
+	    getTag = __webpack_require__(321),
+	    initCloneArray = __webpack_require__(326),
+	    initCloneByTag = __webpack_require__(327),
+	    initCloneObject = __webpack_require__(342),
+	    isArray = __webpack_require__(309),
+	    isBuffer = __webpack_require__(344),
 	    isHostObject = __webpack_require__(179),
-	    isObject = __webpack_require__(270),
-	    keys = __webpack_require__(295);
+	    isObject = __webpack_require__(273),
+	    keys = __webpack_require__(298);
 
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -39469,10 +43224,10 @@
 
 
 /***/ },
-/* 292 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253);
+	var eq = __webpack_require__(256);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -39502,11 +43257,11 @@
 
 
 /***/ },
-/* 293 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(294),
-	    keys = __webpack_require__(295);
+	var copyObject = __webpack_require__(297),
+	    keys = __webpack_require__(298);
 
 	/**
 	 * The base implementation of `_.assign` without support for multiple sources
@@ -39525,10 +43280,10 @@
 
 
 /***/ },
-/* 294 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(292);
+	var assignValue = __webpack_require__(295);
 
 	/**
 	 * Copies properties of `source` to `object`.
@@ -39562,15 +43317,15 @@
 
 
 /***/ },
-/* 295 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseHas = __webpack_require__(296),
-	    baseKeys = __webpack_require__(297),
-	    indexKeys = __webpack_require__(298),
-	    isArrayLike = __webpack_require__(302),
-	    isIndex = __webpack_require__(308),
-	    isPrototype = __webpack_require__(309);
+	var baseHas = __webpack_require__(299),
+	    baseKeys = __webpack_require__(300),
+	    indexKeys = __webpack_require__(301),
+	    isArrayLike = __webpack_require__(305),
+	    isIndex = __webpack_require__(311),
+	    isPrototype = __webpack_require__(312);
 
 	/**
 	 * Creates an array of the own enumerable property names of `object`.
@@ -39624,7 +43379,7 @@
 
 
 /***/ },
-/* 296 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getPrototype = __webpack_require__(178);
@@ -39656,7 +43411,7 @@
 
 
 /***/ },
-/* 297 */
+/* 300 */
 /***/ function(module, exports) {
 
 	/* Built-in method references for those with the same name as other `lodash` methods. */
@@ -39678,14 +43433,14 @@
 
 
 /***/ },
-/* 298 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(299),
-	    isArguments = __webpack_require__(300),
-	    isArray = __webpack_require__(306),
-	    isLength = __webpack_require__(305),
-	    isString = __webpack_require__(307);
+	var baseTimes = __webpack_require__(302),
+	    isArguments = __webpack_require__(303),
+	    isArray = __webpack_require__(309),
+	    isLength = __webpack_require__(308),
+	    isString = __webpack_require__(310);
 
 	/**
 	 * Creates an array of index keys for `object` values of arrays,
@@ -39708,7 +43463,7 @@
 
 
 /***/ },
-/* 299 */
+/* 302 */
 /***/ function(module, exports) {
 
 	/**
@@ -39734,10 +43489,10 @@
 
 
 /***/ },
-/* 300 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLikeObject = __webpack_require__(301);
+	var isArrayLikeObject = __webpack_require__(304);
 
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -39786,10 +43541,10 @@
 
 
 /***/ },
-/* 301 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLike = __webpack_require__(302),
+	var isArrayLike = __webpack_require__(305),
 	    isObjectLike = __webpack_require__(180);
 
 	/**
@@ -39825,12 +43580,12 @@
 
 
 /***/ },
-/* 302 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getLength = __webpack_require__(303),
-	    isFunction = __webpack_require__(269),
-	    isLength = __webpack_require__(305);
+	var getLength = __webpack_require__(306),
+	    isFunction = __webpack_require__(272),
+	    isLength = __webpack_require__(308);
 
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -39865,10 +43620,10 @@
 
 
 /***/ },
-/* 303 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseProperty = __webpack_require__(304);
+	var baseProperty = __webpack_require__(307);
 
 	/**
 	 * Gets the "length" property value of `object`.
@@ -39887,7 +43642,7 @@
 
 
 /***/ },
-/* 304 */
+/* 307 */
 /***/ function(module, exports) {
 
 	/**
@@ -39907,7 +43662,7 @@
 
 
 /***/ },
-/* 305 */
+/* 308 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -39949,7 +43704,7 @@
 
 
 /***/ },
-/* 306 */
+/* 309 */
 /***/ function(module, exports) {
 
 	/**
@@ -39983,10 +43738,10 @@
 
 
 /***/ },
-/* 307 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArray = __webpack_require__(306),
+	var isArray = __webpack_require__(309),
 	    isObjectLike = __webpack_require__(180);
 
 	/** `Object#toString` result references. */
@@ -40029,7 +43784,7 @@
 
 
 /***/ },
-/* 308 */
+/* 311 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -40057,7 +43812,7 @@
 
 
 /***/ },
-/* 309 */
+/* 312 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -40081,7 +43836,7 @@
 
 
 /***/ },
-/* 310 */
+/* 313 */
 /***/ function(module, exports) {
 
 	/**
@@ -40105,7 +43860,7 @@
 
 
 /***/ },
-/* 311 */
+/* 314 */
 /***/ function(module, exports) {
 
 	/**
@@ -40131,11 +43886,11 @@
 
 
 /***/ },
-/* 312 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(294),
-	    getSymbols = __webpack_require__(313);
+	var copyObject = __webpack_require__(297),
+	    getSymbols = __webpack_require__(316);
 
 	/**
 	 * Copies own symbol properties of `source` to `object`.
@@ -40153,10 +43908,10 @@
 
 
 /***/ },
-/* 313 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var stubArray = __webpack_require__(314);
+	var stubArray = __webpack_require__(317);
 
 	/** Built-in value references. */
 	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
@@ -40183,7 +43938,7 @@
 
 
 /***/ },
-/* 314 */
+/* 317 */
 /***/ function(module, exports) {
 
 	/**
@@ -40212,12 +43967,12 @@
 
 
 /***/ },
-/* 315 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseGetAllKeys = __webpack_require__(316),
-	    getSymbols = __webpack_require__(313),
-	    keys = __webpack_require__(295);
+	var baseGetAllKeys = __webpack_require__(319),
+	    getSymbols = __webpack_require__(316),
+	    keys = __webpack_require__(298);
 
 	/**
 	 * Creates an array of own enumerable property names and symbols of `object`.
@@ -40234,11 +43989,11 @@
 
 
 /***/ },
-/* 316 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayPush = __webpack_require__(317),
-	    isArray = __webpack_require__(306);
+	var arrayPush = __webpack_require__(320),
+	    isArray = __webpack_require__(309);
 
 	/**
 	 * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
@@ -40260,7 +44015,7 @@
 
 
 /***/ },
-/* 317 */
+/* 320 */
 /***/ function(module, exports) {
 
 	/**
@@ -40286,15 +44041,15 @@
 
 
 /***/ },
-/* 318 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DataView = __webpack_require__(319),
-	    Map = __webpack_require__(281),
-	    Promise = __webpack_require__(320),
-	    Set = __webpack_require__(321),
-	    WeakMap = __webpack_require__(322),
-	    toSource = __webpack_require__(275);
+	var DataView = __webpack_require__(322),
+	    Map = __webpack_require__(284),
+	    Promise = __webpack_require__(323),
+	    Set = __webpack_require__(324),
+	    WeakMap = __webpack_require__(325),
+	    toSource = __webpack_require__(278);
 
 	/** `Object#toString` result references. */
 	var mapTag = '[object Map]',
@@ -40362,11 +44117,11 @@
 
 
 /***/ },
-/* 319 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267),
-	    root = __webpack_require__(273);
+	var getNative = __webpack_require__(270),
+	    root = __webpack_require__(276);
 
 	/* Built-in method references that are verified to be native. */
 	var DataView = getNative(root, 'DataView');
@@ -40375,11 +44130,11 @@
 
 
 /***/ },
-/* 320 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267),
-	    root = __webpack_require__(273);
+	var getNative = __webpack_require__(270),
+	    root = __webpack_require__(276);
 
 	/* Built-in method references that are verified to be native. */
 	var Promise = getNative(root, 'Promise');
@@ -40388,11 +44143,11 @@
 
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267),
-	    root = __webpack_require__(273);
+	var getNative = __webpack_require__(270),
+	    root = __webpack_require__(276);
 
 	/* Built-in method references that are verified to be native. */
 	var Set = getNative(root, 'Set');
@@ -40401,11 +44156,11 @@
 
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(267),
-	    root = __webpack_require__(273);
+	var getNative = __webpack_require__(270),
+	    root = __webpack_require__(276);
 
 	/* Built-in method references that are verified to be native. */
 	var WeakMap = getNative(root, 'WeakMap');
@@ -40414,7 +44169,7 @@
 
 
 /***/ },
-/* 323 */
+/* 326 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -40446,16 +44201,16 @@
 
 
 /***/ },
-/* 324 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cloneArrayBuffer = __webpack_require__(325),
-	    cloneDataView = __webpack_require__(327),
-	    cloneMap = __webpack_require__(328),
-	    cloneRegExp = __webpack_require__(332),
-	    cloneSet = __webpack_require__(333),
-	    cloneSymbol = __webpack_require__(336),
-	    cloneTypedArray = __webpack_require__(338);
+	var cloneArrayBuffer = __webpack_require__(328),
+	    cloneDataView = __webpack_require__(330),
+	    cloneMap = __webpack_require__(331),
+	    cloneRegExp = __webpack_require__(335),
+	    cloneSet = __webpack_require__(336),
+	    cloneSymbol = __webpack_require__(339),
+	    cloneTypedArray = __webpack_require__(341);
 
 	/** `Object#toString` result references. */
 	var boolTag = '[object Boolean]',
@@ -40532,10 +44287,10 @@
 
 
 /***/ },
-/* 325 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Uint8Array = __webpack_require__(326);
+	var Uint8Array = __webpack_require__(329);
 
 	/**
 	 * Creates a clone of `arrayBuffer`.
@@ -40554,10 +44309,10 @@
 
 
 /***/ },
-/* 326 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(273);
+	var root = __webpack_require__(276);
 
 	/** Built-in value references. */
 	var Uint8Array = root.Uint8Array;
@@ -40566,10 +44321,10 @@
 
 
 /***/ },
-/* 327 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cloneArrayBuffer = __webpack_require__(325);
+	var cloneArrayBuffer = __webpack_require__(328);
 
 	/**
 	 * Creates a clone of `dataView`.
@@ -40588,12 +44343,12 @@
 
 
 /***/ },
-/* 328 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMapEntry = __webpack_require__(329),
-	    arrayReduce = __webpack_require__(330),
-	    mapToArray = __webpack_require__(331);
+	var addMapEntry = __webpack_require__(332),
+	    arrayReduce = __webpack_require__(333),
+	    mapToArray = __webpack_require__(334);
 
 	/**
 	 * Creates a clone of `map`.
@@ -40613,7 +44368,7 @@
 
 
 /***/ },
-/* 329 */
+/* 332 */
 /***/ function(module, exports) {
 
 	/**
@@ -40634,7 +44389,7 @@
 
 
 /***/ },
-/* 330 */
+/* 333 */
 /***/ function(module, exports) {
 
 	/**
@@ -40666,7 +44421,7 @@
 
 
 /***/ },
-/* 331 */
+/* 334 */
 /***/ function(module, exports) {
 
 	/**
@@ -40690,7 +44445,7 @@
 
 
 /***/ },
-/* 332 */
+/* 335 */
 /***/ function(module, exports) {
 
 	/** Used to match `RegExp` flags from their coerced string values. */
@@ -40713,12 +44468,12 @@
 
 
 /***/ },
-/* 333 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addSetEntry = __webpack_require__(334),
-	    arrayReduce = __webpack_require__(330),
-	    setToArray = __webpack_require__(335);
+	var addSetEntry = __webpack_require__(337),
+	    arrayReduce = __webpack_require__(333),
+	    setToArray = __webpack_require__(338);
 
 	/**
 	 * Creates a clone of `set`.
@@ -40738,7 +44493,7 @@
 
 
 /***/ },
-/* 334 */
+/* 337 */
 /***/ function(module, exports) {
 
 	/**
@@ -40758,7 +44513,7 @@
 
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports) {
 
 	/**
@@ -40782,10 +44537,10 @@
 
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Symbol = __webpack_require__(337);
+	var Symbol = __webpack_require__(340);
 
 	/** Used to convert symbols to primitives and strings. */
 	var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -40806,10 +44561,10 @@
 
 
 /***/ },
-/* 337 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(273);
+	var root = __webpack_require__(276);
 
 	/** Built-in value references. */
 	var Symbol = root.Symbol;
@@ -40818,10 +44573,10 @@
 
 
 /***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cloneArrayBuffer = __webpack_require__(325);
+	var cloneArrayBuffer = __webpack_require__(328);
 
 	/**
 	 * Creates a clone of `typedArray`.
@@ -40840,12 +44595,12 @@
 
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseCreate = __webpack_require__(340),
+	var baseCreate = __webpack_require__(343),
 	    getPrototype = __webpack_require__(178),
-	    isPrototype = __webpack_require__(309);
+	    isPrototype = __webpack_require__(312);
 
 	/**
 	 * Initializes an object clone.
@@ -40864,10 +44619,10 @@
 
 
 /***/ },
-/* 340 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(270);
+	var isObject = __webpack_require__(273);
 
 	/** Built-in value references. */
 	var objectCreate = Object.create;
@@ -40888,11 +44643,11 @@
 
 
 /***/ },
-/* 341 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(273),
-	    stubFalse = __webpack_require__(343);
+	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(276),
+	    stubFalse = __webpack_require__(346);
 
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports;
@@ -40929,10 +44684,10 @@
 
 	module.exports = isBuffer;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(342)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(345)(module)))
 
 /***/ },
-/* 342 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -40948,7 +44703,7 @@
 
 
 /***/ },
-/* 343 */
+/* 346 */
 /***/ function(module, exports) {
 
 	/**
@@ -40972,10 +44727,10 @@
 
 
 /***/ },
-/* 344 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isLength = __webpack_require__(305),
+	var isLength = __webpack_require__(308),
 	    isObjectLike = __webpack_require__(180);
 
 	/** `Object#toString` result references. */
@@ -41058,11 +44813,11 @@
 
 
 /***/ },
-/* 345 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(294),
-	    keysIn = __webpack_require__(346);
+	var copyObject = __webpack_require__(297),
+	    keysIn = __webpack_require__(349);
 
 	/**
 	 * Converts `value` to a plain object flattening inherited enumerable string
@@ -41096,13 +44851,13 @@
 
 
 /***/ },
-/* 346 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseKeysIn = __webpack_require__(347),
-	    indexKeys = __webpack_require__(298),
-	    isIndex = __webpack_require__(308),
-	    isPrototype = __webpack_require__(309);
+	var baseKeysIn = __webpack_require__(350),
+	    indexKeys = __webpack_require__(301),
+	    isIndex = __webpack_require__(311),
+	    isPrototype = __webpack_require__(312);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -41157,11 +44912,11 @@
 
 
 /***/ },
-/* 347 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflect = __webpack_require__(348),
-	    iteratorToArray = __webpack_require__(349);
+	var Reflect = __webpack_require__(351),
+	    iteratorToArray = __webpack_require__(352);
 
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -41199,10 +44954,10 @@
 
 
 /***/ },
-/* 348 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var root = __webpack_require__(273);
+	var root = __webpack_require__(276);
 
 	/** Built-in value references. */
 	var Reflect = root.Reflect;
@@ -41211,7 +44966,7 @@
 
 
 /***/ },
-/* 349 */
+/* 352 */
 /***/ function(module, exports) {
 
 	/**
@@ -41235,11 +44990,11 @@
 
 
 /***/ },
-/* 350 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isIterateeCall = __webpack_require__(351),
-	    rest = __webpack_require__(352);
+	var isIterateeCall = __webpack_require__(354),
+	    rest = __webpack_require__(355);
 
 	/**
 	 * Creates a function like `_.assign`.
@@ -41278,13 +45033,13 @@
 
 
 /***/ },
-/* 351 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(253),
-	    isArrayLike = __webpack_require__(302),
-	    isIndex = __webpack_require__(308),
-	    isObject = __webpack_require__(270);
+	var eq = __webpack_require__(256),
+	    isArrayLike = __webpack_require__(305),
+	    isIndex = __webpack_require__(311),
+	    isObject = __webpack_require__(273);
 
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -41314,11 +45069,11 @@
 
 
 /***/ },
-/* 352 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(353),
-	    toInteger = __webpack_require__(354);
+	var apply = __webpack_require__(356),
+	    toInteger = __webpack_require__(357);
 
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -41384,7 +45139,7 @@
 
 
 /***/ },
-/* 353 */
+/* 356 */
 /***/ function(module, exports) {
 
 	/**
@@ -41412,10 +45167,10 @@
 
 
 /***/ },
-/* 354 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toFinite = __webpack_require__(355);
+	var toFinite = __webpack_require__(358);
 
 	/**
 	 * Converts `value` to an integer.
@@ -41454,10 +45209,10 @@
 
 
 /***/ },
-/* 355 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toNumber = __webpack_require__(356);
+	var toNumber = __webpack_require__(359);
 
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0,
@@ -41502,12 +45257,12 @@
 
 
 /***/ },
-/* 356 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(269),
-	    isObject = __webpack_require__(270),
-	    isSymbol = __webpack_require__(357);
+	var isFunction = __webpack_require__(272),
+	    isObject = __webpack_require__(273),
+	    isSymbol = __webpack_require__(360);
 
 	/** Used as references for various `Number` constants. */
 	var NAN = 0 / 0;
@@ -41575,7 +45330,7 @@
 
 
 /***/ },
-/* 357 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var isObjectLike = __webpack_require__(180);
@@ -41620,7 +45375,7 @@
 
 
 /***/ },
-/* 358 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41629,11 +45384,11 @@
 	  value: true
 	});
 
-	var _colors = __webpack_require__(359);
+	var _colors = __webpack_require__(362);
 
 	var _colorManipulator = __webpack_require__(221);
 
-	var _spacing = __webpack_require__(360);
+	var _spacing = __webpack_require__(363);
 
 	var _spacing2 = _interopRequireDefault(_spacing);
 
@@ -41668,7 +45423,7 @@
 	    */
 
 /***/ },
-/* 359 */
+/* 362 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41963,7 +45718,7 @@
 	var lightWhite = exports.lightWhite = 'rgba(255, 255, 255, 0.54)';
 
 /***/ },
-/* 360 */
+/* 363 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41987,7 +45742,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 364 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -42009,7 +45764,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -42058,11 +45813,11 @@
 	  }
 	};
 
-	var _inlineStylePrefixer = __webpack_require__(363);
+	var _inlineStylePrefixer = __webpack_require__(366);
 
 	var _inlineStylePrefixer2 = _interopRequireDefault(_inlineStylePrefixer);
 
-	var _warning = __webpack_require__(395);
+	var _warning = __webpack_require__(398);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -42072,7 +45827,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 363 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42087,61 +45842,61 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _inlineStylePrefixAll = __webpack_require__(364);
+	var _inlineStylePrefixAll = __webpack_require__(367);
 
 	var _inlineStylePrefixAll2 = _interopRequireDefault(_inlineStylePrefixAll);
 
-	var _utilsGetBrowserInformation = __webpack_require__(379);
+	var _utilsGetBrowserInformation = __webpack_require__(382);
 
 	var _utilsGetBrowserInformation2 = _interopRequireDefault(_utilsGetBrowserInformation);
 
-	var _utilsGetPrefixedKeyframes = __webpack_require__(381);
+	var _utilsGetPrefixedKeyframes = __webpack_require__(384);
 
 	var _utilsGetPrefixedKeyframes2 = _interopRequireDefault(_utilsGetPrefixedKeyframes);
 
-	var _utilsCapitalizeString = __webpack_require__(382);
+	var _utilsCapitalizeString = __webpack_require__(385);
 
 	var _utilsCapitalizeString2 = _interopRequireDefault(_utilsCapitalizeString);
 
-	var _utilsAssign = __webpack_require__(383);
+	var _utilsAssign = __webpack_require__(386);
 
 	var _utilsAssign2 = _interopRequireDefault(_utilsAssign);
 
-	var _prefixProps = __webpack_require__(384);
+	var _prefixProps = __webpack_require__(387);
 
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 
-	var _pluginsCalc = __webpack_require__(385);
+	var _pluginsCalc = __webpack_require__(388);
 
 	var _pluginsCalc2 = _interopRequireDefault(_pluginsCalc);
 
-	var _pluginsCursor = __webpack_require__(387);
+	var _pluginsCursor = __webpack_require__(390);
 
 	var _pluginsCursor2 = _interopRequireDefault(_pluginsCursor);
 
-	var _pluginsFlex = __webpack_require__(388);
+	var _pluginsFlex = __webpack_require__(391);
 
 	var _pluginsFlex2 = _interopRequireDefault(_pluginsFlex);
 
-	var _pluginsSizing = __webpack_require__(389);
+	var _pluginsSizing = __webpack_require__(392);
 
 	var _pluginsSizing2 = _interopRequireDefault(_pluginsSizing);
 
-	var _pluginsGradient = __webpack_require__(390);
+	var _pluginsGradient = __webpack_require__(393);
 
 	var _pluginsGradient2 = _interopRequireDefault(_pluginsGradient);
 
-	var _pluginsTransition = __webpack_require__(391);
+	var _pluginsTransition = __webpack_require__(394);
 
 	var _pluginsTransition2 = _interopRequireDefault(_pluginsTransition);
 
 	// special flexbox specifications
 
-	var _pluginsFlexboxIE = __webpack_require__(393);
+	var _pluginsFlexboxIE = __webpack_require__(396);
 
 	var _pluginsFlexboxIE2 = _interopRequireDefault(_pluginsFlexboxIE);
 
-	var _pluginsFlexboxOld = __webpack_require__(394);
+	var _pluginsFlexboxOld = __webpack_require__(397);
 
 	var _pluginsFlexboxOld2 = _interopRequireDefault(_pluginsFlexboxOld);
 
@@ -42275,7 +46030,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 364 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42287,49 +46042,49 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _prefixProps = __webpack_require__(365);
+	var _prefixProps = __webpack_require__(368);
 
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 
-	var _utilsCapitalizeString = __webpack_require__(366);
+	var _utilsCapitalizeString = __webpack_require__(369);
 
 	var _utilsCapitalizeString2 = _interopRequireDefault(_utilsCapitalizeString);
 
-	var _utilsAssign = __webpack_require__(367);
+	var _utilsAssign = __webpack_require__(370);
 
 	var _utilsAssign2 = _interopRequireDefault(_utilsAssign);
 
-	var _pluginsCalc = __webpack_require__(368);
+	var _pluginsCalc = __webpack_require__(371);
 
 	var _pluginsCalc2 = _interopRequireDefault(_pluginsCalc);
 
-	var _pluginsCursor = __webpack_require__(372);
+	var _pluginsCursor = __webpack_require__(375);
 
 	var _pluginsCursor2 = _interopRequireDefault(_pluginsCursor);
 
-	var _pluginsFlex = __webpack_require__(373);
+	var _pluginsFlex = __webpack_require__(376);
 
 	var _pluginsFlex2 = _interopRequireDefault(_pluginsFlex);
 
-	var _pluginsSizing = __webpack_require__(374);
+	var _pluginsSizing = __webpack_require__(377);
 
 	var _pluginsSizing2 = _interopRequireDefault(_pluginsSizing);
 
-	var _pluginsGradient = __webpack_require__(375);
+	var _pluginsGradient = __webpack_require__(378);
 
 	var _pluginsGradient2 = _interopRequireDefault(_pluginsGradient);
 
-	var _pluginsTransition = __webpack_require__(376);
+	var _pluginsTransition = __webpack_require__(379);
 
 	var _pluginsTransition2 = _interopRequireDefault(_pluginsTransition);
 
 	// special flexbox specifications
 
-	var _pluginsFlexboxIE = __webpack_require__(377);
+	var _pluginsFlexboxIE = __webpack_require__(380);
 
 	var _pluginsFlexboxIE2 = _interopRequireDefault(_pluginsFlexboxIE);
 
-	var _pluginsFlexboxOld = __webpack_require__(378);
+	var _pluginsFlexboxOld = __webpack_require__(381);
 
 	var _pluginsFlexboxOld2 = _interopRequireDefault(_pluginsFlexboxOld);
 
@@ -42369,7 +46124,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 365 */
+/* 368 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -42381,7 +46136,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 366 */
+/* 369 */
 /***/ function(module, exports) {
 
 	// helper to capitalize strings
@@ -42398,7 +46153,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 367 */
+/* 370 */
 /***/ function(module, exports) {
 
 	// leight polyfill for Object.assign
@@ -42419,7 +46174,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 368 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42431,11 +46186,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsJoinPrefixedRules = __webpack_require__(369);
+	var _utilsJoinPrefixedRules = __webpack_require__(372);
 
 	var _utilsJoinPrefixedRules2 = _interopRequireDefault(_utilsJoinPrefixedRules);
 
-	var _utilsIsPrefixedValue = __webpack_require__(371);
+	var _utilsIsPrefixedValue = __webpack_require__(374);
 
 	var _utilsIsPrefixedValue2 = _interopRequireDefault(_utilsIsPrefixedValue);
 
@@ -42452,7 +46207,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 369 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42465,7 +46220,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _camelToDashCase = __webpack_require__(370);
+	var _camelToDashCase = __webpack_require__(373);
 
 	var _camelToDashCase2 = _interopRequireDefault(_camelToDashCase);
 
@@ -42485,7 +46240,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 370 */
+/* 373 */
 /***/ function(module, exports) {
 
 	/**
@@ -42507,7 +46262,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 371 */
+/* 374 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42525,7 +46280,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 372 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42537,7 +46292,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsJoinPrefixedRules = __webpack_require__(369);
+	var _utilsJoinPrefixedRules = __webpack_require__(372);
 
 	var _utilsJoinPrefixedRules2 = _interopRequireDefault(_utilsJoinPrefixedRules);
 
@@ -42557,7 +46312,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 373 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42569,7 +46324,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsCamelToDashCase = __webpack_require__(370);
+	var _utilsCamelToDashCase = __webpack_require__(373);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -42586,7 +46341,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 374 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42598,7 +46353,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsJoinPrefixedRules = __webpack_require__(369);
+	var _utilsJoinPrefixedRules = __webpack_require__(372);
 
 	var _utilsJoinPrefixedRules2 = _interopRequireDefault(_utilsJoinPrefixedRules);
 
@@ -42628,7 +46383,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 375 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42640,11 +46395,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsJoinPrefixedRules = __webpack_require__(369);
+	var _utilsJoinPrefixedRules = __webpack_require__(372);
 
 	var _utilsJoinPrefixedRules2 = _interopRequireDefault(_utilsJoinPrefixedRules);
 
-	var _utilsIsPrefixedValue = __webpack_require__(371);
+	var _utilsIsPrefixedValue = __webpack_require__(374);
 
 	var _utilsIsPrefixedValue2 = _interopRequireDefault(_utilsIsPrefixedValue);
 
@@ -42661,7 +46416,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 376 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42675,19 +46430,19 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(370);
+	var _utilsCamelToDashCase = __webpack_require__(373);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
-	var _utilsCapitalizeString = __webpack_require__(366);
+	var _utilsCapitalizeString = __webpack_require__(369);
 
 	var _utilsCapitalizeString2 = _interopRequireDefault(_utilsCapitalizeString);
 
-	var _utilsIsPrefixedValue = __webpack_require__(371);
+	var _utilsIsPrefixedValue = __webpack_require__(374);
 
 	var _utilsIsPrefixedValue2 = _interopRequireDefault(_utilsIsPrefixedValue);
 
-	var _prefixProps = __webpack_require__(365);
+	var _prefixProps = __webpack_require__(368);
 
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 
@@ -42748,7 +46503,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 377 */
+/* 380 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42786,7 +46541,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 378 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42800,7 +46555,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(370);
+	var _utilsCamelToDashCase = __webpack_require__(373);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -42834,7 +46589,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 379 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42845,7 +46600,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _bowser = __webpack_require__(380);
+	var _bowser = __webpack_require__(383);
 
 	var _bowser2 = _interopRequireDefault(_bowser);
 
@@ -42932,7 +46687,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 380 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -43356,7 +47111,7 @@
 
 
 /***/ },
-/* 381 */
+/* 384 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43381,7 +47136,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 382 */
+/* 385 */
 /***/ function(module, exports) {
 
 	// helper to capitalize strings
@@ -43398,7 +47153,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 383 */
+/* 386 */
 /***/ function(module, exports) {
 
 	// leight polyfill for Object.assign
@@ -43420,7 +47175,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 384 */
+/* 387 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -43432,7 +47187,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 385 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43446,7 +47201,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43467,7 +47222,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 386 */
+/* 389 */
 /***/ function(module, exports) {
 
 	/**
@@ -43489,7 +47244,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 387 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43501,7 +47256,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43531,7 +47286,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 388 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43543,7 +47298,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43571,7 +47326,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 389 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43585,7 +47340,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43622,7 +47377,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 390 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43636,7 +47391,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43659,7 +47414,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 391 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43673,15 +47428,15 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
-	var _utilsCapitalizeString = __webpack_require__(382);
+	var _utilsCapitalizeString = __webpack_require__(385);
 
 	var _utilsCapitalizeString2 = _interopRequireDefault(_utilsCapitalizeString);
 
-	var _utilsUnprefixProperty = __webpack_require__(392);
+	var _utilsUnprefixProperty = __webpack_require__(395);
 
 	var _utilsUnprefixProperty2 = _interopRequireDefault(_utilsUnprefixProperty);
 
@@ -43725,7 +47480,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 392 */
+/* 395 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -43742,7 +47497,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 393 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43756,7 +47511,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43812,7 +47567,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 394 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43826,7 +47581,7 @@
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	var _utilsCamelToDashCase = __webpack_require__(386);
+	var _utilsCamelToDashCase = __webpack_require__(389);
 
 	var _utilsCamelToDashCase2 = _interopRequireDefault(_utilsCamelToDashCase);
 
@@ -43888,7 +47643,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 395 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -43955,7 +47710,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 396 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -43965,7 +47720,7 @@
 	});
 	exports.default = callOnce;
 
-	var _warning = __webpack_require__(395);
+	var _warning = __webpack_require__(398);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -43987,7 +47742,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 397 */
+/* 400 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -44075,7 +47830,7 @@
 	}
 
 /***/ },
-/* 398 */
+/* 401 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -44109,7 +47864,7 @@
 	}
 
 /***/ },
-/* 399 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44118,7 +47873,7 @@
 	  value: true
 	});
 
-	var _colors = __webpack_require__(359);
+	var _colors = __webpack_require__(362);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -44145,13 +47900,13 @@
 	exports.default = new Typography();
 
 /***/ },
-/* 400 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(401);
+	var content = __webpack_require__(404);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(195)(content, {});
@@ -44171,7 +47926,7 @@
 	}
 
 /***/ },
-/* 401 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(194)();

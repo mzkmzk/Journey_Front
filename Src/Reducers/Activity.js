@@ -11,11 +11,11 @@ const initial_state = {
 exports.activity = function(state = initial_state, action = null) {
     switch (action.type) {
         case 'LOAD_ACTIVITY':
-            const stateData= state.activities;
-            const newData = action.activities.concat(stateData);
-            return Object.assign({}, state,{activities:newData,is_fetching: false});
+            const stateData= state.activities
+            const newData = action.activities.concat(stateData)
+            return Object.assign({}, state,{activities:newData,is_fetching: false})
         default :
-            return state;
+            return state
     }
 
 }

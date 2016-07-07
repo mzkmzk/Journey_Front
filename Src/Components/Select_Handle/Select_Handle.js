@@ -4,9 +4,10 @@
 import React , { Component } from 'react'
 import { render } from 'react-dom'
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
 import Raised_Button from 'material-ui/RaisedButton'
+import Qi_Niu from '../../Global/JS/Qi_Niu'
 
 import './Select_Handle.scss'
 
@@ -14,34 +15,37 @@ export default class Select_Handle extends Component {
 
     constructor(props) {
         super(props)
-        this.handleOpen = this.handleOpen.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-        this.send = this.send.bind(this);
+        this.handleOpen = this.handleOpen.bind(this)
+        this.handleClose = this.handleClose.bind(this)
+        this.send = this.send.bind(this)
         this.state = {
             open: false,
         }
     }
 
+    componentDidMount() {
+        var qi_niu = Qi_Niu('upload_file')
+    }
+
     handleOpen() {
-        console.log('open');
         //this.props.open = true;
 
 
-        this.setState({open: true});
+        this.setState({open: true})
 
-    };
+    }
 
     handleClose() {
         //this.props.open = false;
 
 
-        this.setState({open: false});
+        this.setState({open: false})
 
     }
 
     send(send) {
         send.apply(this,[document.getElementById('text_input_textarea').value])
-        this.setState({open: false});
+        this.setState({open: false})
     }
 
     render() {
@@ -59,7 +63,7 @@ export default class Select_Handle extends Component {
                 keyboardFocused={true}
                 onClick={() => this.send(add_activity)}
                 />,
-        ];
+        ]
 
         return (
             <article className="select_handle" >
@@ -74,6 +78,9 @@ export default class Select_Handle extends Component {
                     onRequestClose={this.handleClose}
                     >
                     <textarea id="text_input_textarea"/>
+                    <a  id="upload_file" href="#" >
+                        <span>选择文件</span>
+                    </a>
                 </Dialog>
                 {/*<textarea id="text_input_textarea"/>
                 <buttom onClick={ ()=> add_activity(document.getElementById('text_input_textarea').value) }>提交</buttom>*/}
