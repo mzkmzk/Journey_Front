@@ -22464,8 +22464,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var STRING_START = 0;
-	var REMOVE_SECOND = -3;
+	var TIME_START = 0;
+	var SECOND_START = -3;
 
 	var Time_Axis = function (_Component) {
 	    _inherits(Time_Axis, _Component);
@@ -22494,7 +22494,7 @@
 	                            _react2.default.createElement(
 	                                'blockquote',
 	                                null,
-	                                activity.created_at.slice(STRING_START, REMOVE_SECOND)
+	                                activity.created_at.slice(TIME_START, SECOND_START)
 	                            )
 	                        ),
 	                        _react2.default.createElement(
