@@ -11,7 +11,13 @@ export default class Panels extends Component {
         return (
             <article className='panel'>
                 <section>
-                    喝喝
+                    <h1>Journey</h1>
+                    <section>
+                        <h3>登录方式1</h3>
+                        <section>
+                            微博
+                        </section>
+                    </section>
                 </section>
             </article>
         )

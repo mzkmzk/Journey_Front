@@ -15,17 +15,21 @@ module.exports = {
         ],
 		loaders: [
             {
-                test: /\.js/,
+                test: /\.js$/,
                 loader: 'babel',
                 include: __dirname + '/Src',
             },
             {
-                test: /\.scss/,
+                test: /\.scss$/,
                 loaders: ['style','css','sass'],
             },
             {
-                test: /\.html/,
+                test: /\.html$/,
                 loader: 'html',
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url-loader'
             },
 		],
 	},
