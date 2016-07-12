@@ -3,5 +3,8 @@ html,body,article {
 }
 
 html {
-    background-image:  url('Image/35204.jpg');
+    background:  url('Image/login.jpg') top center/cover no-repeat ;
+
+    -webkit-filter: blur(10px);
 }
+
