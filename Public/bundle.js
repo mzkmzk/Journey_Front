@@ -41421,7 +41421,7 @@
 	                            'section',
 	                            null,
 	                            _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true', onClick: function onClick() {
-	                                    return _this2.login_weibo();
+	                                    return _this2.login_weibo;
 	                                } })
 	                        )
 	                    )

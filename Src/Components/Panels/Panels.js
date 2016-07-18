@@ -24,7 +24,7 @@ export default class Panels extends Component {
                     <h3>登录1</h3>
                     <section>
                         <section>
-                            <i className="fa fa-weibo " aria-hidden="true" onClick={() => this.login_weibo()} ></i>
+                            <i className="fa fa-weibo " aria-hidden="true" onClick={() => this.login_weibo} ></i>
                         </section>
                     </section>
                 </section>
