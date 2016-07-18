@@ -41385,8 +41385,8 @@
 	    }
 
 	    _createClass(Panels, [{
-	        key: 'login_webibo',
-	        value: function login_webibo() {
+	        key: 'login_weibo',
+	        value: function login_weibo() {
 	            WB2.login(function () {
 	                alert(WB2.checkLogin());
 	                alert('执行完毕1');
@@ -41421,7 +41421,7 @@
 	                            'section',
 	                            null,
 	                            _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true', onClick: function onClick() {
-	                                    return _this2.login_weibo;
+	                                    return _this2.login_weibo();
 	                                } })
 	                        )
 	                    )

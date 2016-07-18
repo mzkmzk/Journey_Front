@@ -8,7 +8,7 @@ import './Panels.scss'
 
 export default class Panels extends Component {
 
-    login_webibo(){
+    login_weibo(){
         WB2.login(function() {
             alert(WB2.checkLogin())
             alert('执行完毕1')
@@ -24,7 +24,7 @@ export default class Panels extends Component {
                     <h3>登录1</h3>
                     <section>
                         <section>
-                            <i className="fa fa-weibo " aria-hidden="true" onClick={() => this.login_weibo} ></i>
+                            <i className="fa fa-weibo " aria-hidden="true" onClick={ () => this.login_weibo()} ></i>
                         </section>
                     </section>
                 </section>
