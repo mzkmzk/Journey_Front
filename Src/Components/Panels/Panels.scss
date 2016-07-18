@@ -2,7 +2,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     > section {
+        border-radius: 20px;
         border: solid #000 1px;
+        padding: 0 50px 50px 50px;
+
+        > h1 {
+            padding: 25px 0 25px 0 ;
+        }
+        > h3 {
+            display: none;
+            align-self: flex-end;
+        }
+
+        >section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                font-size: 23px;
+                color: red;
+            }
+        }
+
     }
 }

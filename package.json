@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/mzkmzk/Journey_Front#readme",
   "dependencies": {
+    "file-loader": "0.9.0",
+    "font-awesome": "4.6.3",
     "graceful-fs": "4.1.4",
     "jquery": "3.0.0",
     "material-ui": "0.15.1",

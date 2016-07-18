@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import '../Utils/Font_Awesome/scss/font-awesome.scss'
 
 import Index from '../Containers/Index/Index'
 import Login from '../Containers/Login/Login'
