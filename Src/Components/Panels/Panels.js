@@ -20,7 +20,7 @@ export default class Panels extends Component {
         return (
             <article className='panel'>
                 <section>
-                    <h1>Login Journey</h1>
+                    <h1>Login123 Journey</h1>
                     <h3>登录1</h3>
                     <section>
                         <section>
