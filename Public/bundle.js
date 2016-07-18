@@ -41388,12 +41388,16 @@
 	        key: 'login_webibo',
 	        value: function login_webibo() {
 	            WB2.login(function () {
-	                //callback function
+	                alert(WB2.checkLogin());
+	                alert('执行完毕1');
 	            });
+	            alert(WB2.checkLogin());
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            return _react2.default.createElement(
 	                'article',
 	                { className: 'panel' },
@@ -41416,7 +41420,9 @@
 	                        _react2.default.createElement(
 	                            'section',
 	                            null,
-	                            _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true', onClick: '' })
+	                            _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true', onClick: function onClick() {
+	                                    return _this2.login_weibo();
+	                                } })
 	                        )
 	                    )
 	                )

@@ -10,10 +10,10 @@ export default class Panels extends Component {
 
     login_webibo(){
         WB2.login(function() {
-            alert(WB2.checkLogin());
-            alert('执行完毕');
+            alert(WB2.checkLogin())
+            alert('执行完毕1')
         })
-        alert(WB2.checkLogin());
+        alert(WB2.checkLogin())
     }
 
     render() {
