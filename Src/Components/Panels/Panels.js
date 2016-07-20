@@ -3,6 +3,7 @@
  */
 import React , { Component } from 'react'
 import { render } from 'react-dom'
+import $ from 'jquery'
 
 import './Panels.scss'
 
@@ -14,6 +15,7 @@ export default class Panels extends Component {
             alert('执行完毕1')
         })
         alert(WB2.checkLogin())
+
     }
 
     render() {

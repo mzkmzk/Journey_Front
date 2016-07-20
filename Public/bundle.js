@@ -41362,6 +41362,10 @@
 
 	var _reactDom = __webpack_require__(38);
 
+	var _jquery = __webpack_require__(243);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	__webpack_require__(248);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
