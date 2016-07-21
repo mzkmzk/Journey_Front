@@ -41396,6 +41396,15 @@
 	                alert('执行完毕1');
 	            });
 	            alert(WB2.checkLogin());
+	            var data = {
+	                'client_id': 1911849944,
+	                'redirect_uri': 'http://test.journey.404mzk.com/',
+	                'scope': 'all',
+	                'forcelogin': true
+	            };
+	            _jquery2.default.getJSON('https://api.weibo.com/oauth2/authorize', data, function (rs) {
+	                console.log(JSON.parse(rs));
+	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -41411,7 +41420,7 @@
 	                    _react2.default.createElement(
 	                        'h1',
 	                        null,
-	                        'Login123 Journey'
+	                        'Login Journey'
 	                    ),
 	                    _react2.default.createElement(
 	                        'h3',

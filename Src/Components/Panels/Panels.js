@@ -15,6 +15,15 @@ export default class Panels extends Component {
             alert('执行完毕1')
         })
         alert(WB2.checkLogin())
+        var data = {
+            'client_id': 1911849944,
+            'redirect_uri': 'http://test.journey.404mzk.com/',
+            'scope': 'all',
+            'forcelogin': true,
+        }
+        $.getJSON('https://api.weibo.com/oauth2/authorize',data,function(rs){
+            console.log(JSON.parse(rs))
+        })
 
     }
 
@@ -22,7 +31,7 @@ export default class Panels extends Component {
         return (
             <article className='panel'>
                 <section>
-                    <h1>Login123 Journey</h1>
+                    <h1>Login Journey</h1>
                     <h3>登录1</h3>
                     <section>
                         <section>
