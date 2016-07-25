@@ -39460,28 +39460,8 @@
 	    }
 	
 	    _createClass(Panels, [{
-	        key: 'login_weibo',
-	        value: function login_weibo() {
-	            WB2.login(function () {
-	                alert(WB2.checkLogin());
-	                //alert('执行完毕1')
-	            });
-	            alert(WB2.checkLogin());
-	            /*var data = {
-	                'client_id': 1911849944,
-	                'redirect_uri': 'http://test.journey.404mzk.com/',
-	                'scope': 'all',
-	                'forcelogin': true,
-	            }
-	            $.getJSON('https://api.weibo.com/oauth2/authorize',data,function(rs){
-	                console.log(JSON.parse(rs))
-	            })*/
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this2 = this;
-	
 	            return _react2.default.createElement(
 	                'article',
 	                { className: 'panel' },
@@ -39502,9 +39482,7 @@
 	                            _react2.default.createElement(
 	                                'a',
 	                                { href: 'https://api.weibo.com/oauth2/authorize?client_id=1911849944&redirect_uri=http://test.journey.404mzk.com/&scope=all&forcelogin=true' },
-	                                _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true', onClick: function onClick() {
-	                                        return _this2.login_weibo();
-	                                    } })
+	                                _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true' })
 	                            )
 	                        )
 	                    )
