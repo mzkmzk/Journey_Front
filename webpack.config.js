@@ -1,13 +1,19 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-	entry: './Src/Index',
+	entry: {
+        index: './Src/View/Index/index',
+        login: './Src/View/Login/login',
+    },
+    devtool: "source-map",
 	output: {
 		path: 'Public',
-		filename: 'bundle.js'
+		filename: '[name].bundle.js'
 	},
 	module: {
         preLoaders: [
             {
-                test: /\.js/,
+                test: /\.js$/,
                 loader: 'eslint-loader',
                 include: __dirname+ '/Src',
                 exclude: __dirname+ '/Src/Utils'
@@ -23,10 +29,10 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ['style','css','sass'],
             },
-            {
+           /* {
                 test: /\.html$/,
                 loader: 'html',
-            },
+            },*/
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader'
@@ -49,4 +55,27 @@ module.exports = {
             }
 		],
 	},
+    plugins: [
+        //因为总是加载所有被编译的文件,所以现在先啦到Publish里
+        /*new HtmlWebpackPlugin({
+            filename: 'login.html',
+            template: './Src/View/Login/login.html',
+            files: {
+                js: ['./Src/View/Login/login.js'],
+            },
+            chunks: {
+                main: {
+                    entry: './Src/View/Login/login.js',
+                }
+            },
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './Src/View/Index/index.html',
+            /!*files: {
+                js: ['./Src/View/Login/index.js'],
+            }*!/
+        }),
+*/
+    ],
 };
