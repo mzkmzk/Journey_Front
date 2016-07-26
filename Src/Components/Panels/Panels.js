@@ -17,7 +17,7 @@ export default class Panels extends Component {
                     <section>
                         <section>
                             <a href="https://api.weibo.com/oauth2/authorize?client_id=1911849944&redirect_uri=http://test.journey.404mzk.com/&scope=all&forcelogin=true">
-                                <i className="fa fa-weibo " aria-hidden="true"  ></i>
+                                <i className="fa fa-weibo " aria-hidden="true"></i>
                             </a>
                         </section>
                     </section>
