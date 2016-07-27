@@ -11,7 +11,7 @@ export default class Panels extends Component {
 
     render() {
         return (
-            <article className='panel'>
+            <article>
                 <section>
                     <h1>Login Journey</h1>
                     <section>

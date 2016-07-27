@@ -533,6 +533,7 @@ function QiniuJsSDK() {
                 ajax.onreadystatechange = function() {
                     if (ajax.readyState === 4 && ajax.status === 200) {
                         var res = that.parseJSON(ajax.responseText);
+                        console.log(res.uptoken);
                         that.token = res.uptoken;
                     }
                 };
@@ -541,6 +542,7 @@ function QiniuJsSDK() {
                 that.token = op.uptoken;
             }
         };
+
 
         // get file key according with the user passed options
         var getFileKey = function(up, file, func) {
