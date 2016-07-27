@@ -39465,7 +39465,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'article',
-	                null,
+	                { className: 'panel' },
 	                _react2.default.createElement(
 	                    'section',
 	                    null,
