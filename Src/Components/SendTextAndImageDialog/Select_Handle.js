@@ -71,7 +71,6 @@ export default class Select_Handle extends Component {
                     modal={false}
                     open={this.state.open}
                     onRequestClose={this.handleClose}
-                    className="send_text_and_image_dialog"
                     >
                     <QiNiu />
 

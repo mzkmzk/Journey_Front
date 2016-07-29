@@ -41,6 +41,7 @@ var Qi_Niu = function(browse_button){
         //        return size;
         //    }
         //},
+        log_level: 5,
         init: {
             'FilesAdded': function(up, files) {
                 plupload.each(files, function(file) {

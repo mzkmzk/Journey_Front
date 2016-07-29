@@ -22715,11 +22715,12 @@
 	                _react2.default.createElement(
 	                    _Dialog2.default,
 	                    {
-	                        title: 'Dialog With Actions',
+	                        title: '发旅记',
 	                        actions: actions,
 	                        modal: false,
 	                        open: this.state.open,
-	                        onRequestClose: this.handleClose
+	                        onRequestClose: this.handleClose,
+	                        className: 'send_text_and_image_dialog'
 	                    },
 	                    _react2.default.createElement(_QiNiu2.default, null),
 	                    _react2.default.createElement('textarea', { id: 'text_input_textarea' })
@@ -22858,6 +22859,7 @@
 	        //        return size;
 	        //    }
 	        //},
+	        log_level: 5,
 	        init: {
 	            'FilesAdded': function FilesAdded(up, files) {
 	                plupload.each(files, function (file) {
@@ -31201,7 +31203,7 @@
 
 
 	// module
-	exports.push([module.id, ".select_handle {\n  display: flex;\n  justify-content: center;\n  margin-top: 50px; }\n  .select_handle > div {\n    flex: 0 0 5%;\n    margin-left: 5px;\n    margin-right: 5px; }\n", ""]);
+	exports.push([module.id, ".select_handle {\n  display: flex;\n  justify-content: center;\n  margin-top: 50px; }\n\n.send_text_and_image_dialog textarea {\n  width: 100%;\n  height: 200px; }\n", ""]);
 
 	// exports
 
