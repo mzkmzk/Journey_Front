@@ -55,6 +55,15 @@ var Qi_Niu = function(browse_button){
                 // 每个文件上传时，处理相关的事情
             },
             'FileUploaded': function(up, file, info) {
+                var domain = up.getOption('domain')
+                var res = JSON.parse(info)
+                var sourceLink = "http://7xw1qv.com1.z0.glb.clouddn.com/" + res.key // 获取上传成功后的文件的Url
+                var li = document.createElement('li');
+                var img = document.createElement('img');
+                img.src = sourceLink;
+                li.appendChild(img);
+                document.getElementById('upload_pic').appendChild(li);
+                //document.getElementById('upload_pic').innerHTML += "<li><img src="+sourceLink+"/></li>"
                 // 每个文件上传成功后，处理相关的事情
                 // 其中info是文件上传成功后，服务端返回的json，形式如：
                 // {

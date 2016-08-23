@@ -76,7 +76,7 @@ export default class Select_Handle extends Component {
                     <QiNiu />
 
                     <textarea id="text_input_textarea"/>
-
+                    <ul id="upload_pic"></ul>
 
                 </Dialog>
                 {/*<textarea id="text_input_textarea"/>
