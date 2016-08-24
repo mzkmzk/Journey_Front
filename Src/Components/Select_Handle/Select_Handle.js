@@ -65,6 +65,9 @@ export default class Select_Handle extends Component {
                 <Raised_Button label="发旅音" disabled={true} />
                 <Raised_Button label="发旅频" disabled={true} />
 
+                <textarea id="text_input_textarea"/>
+                    <ul id="upload_pic"></ul>
+                    
                 <Dialog
                     title="发旅记"
                     actions={actions}
