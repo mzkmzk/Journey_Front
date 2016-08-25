@@ -22709,11 +22709,19 @@
 	            return _react2.default.createElement(
 	                'article',
 	                { className: 'select_handle' },
-	                _react2.default.createElement(_RaisedButton2.default, { label: '发旅记', primary: true, onClick: this.handleOpen }),
-	                _react2.default.createElement(_RaisedButton2.default, { label: '发旅音', disabled: true }),
-	                _react2.default.createElement(_RaisedButton2.default, { label: '发旅频', disabled: true }),
-	                _react2.default.createElement('textarea', { id: 'text_input_textarea' }),
-	                _react2.default.createElement('ul', { id: 'upload_pic' }),
+	                _react2.default.createElement(
+	                    'section',
+	                    null,
+	                    _react2.default.createElement(_RaisedButton2.default, { label: '发旅记', primary: true, onClick: this.handleOpen }),
+	                    _react2.default.createElement(_RaisedButton2.default, { label: '发旅音', disabled: true }),
+	                    _react2.default.createElement(_RaisedButton2.default, { label: '发旅频', disabled: true })
+	                ),
+	                _react2.default.createElement(
+	                    'section',
+	                    null,
+	                    _react2.default.createElement('textarea', { id: 'text_input_textarea', className: 'textarea' }),
+	                    _react2.default.createElement('ul', { id: 'upload_pic' })
+	                ),
 	                _react2.default.createElement(
 	                    _Dialog2.default,
 	                    {
@@ -31215,7 +31223,7 @@
 
 
 	// module
-	exports.push([module.id, ".select_handle {\n  display: flex;\n  justify-content: center;\n  margin-top: 50px; }\n\n.send_text_and_image_dialog textarea {\n  width: 100%;\n  height: 200px; }\n", ""]);
+	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .textarea {\n    margin-top: 3rem; }\n", ""]);
 
 	// exports
 
@@ -48055,7 +48063,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nh1 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 24px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 21px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 13px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 18.5714px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0;\n  font-size: 10px; }\n\nh1 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 24px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 21px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 13px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 18.5714px; }\n", ""]);
 
 	// exports
 

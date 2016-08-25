@@ -61,13 +61,16 @@ export default class Select_Handle extends Component {
 
         return (
             <article className="select_handle" >
-                <Raised_Button label="发旅记" primary={true} onClick={this.handleOpen} />
-                <Raised_Button label="发旅音" disabled={true} />
-                <Raised_Button label="发旅频" disabled={true} />
-
-                <textarea id="text_input_textarea"/>
+                <section>
+                    <Raised_Button label="发旅记" primary={true} onClick={this.handleOpen} />
+                    <Raised_Button label="发旅音" disabled={true} />
+                    <Raised_Button label="发旅频" disabled={true} />
+                </section>
+                
+                <section>
+                <textarea id="text_input_textarea" className="textarea"/>
                     <ul id="upload_pic"></ul>
-                    
+                </section>
                 <Dialog
                     title="发旅记"
                     actions={actions}
