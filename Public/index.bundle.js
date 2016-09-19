@@ -31249,7 +31249,7 @@
 	exports.load_activity = function () {
 	    return function (dispatch, getState) {
 	        dispatch(exports.is_fetching());
-	        _jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query', [], function (result) {
+	        _jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/query', [], function (result) {
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action(result.data));
 	        });
@@ -31272,7 +31272,7 @@
 	        var params = {
 	            text: text
 	        };
-	        _jquery2.default.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert', params, function (result) {
+	        _jquery2.default.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert', params, function (result) {
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action([result]));
 	        });

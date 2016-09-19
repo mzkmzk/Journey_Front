@@ -9,7 +9,7 @@ exports.is_fetching = function() {
 exports.load_activity= function() {
     return (dispatch,getState) => {
         dispatch(exports.is_fetching())
-        $.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',[],function(result) {
+        $.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/query',[],function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data))
         })
@@ -30,7 +30,7 @@ exports.add_activity = function(text){
         const params = {
             text
         }
-        $.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert',params,function(result) {
+        $.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action([result]))
         })
