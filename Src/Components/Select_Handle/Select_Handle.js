@@ -58,8 +58,14 @@ export default class Select_Handle extends Component {
                 onClick={() => this.send(add_activity)}
                 />,
         ]
-
+        let li_style = {
+            backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/17.jpg)',
+            }
+        let li_style2 = {
+            backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/16.jpg)',
+        }
         return (
+            
             <article className="select_handle" >
                 <section>
                     <Raised_Button label="发旅记" primary={true} onClick={this.handleOpen} />
@@ -71,9 +77,13 @@ export default class Select_Handle extends Component {
                     <textarea id="text_input_textarea" className="textarea"/>
                     <QiNiu />
                     <ul id="upload_pic" className="upload_pic">
-                        <li><img src="http://7xw1qv.com1.z0.glb.clouddn.com/Fl2RB7-FGrJe_WSpnFd-vEEB5eSx" /></li>
                         
-                        
+                        <li style={li_style}></li>
+                        <li style={li_style2}></li>
+                        <li style={li_style}></li>
+                        <li style={li_style2}></li>
+                       
+                     
 
                     </ul>
                 </section>

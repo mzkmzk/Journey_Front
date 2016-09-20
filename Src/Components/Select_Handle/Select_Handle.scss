@@ -14,10 +14,16 @@
     }
 
     .upload_pic {
-        width: 19rem;
-        height: 19rem;
+        width: 60rem;
         display: flex;
-        
+        flex-wrap: wrap;//默认不换行,设置这个自动换行
+        li {
+            flex-basis: 19rem;
+            height: 19rem;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: cover;
+        }
     }
 }
 

@@ -22709,7 +22709,12 @@
 	                    return _this2.send(add_activity);
 	                }
 	            })];
-
+	            var li_style = {
+	                backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/17.jpg)'
+	            };
+	            var li_style2 = {
+	                backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/16.jpg)'
+	            };
 	            return _react2.default.createElement(
 	                'article',
 	                { className: 'select_handle' },
@@ -22728,11 +22733,10 @@
 	                    _react2.default.createElement(
 	                        'ul',
 	                        { id: 'upload_pic', className: 'upload_pic' },
-	                        _react2.default.createElement(
-	                            'li',
-	                            null,
-	                            _react2.default.createElement('img', { src: 'http://7xw1qv.com1.z0.glb.clouddn.com/Fl2RB7-FGrJe_WSpnFd-vEEB5eSx' })
-	                        )
+	                        _react2.default.createElement('li', { style: li_style }),
+	                        _react2.default.createElement('li', { style: li_style2 }),
+	                        _react2.default.createElement('li', { style: li_style }),
+	                        _react2.default.createElement('li', { style: li_style2 })
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -22901,9 +22905,10 @@
 	                var res = JSON.parse(info);
 	                var sourceLink = 'http://7xw1qv.com1.z0.glb.clouddn.com/' + res.key; // 获取上传成功后的文件的Url
 	                var li = document.createElement('li');
-	                var img = document.createElement('img');
-	                img.src = sourceLink;
-	                li.appendChild(img);
+	                li.style.backgroundImage = 'url(' + sourceLink + ')';
+	                //var img = document.createElement('img')
+	                //img.src = sourceLink
+	                //li.appendChild(img)
 	                document.getElementById('upload_pic').appendChild(li);
 	                //document.getElementById('upload_pic').innerHTML += "<li><img src="+sourceLink+"/></li>"
 	                // 每个文件上传成功后，处理相关的事情
@@ -31236,7 +31241,7 @@
 
 
 	// module
-	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .textarea {\n    margin-top: 3rem;\n    width: 60rem;\n    height: 12.3rem;\n    overflow-x: hidden;\n    overflow-y: auto;\n    outline: none; }\n  .select_handle .upload_pic {\n    width: 19rem;\n    height: 19rem;\n    display: flex; }\n", ""]);
+	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .textarea {\n    margin-top: 3rem;\n    width: 60rem;\n    height: 12.3rem;\n    overflow-x: hidden;\n    overflow-y: auto;\n    outline: none; }\n  .select_handle .upload_pic {\n    width: 60rem;\n    display: flex;\n    flex-wrap: wrap; }\n    .select_handle .upload_pic li {\n      flex-basis: 19rem;\n      height: 19rem;\n      background-repeat: no-repeat;\n      background-position: top center;\n      background-size: cover; }\n", ""]);
 
 	// exports
 
