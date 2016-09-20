@@ -6,6 +6,18 @@
 
     .textarea {
     	margin-top: 3rem;
+        width: 60rem;
+        height: 12.3rem;
+        overflow-x: hidden;
+        overflow-y: auto;
+        outline: none;//去掉获得焦点时的蓝边框
+    }
+
+    .upload_pic {
+        width: 19rem;
+        height: 19rem;
+        display: flex;
+        
     }
 }
 

@@ -68,9 +68,16 @@ export default class Select_Handle extends Component {
                 </section>
                 
                 <section>
-                <textarea id="text_input_textarea" className="textarea"/>
-                    <ul id="upload_pic"></ul>
+                    <textarea id="text_input_textarea" className="textarea"/>
+                    <QiNiu />
+                    <ul id="upload_pic" className="upload_pic">
+                        <li><img src="http://7xw1qv.com1.z0.glb.clouddn.com/Fl2RB7-FGrJe_WSpnFd-vEEB5eSx" /></li>
+                        
+                        
+
+                    </ul>
                 </section>
+
                 <Dialog
                     title="发旅记"
                     actions={actions}

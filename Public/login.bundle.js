@@ -39314,7 +39314,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0;\n  font-size: 10px; }\n\nh1 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 24px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 21px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 13px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 18.5714px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 10px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
 
 	// exports
 
@@ -39354,7 +39354,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  margin: 0; }\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0; }\n\ntextarea {\n  resize: none; }\n\nul {\n  list-style: none;\n  -webkit-padding-start: 0; }\n", ""]);
 
 	// exports
 

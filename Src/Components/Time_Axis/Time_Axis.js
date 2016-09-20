@@ -18,7 +18,7 @@ class Time_Axis extends Component {
                                     <blockquote>{ activity.created_at.slice(TIME_START,SECOND_START)}</blockquote>
                                 </time>
                                 <section >
-                                    {activity.text}
+                                    <p>{activity.text}</p>
                                 </section>
                             </article>
                     )

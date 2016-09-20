@@ -22550,7 +22550,11 @@
 	                        _react2.default.createElement(
 	                            'section',
 	                            null,
-	                            activity.text
+	                            _react2.default.createElement(
+	                                'p',
+	                                null,
+	                                activity.text
+	                            )
 	                        )
 	                    );
 	                })
@@ -22720,7 +22724,16 @@
 	                    'section',
 	                    null,
 	                    _react2.default.createElement('textarea', { id: 'text_input_textarea', className: 'textarea' }),
-	                    _react2.default.createElement('ul', { id: 'upload_pic' })
+	                    _react2.default.createElement(_QiNiu2.default, null),
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { id: 'upload_pic', className: 'upload_pic' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement('img', { src: 'http://7xw1qv.com1.z0.glb.clouddn.com/Fl2RB7-FGrJe_WSpnFd-vEEB5eSx' })
+	                        )
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    _Dialog2.default,
@@ -31223,7 +31236,7 @@
 
 
 	// module
-	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .textarea {\n    margin-top: 3rem; }\n", ""]);
+	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .textarea {\n    margin-top: 3rem;\n    width: 60rem;\n    height: 12.3rem;\n    overflow-x: hidden;\n    overflow-y: auto;\n    outline: none; }\n  .select_handle .upload_pic {\n    width: 19rem;\n    height: 19rem;\n    display: flex; }\n", ""]);
 
 	// exports
 
@@ -48063,7 +48076,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0;\n  font-size: 10px; }\n\nh1 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 24px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 14px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 21px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-size: 13px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 400;\n  line-height: 18.5714px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 10px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
 
 	// exports
 
@@ -48103,7 +48116,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  margin: 0; }\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0; }\n\ntextarea {\n  resize: none; }\n\nul {\n  list-style: none;\n  -webkit-padding-start: 0; }\n", ""]);
 
 	// exports
 
