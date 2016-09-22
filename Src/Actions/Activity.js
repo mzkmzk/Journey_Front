@@ -23,14 +23,14 @@ function load_activity_action(activities = []) {
     }
 }
 
-exports.add_activity = function(text){
+exports.add_activity = function(text,temp_picture){
     return ( dispatch,getState ) => {
-
         dispatch(exports.is_fetching())
         const params = {
-            text
+            text,
+            'temp_picture': temp_picture
         }
-        $.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
+        $.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action([result]))
         })

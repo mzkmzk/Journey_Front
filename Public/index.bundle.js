@@ -22360,10 +22360,10 @@
 	            var temp_picture = _props.temp_picture;
 
 	            console.log(actions.add_temp_picture + 'index.actions.add_add_temp_picture');
-	            console.log(actions.add_temp_picture);
+	            console.log(temp_picture);
 
 	            //console.log(actions.add_temp_picture())
-	            var add_add_temp_picture = actions.add_add_temp_picture || 'fuck1';
+	            var add_temp_picture = actions.add_add_temp_picture || 'fuck1';
 	            return _react2.default.createElement(
 	                'article',
 	                null,
@@ -22371,7 +22371,7 @@
 	                _react2.default.createElement(
 	                    'section',
 	                    null,
-	                    _react2.default.createElement(_Select_Handle2.default, { aa: '111', add_temp_picture: actions.add_temp_picture, add_activity: actions.add_activity }),
+	                    _react2.default.createElement(_Select_Handle2.default, { temp_picture: temp_picture, add_temp_picture: actions.add_temp_picture, add_activity: actions.add_activity }),
 	                    _react2.default.createElement(_Time_Axis2.default, { activities: activity.activities })
 	                )
 	            );
@@ -39738,7 +39738,8 @@
 	    }, {
 	        key: 'send',
 	        value: function send(add_activity) {
-	            add_activity.apply(this, [document.getElementById('text_input_textarea').value]);
+
+	            add_activity.apply(this, [document.getElementById('text_input_textarea').value, this.props.temp_picture]);
 	            this.setState({ open: false });
 	        }
 	    }, {
@@ -39792,6 +39793,13 @@
 	                        _react2.default.createElement('li', { style: li_style2 }),
 	                        _react2.default.createElement('li', { style: li_style }),
 	                        _react2.default.createElement('li', { style: li_style2 })
+	                    ),
+	                    _react2.default.createElement(
+	                        'button',
+	                        { onClick: function onClick() {
+	                                return _this2.send(add_activity);
+	                            }, type: 'button' },
+	                        '提交'
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -48123,14 +48131,14 @@
 	    };
 	}
 
-	exports.add_activity = function (text) {
+	exports.add_activity = function (text, temp_picture) {
 	    return function (dispatch, getState) {
-
 	        dispatch(exports.is_fetching());
 	        var params = {
-	            text: text
+	            text: text,
+	            'temp_picture': temp_picture
 	        };
-	        _jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert', params, function (result) {
+	        _jquery2.default.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert', params, function (result) {
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action([result]));
 	        });

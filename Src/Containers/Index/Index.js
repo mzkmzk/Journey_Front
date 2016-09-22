@@ -23,15 +23,16 @@ class Index extends Component {
     render() {
         const { activity, actions, temp_picture } = this.props
         console.log(actions.add_temp_picture + 'index.actions.add_add_temp_picture')
-        console.log(actions.add_temp_picture)
+        console.log(temp_picture)
+
 
         //console.log(actions.add_temp_picture())
-        const add_add_temp_picture = actions.add_add_temp_picture || 'fuck1'
+        const add_temp_picture = actions.add_add_temp_picture || 'fuck1'
         return (
             <article>
                 <Header></Header>
                 <section>
-                    <Select_Handle aa={'111'} add_temp_picture={actions.add_temp_picture} add_activity={actions.add_activity} ></Select_Handle>
+                    <Select_Handle temp_picture={temp_picture} add_temp_picture={actions.add_temp_picture} add_activity={actions.add_activity} ></Select_Handle>
                     <Time_Axis activities={activity.activities}></Time_Axis>
 
                 </section>

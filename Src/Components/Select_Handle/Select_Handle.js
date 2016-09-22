@@ -36,7 +36,12 @@ export default class Select_Handle extends Component {
     }
 
     send(add_activity) {
-        add_activity.apply(this,[document.getElementById('text_input_textarea').value])
+        
+       
+        add_activity.apply(this,[
+            document.getElementById('text_input_textarea').value,
+            this.props.temp_picture,
+            ])
         this.setState({open: false})
     }
 
@@ -62,7 +67,7 @@ export default class Select_Handle extends Component {
         let li_style2 = {
             backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/16.jpg)',
         }
-        
+
         return (
             
             <article className="select_handle" >
@@ -82,6 +87,7 @@ export default class Select_Handle extends Component {
                         <li style={li_style}></li>
                         <li style={li_style2}></li>
                     </ul>
+                    <button onClick={() => this.send(add_activity)} type="button">提交</button>
                 </section>
 
                 <Dialog
