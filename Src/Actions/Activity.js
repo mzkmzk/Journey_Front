@@ -30,11 +30,16 @@ exports.add_activity = function(text){
         const params = {
             text
         }
-        $.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
+        $.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action([result]))
         })
+    }
+}
 
-
+exports.add_temp_picture = function(qiniu_key){
+    return {
+        type: 'ADD_TEMP_PICTURE',
+        'temp_picture': [qiniu_key]
     }
 }

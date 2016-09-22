@@ -25,8 +25,6 @@ export default class Select_Handle extends Component {
         }
     }
 
-
-
     handleOpen() {
         //this.props.open = true;
         this.setState({open: true})
@@ -37,13 +35,13 @@ export default class Select_Handle extends Component {
         this.setState({open: false})
     }
 
-    send(send) {
-        send.apply(this,[document.getElementById('text_input_textarea').value])
+    send(add_activity) {
+        add_activity.apply(this,[document.getElementById('text_input_textarea').value])
         this.setState({open: false})
     }
 
     render() {
-        const { add_activity } = this.props
+        const { add_activity, add_temp_picture } = this.props
 
         const actions = [
             <FlatButton
@@ -64,6 +62,7 @@ export default class Select_Handle extends Component {
         let li_style2 = {
             backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/16.jpg)',
         }
+        
         return (
             
             <article className="select_handle" >
@@ -75,16 +74,13 @@ export default class Select_Handle extends Component {
                 
                 <section>
                     <textarea id="text_input_textarea" className="textarea"/>
-                    <QiNiu />
+                    <QiNiu add_temp_picture={add_temp_picture}/>
                     <ul id="upload_pic" className="upload_pic">
                         
                         <li style={li_style}></li>
                         <li style={li_style2}></li>
                         <li style={li_style}></li>
                         <li style={li_style2}></li>
-                       
-                     
-
                     </ul>
                 </section>
 
