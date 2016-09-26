@@ -46,7 +46,7 @@ export default class Select_Handle extends Component {
     }
 
     render() {
-        const { add_activity, add_temp_picture } = this.props
+        const { add_activity, add_temp_picture , temp_picture } = this.props
 
         const actions = [
             <FlatButton
@@ -61,12 +61,6 @@ export default class Select_Handle extends Component {
                 onClick={() => this.send(add_activity)}
                 />,
         ]
-        let li_style = {
-            backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/17.jpg)',
-            }
-        let li_style2 = {
-            backgroundImage: 'url(http://7xw1qv.com1.z0.glb.clouddn.com/16.jpg)',
-        }
 
         return (
             
@@ -81,11 +75,13 @@ export default class Select_Handle extends Component {
                     <textarea id="text_input_textarea" className="textarea"/>
                     <QiNiu add_temp_picture={add_temp_picture}/>
                     <ul id="upload_pic" className="upload_pic">
-                        
-                        <li style={li_style}></li>
-                        <li style={li_style2}></li>
-                        <li style={li_style}></li>
-                        <li style={li_style2}></li>
+                       {
+                            temp_picture.map(
+                                (temp_picture_item,index) => 
+                                <li key={index} style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + ')'}}></li>
+                            )
+
+                       }
                     </ul>
                     <button onClick={() => this.send(add_activity)} type="button">提交</button>
                 </section>

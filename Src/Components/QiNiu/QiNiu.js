@@ -18,20 +18,20 @@ export default class QiNiu extends Component {
         var qi_niu = Qi_Niu('upload_file',{
             'FileUploaded': function(up, file, info) {
                 
-                console.log('FileUploaded1')
+                //console.log('FileUploaded1')
                 
-                var domain = up.getOption('domain')
+                //var domain = up.getOption('domain')
 
                 var res = JSON.parse(info)
                  _self.props.add_temp_picture(res.key)
-                var sourceLink = 'http://7xw1qv.com1.z0.glb.clouddn.com/' + res.key // 获取上传成功后的文件的Url
-                var li = document.createElement('li')
-                li.style.backgroundImage = 'url('+sourceLink+')'
+                //var sourceLink = 'http://7xw1qv.com1.z0.glb.clouddn.com/' + res.key // 获取上传成功后的文件的Url
+                //var li = document.createElement('li')
+                //li.style.backgroundImage = 'url('+sourceLink+')'
 
                 //var img = document.createElement('img')
                 //img.src = sourceLink
                 //li.appendChild(img)
-                document.getElementById('upload_pic').appendChild(li)
+                //document.getElementById('upload_pic').appendChild(li)
             }
         })
         

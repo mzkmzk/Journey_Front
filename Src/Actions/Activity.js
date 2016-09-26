@@ -28,9 +28,9 @@ exports.add_activity = function(text,temp_picture){
         dispatch(exports.is_fetching())
         const params = {
             text,
-            'temp_picture': temp_picture
+            'media': {'qiniu_key': temp_picture}
         }
-        $.post('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/insert',params,function(result) {
+        $.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action([result]))
         })
