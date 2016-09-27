@@ -22568,6 +22568,13 @@
 	                                'p',
 	                                null,
 	                                activity.text
+	                            ),
+	                            _react2.default.createElement(
+	                                'ul',
+	                                { id: 'upload_pic', className: 'upload_pic' },
+	                                activity.creator_media && activity.creator_media.map(function (media, index) {
+	                                    return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + ')' } });
+	                                })
 	                            )
 	                        )
 	                    );
@@ -22616,7 +22623,7 @@
 
 
 	// module
-	exports.push([module.id, ".time_axis {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin-top: 50px; }\n  .time_axis article {\n    flex: 0 1 80%;\n    display: flex;\n    /* &:last-child {\n            section {\n                padding-bottom: 0;\n            }\n        }*/ }\n    .time_axis article section {\n      padding-left: 1%;\n      margin-left: 1%;\n      padding-bottom: 50px;\n      border-left: 1px solid black;\n      flex: 0 1 70%; }\n", ""]);
+	exports.push([module.id, ".time_axis {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin-top: 50px; }\n  .time_axis article {\n    flex: 0 1 80%;\n    display: flex;\n    /* &:last-child {\n            section {\n                padding-bottom: 0;\n            }\n        }*/ }\n    .time_axis article section {\n      padding-left: 1%;\n      margin-left: 1%;\n      padding-bottom: 50px;\n      border-left: 1px solid black;\n      flex: 0 1 70%; }\n      .time_axis article section .upload_pic {\n        width: 60rem;\n        display: flex;\n        flex-wrap: wrap; }\n        .time_axis article section .upload_pic li {\n          flex-basis: 19rem;\n          height: 19rem;\n          background-repeat: no-repeat;\n          background-position: top center;\n          background-size: cover; }\n", ""]);
 
 	// exports
 
@@ -31331,9 +31338,9 @@
 	            text: text,
 	            'media': { 'qiniu_key': temp_picture }
 	        };
-	        _jquery2.default.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert', params, function (result) {
+	        _jquery2.default.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert', params, function (result) {
 	            dispatch(exports.is_fetching());
-	            dispatch(load_activity_action([result]));
+	            dispatch(load_activity_action(result.data));
 	        });
 	    };
 	};

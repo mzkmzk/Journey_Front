@@ -19,6 +19,14 @@ class Time_Axis extends Component {
                                 </time>
                                 <section >
                                     <p>{activity.text}</p>
+                                    <ul id="upload_pic" className="upload_pic">
+                                       {
+                                            activity.creator_media && activity.creator_media.map(
+                                                (media,index) => 
+                                                <li key={index} style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + ')'}}></li>
+                                            )
+                                       }
+                                    </ul>
                                 </section>
                             </article>
                     )

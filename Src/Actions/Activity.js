@@ -30,9 +30,9 @@ exports.add_activity = function(text,temp_picture){
             text,
             'media': {'qiniu_key': temp_picture}
         }
-        $.post('http://inner.journey.404mzk.com/v1/Activity_Controller/insert',params,function(result) {
+        $.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
-            dispatch(load_activity_action([result]))
+            dispatch(load_activity_action(result.data))
         })
     }
 }
