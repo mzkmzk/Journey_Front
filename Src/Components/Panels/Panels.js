@@ -4,19 +4,22 @@
 import React , { Component } from 'react'
 import { render } from 'react-dom'
 import $ from 'jquery'
+import Environment from '../../Global/JS/Environment'
 
 import './Panels.scss'
 
 export default class Panels extends Component {
+   
 
     render() {
+        var env = new Environment()
         return (
             <article className="panel">
                 <section>
                     <h1>Login Journey</h1>
                     <section>
                         <section>
-                            <a href="https://api.weibo.com/oauth2/authorize?client_id=1911849944&redirect_uri=http://test.journey.404mzk.com/&scope=all&forcelogin=true">
+                            <a href={'https://api.weibo.com/oauth2/authorize?client_id='+env.sinaAppKey+'&scope=all&forcelogin=true&redirect_uri='+window.location.protocol+'\/\/'+window.location.host}>
                                 <i className="fa fa-weibo " aria-hidden="true"></i>
                             </a>
                         </section>
