@@ -7,13 +7,8 @@ export default class Environment {
         }
         else {
             this.environment = 'production'
-            this.sinaAppKey = '3068502260'
+            this.sinaAppKey = '2854977325'
         }
-        console.log(30685022601)
-
-
-        
-
     }
 
 }

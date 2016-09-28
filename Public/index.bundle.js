@@ -22325,6 +22325,10 @@
 
 	var _temp_picture2 = _interopRequireDefault(_temp_picture);
 
+	var _Environment = __webpack_require__(420);
+
+	var _Environment2 = _interopRequireDefault(_Environment);
+
 	__webpack_require__(246);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -22338,10 +22342,13 @@
 	var Index = function (_Component) {
 	    _inherits(Index, _Component);
 
-	    function Index() {
+	    function Index(props) {
 	        _classCallCheck(this, Index);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Index).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Index).call(this, props));
+
+	        _this.checkPower();
+	        return _this;
 	    }
 
 	    _createClass(Index, [{
@@ -22350,6 +22357,30 @@
 	            var actions = this.props.actions;
 
 	            actions.load_activity();
+	        }
+	    }, {
+	        key: 'checkPower',
+	        value: function checkPower() {
+	            var urlArgs = this.urlArgs();
+	            //const env = Env()
+	            if (urlArgs['code'] == undefined) {
+	                window.location.href = window.location.protocol + '\/\/' + window.location.host + '/login.html';
+	            }
+	        }
+	    }, {
+	        key: 'urlArgs',
+	        value: function urlArgs() {
+	            var args = {};
+	            var query = location.search.substring(1);
+	            var pairs = query.split('&');
+	            for (var i = pairs.length - 1; i >= 0; i--) {
+	                var pos = pairs[i].indexOf('=');
+	                if (pos === -1) continue;
+	                var name = pairs[i].substring(0, pos);
+	                var value = pairs[i].substring(pos, pairs[i].length);
+	                args[name] = value;
+	            }
+	            return args;
 	        }
 	    }, {
 	        key: 'render',
@@ -48219,6 +48250,40 @@
 
 	// exports
 
+
+/***/ },
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Environment = function Environment() {
+	    _classCallCheck(this, Environment);
+
+	    var href = window.location.href;
+	    if (href.indexOf('test.journey.404mzk.com') !== -1) {
+	        this.environment = 'test';
+	        this.sinaAppKey = '1911849944';
+	    } else {
+	        this.environment = 'production';
+	        this.sinaAppKey = '2854977325';
+	    }
+	};
+
+		exports.default = Environment;
 
 /***/ }
 /******/ ]);

@@ -39636,9 +39636,8 @@
 	        this.sinaAppKey = '1911849944';
 	    } else {
 	        this.environment = 'production';
-	        this.sinaAppKey = '3068502260';
+	        this.sinaAppKey = '2854977325';
 	    }
-	    console.log(30685022601);
 	};
 
 		exports.default = Environment;
