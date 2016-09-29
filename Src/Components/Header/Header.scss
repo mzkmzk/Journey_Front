@@ -3,9 +3,16 @@ header {
     justify-content: center;
     background-color: #0074D9;
     nav {
+        display: flex;
+        justify-content: space-between;
         margin-top: 10px;
         margin-bottom: 10px;
         min-width: 80%;
         color: #fff;
+    }
+    .menu {
+        i {
+            font-size: 3rem;
+        }
     }
 }

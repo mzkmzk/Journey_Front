@@ -22454,6 +22454,10 @@
 
 	var _reactDom = __webpack_require__(38);
 
+	var _RaisedButton = __webpack_require__(239);
+
+	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
 	__webpack_require__(197);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -22486,6 +22490,13 @@
 	                        'h1',
 	                        null,
 	                        'Journey'
+	                    ),
+	                    _react2.default.createElement(
+	                        'section',
+	                        { className: 'menu' },
+	                        _react2.default.createElement(_RaisedButton2.default, {
+	                            icon: _react2.default.createElement('i', { className: 'fa fa-cog', 'aria-hidden': 'true' })
+	                        })
 	                    )
 	                )
 	            );
@@ -22532,7 +22543,7 @@
 
 
 	// module
-	exports.push([module.id, "header {\n  display: flex;\n  justify-content: center;\n  background-color: #0074D9; }\n  header nav {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    min-width: 80%;\n    color: #fff; }\n", ""]);
+	exports.push([module.id, "header {\n  display: flex;\n  justify-content: center;\n  background-color: #0074D9; }\n  header nav {\n    display: flex;\n    justify-content: space-between;\n    margin-top: 10px;\n    margin-bottom: 10px;\n    min-width: 80%;\n    color: #fff; }\n  header .menu i {\n    font-size: 3rem; }\n", ""]);
 
 	// exports
 
