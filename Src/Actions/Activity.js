@@ -9,7 +9,7 @@ exports.is_fetching = function() {
 exports.load_activity= function() {
     return (dispatch,getState) => {
         dispatch(exports.is_fetching())
-        $.getJSON('http://inner.journey.404mzk.com/v1/Creator_Activity_Controller/query',[],function(result) {
+        $.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',JSON.parse(localStorage.getItem('sina_access_token')),function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data))
         })
@@ -26,10 +26,13 @@ function load_activity_action(activities = []) {
 exports.add_activity = function(text,temp_picture){
     return ( dispatch,getState ) => {
         dispatch(exports.is_fetching())
-        const params = {
+        const activity = {
             text,
-            'media': {'qiniu_key': temp_picture}
+            'media': {'qiniu_key': temp_picture},
         }
+
+        const params = Object.assign(activity,JSON.parse(localStorage.getItem('sina_access_token')))
+
         $.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data))

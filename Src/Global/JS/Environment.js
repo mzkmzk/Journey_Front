@@ -3,7 +3,8 @@ export default class Environment {
         const href = window.location.href
         if (href.indexOf('test.journey.404mzk.com') !== -1){
             this.environment = 'test'
-             this.sinaAppKey = '1911849944'
+            this.sinaAppKey = '1911849944'
+            this.innerURL = 'inner.journey.404mzk.com'
         }
         else {
             this.environment = 'production'

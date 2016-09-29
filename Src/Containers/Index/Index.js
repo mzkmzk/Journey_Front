@@ -30,7 +30,13 @@ class Index extends Component {
     checkPower() {
         const urlArgs = this.urlArgs()
         //const env = Env()
-        if(urlArgs['code'] == undefined  ) {
+        if(urlArgs['sina_access_token'] !=undefined && urlArgs['id'] !=undefined) {
+            localStorage.setItem('sina_access_token',JSON.stringify({
+                'sina_access_token': urlArgs['sina_access_token'],
+                'id': urlArgs['id'],
+            }))
+        }
+        if (localStorage.getItem('sina_access_token') == undefined) {
             window.location.href = window.location.protocol+'\/\/'+window.location.host+'/login.html'
         }
     }
@@ -43,7 +49,7 @@ class Index extends Component {
             var pos = pairs[i].indexOf('=')
             if ( pos === -1 ) continue
             var name = pairs[i].substring(0,pos)
-            var value = pairs[i].substring(pos,pairs[i].length)
+            var value = pairs[i].substring(pos+1,pairs[i].length)
             args[name] = value
                 
         }

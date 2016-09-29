@@ -19,7 +19,7 @@ export default class Panels extends Component {
                     <h1>Login Journey</h1>
                     <section>
                         <section>
-                            <a href={'https://api.weibo.com/oauth2/authorize?client_id='+env.sinaAppKey+'&scope=all&forcelogin=true&redirect_uri='+window.location.protocol+'\/\/'+window.location.host}>
+                            <a href={'https://api.weibo.com/oauth2/authorize?client_id='+env.sinaAppKey+'&scope=all&forcelogin=true&redirect_uri='+window.location.protocol+'\/\/'+env.innerURL+'/v2/User_Controller/sinaLogin'}>
                                 <i className="fa fa-weibo " aria-hidden="true"></i>
                             </a>
                         </section>
