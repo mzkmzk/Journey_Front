@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton'
 
 import  './Header.scss'
 
@@ -16,7 +16,6 @@ class Header extends Component {
                         <RaisedButton
                           icon={<i className="fa fa-cog" aria-hidden="true"></i>}
                         />
-                        
                     </section>
                 </nav>
                 
