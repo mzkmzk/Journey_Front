@@ -1,11 +1,12 @@
-/*
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-*/
+
 
 module.exports = {
 	entry: {
         index: './Src/View/Index/index',
         login: './Src/View/Login/login',
+        setting: './Src/View/Setting/setting',
     },
     devtool: "cheap-module-source-map",
 	output: {
@@ -31,10 +32,10 @@ module.exports = {
                 test: /\.scss$/,
                 loaders: ['style','css','sass'],
             },
-           /* {
+            {
                 test: /\.html$/,
                 loader: 'html',
-            },*/
+            },
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader'
@@ -79,5 +80,13 @@ module.exports = {
             }*!/
         }),
 */
+        /*没用
+        new HtmlWebpackPlugin({
+            filename: 'setting.html',
+            template: './Src/View/Setting/setting.html',
+            files: {
+                js: ['./Src/View/Setting/setting.js'],
+            },
+        }),*/
     ],
 };

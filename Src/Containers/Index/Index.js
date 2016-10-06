@@ -64,7 +64,7 @@ class Index extends Component {
 
 
         //console.log(actions.add_temp_picture())
-        const add_temp_picture = actions.add_add_temp_picture || 'fuck1'
+        const add_temp_picture = actions.add_add_temp_picture
         return (
             <article>
                 <Header></Header>
@@ -86,9 +86,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    console.log(action_activity)
-
-    console.log(action_temp_picture)
     return {
         actions: bindActionCreators(
         Object.assign(
