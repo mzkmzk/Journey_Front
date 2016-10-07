@@ -34,7 +34,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'html',
+                loader: 'html-loader',
             },
             {
                 test: /\.(png|jpg)$/,
@@ -60,33 +60,20 @@ module.exports = {
 	},
     plugins: [
         //因为总是加载所有被编译的文件,所以现在先啦到Publish里
-        /*new HtmlWebpackPlugin({
+        /**/new HtmlWebpackPlugin({
             filename: 'login.html',
             template: './Src/View/Login/login.html',
-            files: {
-                js: ['./Src/View/Login/login.js'],
-            },
-            chunks: {
-                main: {
-                    entry: './Src/View/Login/login.js',
-                }
-            },
+            chunks: ['login'],
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './Src/View/Index/index.html',
-            /!*files: {
-                js: ['./Src/View/Login/index.js'],
-            }*!/
+            chunks: ['index'],
         }),
-*/
-        /*没用
         new HtmlWebpackPlugin({
             filename: 'setting.html',
             template: './Src/View/Setting/setting.html',
-            files: {
-                js: ['./Src/View/Setting/setting.js'],
-            },
-        }),*/
+            chunks: ['setting'],
+        }),
     ],
 };

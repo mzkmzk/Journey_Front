@@ -11,14 +11,14 @@ class Header extends Component {
         return (
             <header>
                 <nav>
-                    <h1>Journey111222</h1>
-                    <section className='menu'>
-                        <a href="">
+                    <a href="/"><h1>Journey</h1></a>
+                    {/*<section className='menu'>
+                        <a href="/setting.html">
                         <RaisedButton
                           icon={<i className="fa fa-cog" aria-hidden="true"></i>}
                         />
                         </a>
-                    </section>
+                    </section>*/}
                 </nav>
                 
             </header>

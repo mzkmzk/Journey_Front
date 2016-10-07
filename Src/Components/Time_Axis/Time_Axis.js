@@ -7,6 +7,8 @@ const TIME_START = 0
 const SECOND_START = -3
 
 class Time_Axis extends Component {
+
+    
     render() {
         const { activities } = this.props
         return (

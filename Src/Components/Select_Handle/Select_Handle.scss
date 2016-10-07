@@ -3,27 +3,41 @@
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-
-    .textarea {
-    	margin-top: 3rem;
-        width: 60rem;
-        height: 12.3rem;
-        overflow-x: hidden;
-        overflow-y: auto;
-        outline: none;//去掉获得焦点时的蓝边框
-    }
-
-    .upload_pic {
-        width: 60rem;
+    .submit_content {
         display: flex;
-        flex-wrap: wrap;//默认不换行,设置这个自动换行
-        li {
-            flex-basis: 19rem;
-            height: 19rem;
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: cover;
+        flex-direction: column;
+
+        > li {
+            padding-top: .5rem;
+        }
+        .textarea {
+            margin-top: 3rem;
+            width: 60rem;
+            height: 12.3rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+            outline: none;//去掉获得焦点时的蓝边框
+        }
+        .upload_pic {
+            width: 60rem;
+            display: flex;
+            flex-wrap: wrap;//默认不换行,设置这个自动换行
+            li {
+                flex-basis: 19rem;
+                height: 19rem;
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-size: cover;
+            }
+        }
+        
+        .submit_button {
+            align-self: flex-end;
+            //padding-top: .5rem;
         }
     }
+   
+
+
 }
 

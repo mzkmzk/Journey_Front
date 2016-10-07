@@ -4,7 +4,13 @@
 import React , { Component } from 'react'
 import { render } from 'react-dom'
 
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+
 import Qi_Niu from '../../Global/JS/Qi_Niu'
+
+import './QiNiu.scss'
+
 
 export default class QiNiu extends Component {
 
@@ -39,10 +45,13 @@ export default class QiNiu extends Component {
 
     render() {
         return (
-            <article className='panel'>
-                <a  id="upload_file" href="#" >
+            <article className='QiNiu'>
+                <FloatingActionButton id="upload_file" className="upload_file">
+                  <ContentAdd />
+                </FloatingActionButton>
+                {/*<a  id="upload_file" href="#" >
                     <span>选择文件</span>
-                </a>
+                </a>*/}
             </article>
         )
     }
