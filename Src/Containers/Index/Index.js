@@ -25,6 +25,18 @@ class Index extends Component {
     componentDidMount() {
         const { actions } = this.props
         actions.load_activity()
+       // actions.set_first_query_at()
+    }
+
+    listenScroll() {
+        window.addEventListener('scroll',function(event){
+            console.log('scroll')
+
+            if (document.body.scrollTop + document.body.clientHeight + 500 > document.body.scrollHeight) {
+                 actions.load_activity()
+            }
+
+        })
     }
 
     checkPower() {
