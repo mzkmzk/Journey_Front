@@ -27126,8 +27126,9 @@
 	        }
 	    });
 	};
+	//import '../../Utils/QiNiu/plupload.full.min'
 
-	exports.default = Qi_Niu;
+		exports.default = Qi_Niu;
 
 /***/ },
 /* 246 */
@@ -30896,12 +30897,7 @@
 	        });
 
 	        var checkNeedLoadActivity = function checkNeedLoadActivity(event) {
-	            console.log('scroll');
-	            console.log(document.body.scrollTop);
-	            console.log(window.innerHeight);
-	            console.log(document.body.scrollHeight);
 	            if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {
-	                console.log('scroll2');
 	                dispatch(exports.load_activity());
 	            }
 	        };

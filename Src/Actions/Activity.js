@@ -35,13 +35,8 @@ exports.load_activity = function() {
             
         })
 
-         let checkNeedLoadActivity = function(event){
-            console.log('scroll')
-            console.log(document.body.scrollTop)
-            console.log(window.innerHeight)
-            console.log(document.body.scrollHeight)
+         let checkNeedLoadActivity = function(event){    
             if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {
-                console.log('scroll2')
                  dispatch(exports.load_activity())
             }
         }

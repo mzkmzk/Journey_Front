@@ -1,4 +1,6 @@
 import '../../Utils/QiNiu/plupload.dev'
+//import '../../Utils/QiNiu/plupload.full.min'
+
 import '../../Utils/QiNiu/qiniu'
 
 var Qi_Niu = function(browse_button,init_event){

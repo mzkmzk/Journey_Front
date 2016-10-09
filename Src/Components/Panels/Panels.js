@@ -3,7 +3,7 @@
  */
 import React , { Component } from 'react'
 import { render } from 'react-dom'
-import $ from 'jquery'
+
 import Environment from '../../Global/JS/Environment'
 
 import './Panels.scss'

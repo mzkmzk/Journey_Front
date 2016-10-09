@@ -1,5 +1,8 @@
 
+
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const QiniuPlugin = require('qiniu-plugin')
 
 
 module.exports = {
@@ -75,5 +78,25 @@ module.exports = {
             template: './Src/View/Setting/setting.html',
             chunks: ['setting'],
         }),
+        /*new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        })*/
+        //七牛插件
+        new QiniuPlugin({
+
+        // 七牛云的两对密匙 Access Key & Secret Key
+        accessKey: '7SXiYZNWBQyXvS8eRg0PFNMlcRIxS9xQ2NaunjXn',
+
+        secretKey: 'trgyS9ecNNBIogkKsOkipGQEe9TMYPNErSdDdKfO',
+
+        // 七牛云存储空间名称
+        bucket: 'journey',
+
+        // 上传到七牛后保存的文件名
+        path: 'rc/journey/0.0.1'
+
+      }),
     ],
 };
