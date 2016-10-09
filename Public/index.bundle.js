@@ -22361,15 +22361,7 @@
 	        }
 	    }, {
 	        key: 'listenScroll',
-	        value: function listenScroll() {
-	            window.addEventListener('scroll', function (event) {
-	                console.log('scroll');
-
-	                if (document.body.scrollTop + document.body.clientHeight + 500 > document.body.scrollHeight) {
-	                    actions.load_activity();
-	                }
-	            });
-	        }
+	        value: function listenScroll() {}
 	    }, {
 	        key: 'checkPower',
 	        value: function checkPower() {
@@ -22413,7 +22405,7 @@
 	            var add_temp_picture = actions.add_add_temp_picture;
 	            return _react2.default.createElement(
 	                'article',
-	                null,
+	                { className: 'index' },
 	                _react2.default.createElement(_Header2.default, null),
 	                _react2.default.createElement(
 	                    'section',
@@ -25694,7 +25686,7 @@
 
 
 	// module
-	exports.push([module.id, ".time_axis {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin-top: 50px; }\n  .time_axis article {\n    flex: 0 1 80%;\n    display: flex;\n    /* &:last-child {\n            section {\n                padding-bottom: 0;\n            }\n        }*/ }\n    .time_axis article section {\n      padding-left: 1%;\n      margin-left: 1%;\n      padding-bottom: 50px;\n      border-left: 1px solid black;\n      flex: 0 1 70%; }\n      .time_axis article section .upload_pic {\n        width: 60rem;\n        display: flex;\n        flex-wrap: wrap; }\n        .time_axis article section .upload_pic li {\n          flex-basis: 19rem;\n          height: 19rem;\n          background-repeat: no-repeat;\n          background-position: top center;\n          background-size: cover; }\n", ""]);
+	exports.push([module.id, ".time_axis {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin-top: 50px; }\n  .time_axis article {\n    flex: 0 1 80%;\n    display: flex;\n    /* &:last-child {\n            section {\n                padding-bottom: 0;\n            }\n        }*/ }\n    .time_axis article section {\n      padding-left: 1%;\n      margin-left: 1%;\n      padding-bottom: 50px;\n      border-left: 1px solid black;\n      flex: 0 1 70%; }\n      .time_axis article section .upload_pic {\n        width: 100%;\n        display: flex;\n        flex-wrap: wrap; }\n        .time_axis article section .upload_pic li {\n          flex-basis: 33.3%;\n          padding-bottom: 33.3%;\n          background-repeat: no-repeat;\n          background-position: top center;\n          background-size: cover; }\n", ""]);
 
 	// exports
 
@@ -25754,6 +25746,7 @@
 	        key: 'send',
 	        value: function send(add_activity) {
 	            add_activity.apply(this, [document.getElementById('text_input_textarea').value, this.props.temp_picture]);
+	            document.getElementById('text_input_textarea').value = '';
 	        }
 	    }, {
 	        key: 'render',
@@ -30851,7 +30844,7 @@
 
 
 	// module
-	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .submit_content {\n    display: flex;\n    flex-direction: column; }\n    .select_handle .submit_content > li {\n      padding-top: .5rem; }\n    .select_handle .submit_content .textarea {\n      margin-top: 3rem;\n      width: 60rem;\n      height: 12.3rem;\n      overflow-x: hidden;\n      overflow-y: auto;\n      outline: none; }\n    .select_handle .submit_content .upload_pic {\n      width: 60rem;\n      display: flex;\n      flex-wrap: wrap; }\n      .select_handle .submit_content .upload_pic li {\n        flex-basis: 19rem;\n        height: 19rem;\n        background-repeat: no-repeat;\n        background-position: top center;\n        background-size: cover; }\n    .select_handle .submit_content .submit_button {\n      align-self: flex-end; }\n", ""]);
+	exports.push([module.id, ".select_handle {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 50px; }\n  .select_handle .submit_content {\n    display: flex;\n    width: 80%;\n    flex-direction: column; }\n    .select_handle .submit_content > li {\n      padding-top: .5rem; }\n    .select_handle .submit_content .textarea {\n      margin-top: 3rem;\n      width: 100%;\n      height: 12.3rem;\n      overflow-x: hidden;\n      overflow-y: auto;\n      outline: none; }\n    .select_handle .submit_content .upload_pic {\n      width: 100%;\n      display: flex;\n      flex-wrap: wrap; }\n      .select_handle .submit_content .upload_pic li {\n        flex-basis: 33.3%;\n        padding-bottom: 33.3%;\n        background-repeat: no-repeat;\n        background-position: top center;\n        background-size: cover; }\n    .select_handle .submit_content .submit_button {\n      align-self: flex-end; }\n", ""]);
 
 	// exports
 
@@ -30876,39 +30869,38 @@
 
 	exports.load_activity = function () {
 	    return function (dispatch, getState) {
-	        dispatch(exports.is_fetching());
+	        var state = getState();
+
 	        var params = {
-	            page: getState().activity.current_page
+	            page: state.activity.current_page,
+	            first_query_at: state.activity.first_query_at
 	        };
 	        params = Object.assign(JSON.parse(localStorage.getItem('sina_access_token')), params);
+	        window.onscroll = null;
+	        dispatch(exports.is_fetching());
 	        _jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query', params, function (result) {
+	            if (result.next_page_url != null) {
+	                window.onscroll = checkNeedLoadActivity;
+	            }
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action(result.data));
 	            //第一次加载
-	            if (getState().activity.totals == 0) {
+	            if (state.activity.totals == 0) {
 	                dispatch(add_totals(result.total));
-	                if (result.next_page_url != null) {
-	                    //window.addEventListener('scroll',checkNeedLoadActivity)
-	                    window.onscroll = checkNeedLoadActivity;
-	                }
 	            }
 	            //当没有数据时
-	            console.log(result.next_page_url);
-	            if (result.next_page_url == null) {
-	                console.log('removeEventListener');
-	                window.onscroll = null;
-	                console.log('removeEventListener2');
-	                window.removeEventListener('scroll', checkNeedLoadActivity);
-	            }
+	            //if (result.next_page_url == null) {
+	            //window.removeEventListener('scroll',checkNeedLoadActivity)
+	            //}
 	            dispatch(increase_current_page());
 	        });
 
 	        var checkNeedLoadActivity = function checkNeedLoadActivity(event) {
 	            console.log('scroll');
 	            console.log(document.body.scrollTop);
-	            console.log(document.body.offsetHeight);
+	            console.log(window.innerHeight);
 	            console.log(document.body.scrollHeight);
-	            if (document.body.scrollTop + document.body.offsetHeight + 500 > document.body.scrollHeight) {
+	            if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {
 	                console.log('scroll2');
 	                dispatch(exports.load_activity());
 	            }
@@ -30937,10 +30929,12 @@
 
 	function load_activity_action() {
 	    var activities = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	    var insert_first = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
 
 	    return {
 	        type: 'LOAD_ACTIVITY',
-	        activities: activities
+	        activities: activities,
+	        insert_first: insert_first
 	    };
 	}
 
@@ -30971,7 +30965,7 @@
 
 	        _jquery2.default.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert', params, function (result) {
 	            dispatch(exports.is_fetching());
-	            dispatch(load_activity_action(result.data));
+	            dispatch(load_activity_action(result.data, true));
 	            dispatch(add_totals(1));
 	        });
 	    };
@@ -41193,7 +41187,7 @@
 	    ],
 	    temp_picture: [],
 	    totals: 0,
-	    current_page: 0,
+	    current_page: 1,
 	    first_query_at: getDate()
 	};
 
@@ -41229,9 +41223,14 @@
 	            return Object.assign({}, state, { current_page: state.current_page + 1 });
 	        case 'LOAD_ACTIVITY':
 	            var stateData = state.activities;
-	            var newData = action.activities.concat(stateData);
+	            var newActivities = void 0;
+	            if (action.insert_first === true) {
+	                newActivities = action.activities.concat(stateData);
+	            } else {
+	                newActivities = stateData.concat(action.activities);
+	            }
 	            var newDate = {
-	                activities: newData,
+	                activities: newActivities,
 	                is_fetching: false,
 	                temp_picture: []
 	            };
@@ -47801,7 +47800,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 10px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 11px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
 
 	// exports
 

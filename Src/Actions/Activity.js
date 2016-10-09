@@ -8,30 +8,29 @@ exports.is_fetching = function() {
 
 exports.load_activity = function() {
     return (dispatch,getState) => {
-        dispatch(exports.is_fetching())
+        let state = getState()
+        
         let params = {
-            page: getState().activity.current_page
+            page: state.activity.current_page,
+            first_query_at: state.activity.first_query_at
         }
         params = Object.assign(JSON.parse(localStorage.getItem('sina_access_token')),params)
+        window.onscroll = null
+        dispatch(exports.is_fetching())
         $.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result) {
+            if (result.next_page_url != null) {
+             window.onscroll = checkNeedLoadActivity
+            }
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data))
             //第一次加载
-            if (getState().activity.totals == 0 ) {
+            if (state.activity.totals == 0 ) {
                 dispatch(add_totals(result.total))
-                if (result.next_page_url != null) {
-                    //window.addEventListener('scroll',checkNeedLoadActivity)
-                    window.onscroll = checkNeedLoadActivity
-                }
             }
             //当没有数据时
-            console.log(result.next_page_url)
-            if (result.next_page_url == null) {
-                console.log('removeEventListener')
-                window.onscroll = null
-                 console.log('removeEventListener2')
-                window.removeEventListener('scroll',checkNeedLoadActivity)
-            } 
+            //if (result.next_page_url == null) {
+                //window.removeEventListener('scroll',checkNeedLoadActivity)
+            //} 
             dispatch(increase_current_page())
             
         })
@@ -39,9 +38,9 @@ exports.load_activity = function() {
          let checkNeedLoadActivity = function(event){
             console.log('scroll')
             console.log(document.body.scrollTop)
-            console.log(document.body.offsetHeight)
+            console.log(window.innerHeight)
             console.log(document.body.scrollHeight)
-            if (document.body.scrollTop + document.body.offsetHeight + 500 > document.body.scrollHeight) {
+            if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {
                 console.log('scroll2')
                  dispatch(exports.load_activity())
             }
@@ -71,10 +70,11 @@ function getDate() {
     return (Y+M+D+h+m+s)
 }*/
 
-function load_activity_action(activities = []) {
+function load_activity_action(activities = [],insert_first = false) {
     return {
         type: 'LOAD_ACTIVITY',
-        activities
+        activities,
+        insert_first,
     }
 }
 
@@ -103,7 +103,7 @@ exports.add_activity = function(text,temp_picture){
 
         $.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
             dispatch(exports.is_fetching())
-            dispatch(load_activity_action(result.data))
+            dispatch(load_activity_action(result.data, true))
             dispatch(add_totals(1))
         })
     }

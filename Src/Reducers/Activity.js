@@ -10,7 +10,7 @@ const initial_state = {
         
     ],
     totals: 0,
-    current_page: 0,
+    current_page: 1,
     first_query_at: getDate(),
 }
 
@@ -44,9 +44,14 @@ exports.activity = function(state = initial_state, action = null) {
             return Object.assign({},state,{current_page: state.current_page + 1 })
         case 'LOAD_ACTIVITY':
             const stateData= state.activities
-            const newData = action.activities.concat(stateData)
+            let newActivities
+            if (action.insert_first === true) {
+                newActivities = action.activities.concat(stateData)
+            }else {
+                newActivities = stateData.concat(action.activities)
+            }
             let newDate = {
-                activities:newData,
+                activities:newActivities,
                 is_fetching: false,
                 temp_picture: []
             }

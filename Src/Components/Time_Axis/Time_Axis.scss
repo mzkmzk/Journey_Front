@@ -13,12 +13,13 @@
             border-left: 1px solid black;
             flex: 0 1 70%;
             .upload_pic {
-                width: 60rem;
+                width: 100%;
                 display: flex;
                 flex-wrap: wrap;//默认不换行,设置这个自动换行
                 li {
-                    flex-basis: 19rem;
-                    height: 19rem;
+                    flex-basis: 33.3%;
+                    padding-bottom: 33.3%;
+                    //height: 33.3%;
                     background-repeat: no-repeat;
                     background-position: top center;
                     background-size: cover;

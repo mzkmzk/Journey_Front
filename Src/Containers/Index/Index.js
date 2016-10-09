@@ -29,14 +29,7 @@ class Index extends Component {
     }
 
     listenScroll() {
-        window.addEventListener('scroll',function(event){
-            console.log('scroll')
-
-            if (document.body.scrollTop + document.body.clientHeight + 500 > document.body.scrollHeight) {
-                 actions.load_activity()
-            }
-
-        })
+        
     }
 
     checkPower() {
@@ -75,7 +68,7 @@ class Index extends Component {
         //console.log(actions.add_temp_picture())
         const add_temp_picture = actions.add_add_temp_picture
         return (
-            <article>
+            <article className="index">
                 <Header></Header>
                 <section>
                     <Select_Handle temp_picture={temp_picture} add_temp_picture={actions.add_temp_picture} add_activity={actions.add_activity} ></Select_Handle>

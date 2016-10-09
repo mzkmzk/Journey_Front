@@ -23,6 +23,7 @@ export default class Select_Handle extends Component {
             document.getElementById('text_input_textarea').value,
             this.props.temp_picture,
             ])
+        document.getElementById('text_input_textarea').value = ''
     }
 
     render() {
@@ -38,8 +39,7 @@ export default class Select_Handle extends Component {
                 </section>
                 
                 <ul className="submit_content">
-                    <li>
-                    <textarea id="text_input_textarea" className="textarea"/></li>
+                    <li><textarea id="text_input_textarea" className="textarea"/></li>
                     <li><QiNiu add_temp_picture={add_temp_picture}/></li>
                     <li>
                         <ul id="upload_pic" className="upload_pic">

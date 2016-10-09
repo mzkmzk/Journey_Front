@@ -25597,7 +25597,7 @@
 	    ],
 	    temp_picture: [],
 	    totals: 0,
-	    current_page: 0,
+	    current_page: 1,
 	    first_query_at: getDate()
 	};
 
@@ -25633,9 +25633,14 @@
 	            return Object.assign({}, state, { current_page: state.current_page + 1 });
 	        case 'LOAD_ACTIVITY':
 	            var stateData = state.activities;
-	            var newData = action.activities.concat(stateData);
+	            var newActivities = void 0;
+	            if (action.insert_first === true) {
+	                newActivities = action.activities.concat(stateData);
+	            } else {
+	                newActivities = stateData.concat(action.activities);
+	            }
 	            var newDate = {
-	                activities: newData,
+	                activities: newActivities,
 	                is_fetching: false,
 	                temp_picture: []
 	            };
@@ -32205,7 +32210,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 10px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n* {\n  margin: 0; }\n\nhtml {\n  font-size: 11px;\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif, 微软雅黑;\n  font-style: normal;\n  font-variant: normal; }\n\nh1 {\n  font-size: 24px;\n  font-weight: 500;\n  line-height: 26.4px; }\n\nh3 {\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 15.4px; }\n\np {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n\nblockquote {\n  font-size: 21px;\n  font-weight: 400;\n  /*line-height: 30px;*/ }\n\npre {\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 18.5714px; }\n\ntextarea {\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 20px; }\n", ""]);
 
 	// exports
 
