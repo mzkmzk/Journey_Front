@@ -22410,7 +22410,7 @@
 	                _react2.default.createElement(
 	                    'section',
 	                    null,
-	                    _react2.default.createElement(_Select_Handle2.default, { temp_picture: temp_picture, add_temp_picture: actions.add_temp_picture, add_activity: actions.add_activity }),
+	                    _react2.default.createElement(_Select_Handle2.default, { temp_picture: activity.temp_picture, add_temp_picture: actions.add_temp_picture, add_activity: actions.add_activity }),
 	                    _react2.default.createElement(_Time_Axis2.default, { activities: activity.activities })
 	                )
 	            );
@@ -25636,7 +25636,7 @@
 	                                'ul',
 	                                { id: 'upload_pic', className: 'upload_pic' },
 	                                activity.creator_media && activity.creator_media.map(function (media, index) {
-	                                    return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + ')' } });
+	                                    return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + '?imageView2/1/w/200/interlace/1)' } });
 	                                })
 	                            )
 	                        )
@@ -25789,7 +25789,7 @@
 	                            'ul',
 	                            { id: 'upload_pic', className: 'upload_pic' },
 	                            temp_picture.map(function (temp_picture_item, index) {
-	                                return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + ')' } });
+	                                return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + '?imageView2/1/w/200/interlace/1)' } });
 	                            })
 	                        )
 	                    ),
@@ -30967,6 +30967,7 @@
 	            dispatch(exports.is_fetching());
 	            dispatch(load_activity_action(result.data, true));
 	            dispatch(add_totals(1));
+	            dispatch;
 	        });
 	    };
 	};
@@ -41165,8 +41166,7 @@
 	var _temp_picture = __webpack_require__(262);
 
 	exports.index = (0, _redux.combineReducers)({
-	  activity: _activity.activity,
-	  temp_picture: _temp_picture.temp_picture
+	  activity: _activity.activity
 	}); /**
 	     * Created by maizhikun on 16/6/26.
 	     */
@@ -41234,7 +41234,11 @@
 	                is_fetching: false,
 	                temp_picture: []
 	            };
-	            return Object.assign({}, state, newDate);
+	            return Object.assign({}, state, {
+	                activities: newActivities,
+	                is_fetching: false,
+	                temp_picture: []
+	            });
 	        case 'ADD_TEMP_PICTURE':
 	            var state_data = state.temp_picture;
 	            var new_data = action.temp_picture.concat(state_data);
@@ -41258,7 +41262,6 @@
 
 	    switch (action.type) {
 	        case 'ADD_TEMP_PICTURE':
-
 	            return state.concat(action.temp_picture);
 	        default:
 	            return state;

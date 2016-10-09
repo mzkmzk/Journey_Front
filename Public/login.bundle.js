@@ -32780,8 +32780,7 @@
 	var _temp_picture = __webpack_require__(262);
 
 	exports.index = (0, _redux.combineReducers)({
-	  activity: _activity.activity,
-	  temp_picture: _temp_picture.temp_picture
+	  activity: _activity.activity
 	}); /**
 	     * Created by maizhikun on 16/6/26.
 	     */
@@ -32849,7 +32848,11 @@
 	                is_fetching: false,
 	                temp_picture: []
 	            };
-	            return Object.assign({}, state, newDate);
+	            return Object.assign({}, state, {
+	                activities: newActivities,
+	                is_fetching: false,
+	                temp_picture: []
+	            });
 	        case 'ADD_TEMP_PICTURE':
 	            var state_data = state.temp_picture;
 	            var new_data = action.temp_picture.concat(state_data);
@@ -32873,7 +32876,6 @@
 
 	    switch (action.type) {
 	        case 'ADD_TEMP_PICTURE':
-
 	            return state.concat(action.temp_picture);
 	        default:
 	            return state;

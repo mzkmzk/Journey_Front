@@ -55,7 +55,11 @@ exports.activity = function(state = initial_state, action = null) {
                 is_fetching: false,
                 temp_picture: []
             }
-            return Object.assign({}, state,newDate)
+            return Object.assign({}, state,{
+                activities:newActivities,
+                is_fetching: false,
+                temp_picture: []
+            })
         case 'ADD_TEMP_PICTURE':
             const state_data = state.temp_picture
             const new_data = action.temp_picture.concat(state_data)

@@ -105,6 +105,7 @@ exports.add_activity = function(text,temp_picture){
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data, true))
             dispatch(add_totals(1))
+            dispatch
         })
     }
 }

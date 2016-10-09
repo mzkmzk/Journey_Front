@@ -71,7 +71,7 @@ class Index extends Component {
             <article className="index">
                 <Header></Header>
                 <section>
-                    <Select_Handle temp_picture={temp_picture} add_temp_picture={actions.add_temp_picture} add_activity={actions.add_activity} ></Select_Handle>
+                    <Select_Handle temp_picture={activity.temp_picture} add_temp_picture={actions.add_temp_picture} add_activity={actions.add_activity} ></Select_Handle>
                     <Time_Axis activities={activity.activities}></Time_Axis>
 
                 </section>

@@ -8,5 +8,5 @@ import { temp_picture } from './temp_picture'
 
 exports.index = combineReducers({
     activity,
-    temp_picture,
+    //temp_picture,
 })
