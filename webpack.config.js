@@ -84,7 +84,7 @@ module.exports = {
           }
         })*/
         //七牛插件
-        new QiniuPlugin({
+        /*new QiniuPlugin({
 
         // 七牛云的两对密匙 Access Key & Secret Key
         accessKey: '7SXiYZNWBQyXvS8eRg0PFNMlcRIxS9xQ2NaunjXn',
@@ -97,6 +97,6 @@ module.exports = {
         // 上传到七牛后保存的文件名
         path: 'rc/journey/0.0.1'
 
-      }),
+      }),*/
     ],
 };

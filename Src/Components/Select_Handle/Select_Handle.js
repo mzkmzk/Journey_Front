@@ -46,7 +46,7 @@ export default class Select_Handle extends Component {
                            {
                                 temp_picture.map(
                                     (temp_picture_item,index) => 
-                                    <li key={index} style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + '?imageView2/1/w/200/interlace/1)'}}></li>
+                                    <li key={index} style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + '?imageView2/1/w/300/interlace/1)'}}></li>
                                 )
                            }
                         </ul>

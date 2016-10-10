@@ -25636,7 +25636,7 @@
 	                                'ul',
 	                                { id: 'upload_pic', className: 'upload_pic' },
 	                                activity.creator_media && activity.creator_media.map(function (media, index) {
-	                                    return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + '?imageView2/1/w/200/interlace/1)' } });
+	                                    return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + '?imageView2/1/w/300/interlace/1)' } });
 	                                })
 	                            )
 	                        )
@@ -25789,7 +25789,7 @@
 	                            'ul',
 	                            { id: 'upload_pic', className: 'upload_pic' },
 	                            temp_picture.map(function (temp_picture_item, index) {
-	                                return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + '?imageView2/1/w/200/interlace/1)' } });
+	                                return _react2.default.createElement('li', { key: index, style: { 'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + temp_picture_item + '?imageView2/1/w/300/interlace/1)' } });
 	                            })
 	                        )
 	                    ),
