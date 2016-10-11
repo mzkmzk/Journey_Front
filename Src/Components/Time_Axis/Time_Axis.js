@@ -25,7 +25,7 @@ class Time_Axis extends Component {
                                        {
                                             activity.creator_media && activity.creator_media.map(
                                                 (media,index) => 
-                                                <li key={index} style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + '?imageView2/1/w/300/interlace/1)'}}></li>
+                                                <li  key={index}><img src={'http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key } style={{'backgroundImage': 'url(http://7xw1qv.com1.z0.glb.clouddn.com/' + media.qiniu_key + '?imageView2/1/w/300/interlace/1)'}}/></li>
                                             )
                                        }
                                     </ul>

@@ -1,5 +1,5 @@
-import $  from 'jquery'
-
+//import $  from 'jquery'
+import  'whatwg-fetch'
 exports.is_fetching = function() {
     return {
         type: 'IS_FETCHING'
@@ -17,7 +17,14 @@ exports.load_activity = function() {
         params = Object.assign(JSON.parse(localStorage.getItem('sina_access_token')),params)
         window.onscroll = null
         dispatch(exports.is_fetching())
-        $.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result) {
+        fetch('http://inner.journey.404mzk.com/v1/Activity_Controller/query',{
+                                                                                  method: 'POST',
+                                                                                  headers: {
+                                                                                    'Accept': 'application/json',
+                                                                                    'Content-Type': 'application/json'
+                                                                                  },
+                                                                                  body: JSON.stringify(params)
+                                                                                }).then(function(result) {
             if (result.next_page_url != null) {
              window.onscroll = checkNeedLoadActivity
             }
@@ -34,6 +41,23 @@ exports.load_activity = function() {
             dispatch(increase_current_page())
             
         })
+        /*//$.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result) {
+            if (result.next_page_url != null) {
+             window.onscroll = checkNeedLoadActivity
+            }
+            dispatch(exports.is_fetching())
+            dispatch(load_activity_action(result.data))
+            //第一次加载
+            if (state.activity.totals == 0 ) {
+                dispatch(add_totals(result.total))
+            }
+            //当没有数据时
+            //if (result.next_page_url == null) {
+                //window.removeEventListener('scroll',checkNeedLoadActivity)
+            //} 
+            dispatch(increase_current_page())
+            
+        })*/
 
          let checkNeedLoadActivity = function(event){    
             if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {

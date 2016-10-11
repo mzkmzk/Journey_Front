@@ -13,6 +13,8 @@ import action_temp_picture from '../../Actions/temp_picture'
 
 import  Env from '../../Global/JS/Environment'
 
+import Viewerjs from 'viewerjs'
+
 import './Index.scss'
 
 class Index extends Component {
@@ -64,7 +66,8 @@ class Index extends Component {
 
     render() {
         const { activity, actions, temp_picture } = this.props
-        
+        let viewer = new Viewerjs(document.body,{})
+        console.log(viewer)
         //console.log(actions.add_temp_picture())
         const add_temp_picture = actions.add_add_temp_picture
         return (

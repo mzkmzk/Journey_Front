@@ -87,11 +87,11 @@ module.exports = {
             chunks: ['setting'],
         }),
         //压缩JS
-        new webpack.optimize.UglifyJsPlugin({
+        /*new webpack.optimize.UglifyJsPlugin({
           compress: {
             warnings: false
           }
-        }),
+        }),*/
         //抽取公共模块 不行,好像一定要有制定chunks在 可以把通用的放在一个js里,然后每个页面去script它
         new webpack.optimize.CommonsChunkPlugin({
             name: "common",

@@ -35,7 +35,9 @@
     "react-router": "^2.8.1",
     "redux": "3.5.2",
     "redux-thunk": "2.1.0",
-    "underscore": "1.8.3"
+    "underscore": "1.8.3",
+    "viewerjs": "0.5.0",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "babel-core": "6.9.1",
