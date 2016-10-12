@@ -18,13 +18,9 @@ exports.load_activity = function() {
         window.onscroll = null
         dispatch(exports.is_fetching())
         fetch('http://inner.journey.404mzk.com/v1/Activity_Controller/query',{
-                                                                                  method: 'POST',
-                                                                                  headers: {
-                                                                                    'Accept': 'application/json',
-                                                                                    'Content-Type': 'application/json'
-                                                                                  },
-                                                                                  body: JSON.stringify(params)
-                                                                                }).then(function(result) {
+          method: 'GET',
+          body: JSON.stringify(params)
+        }).then(function(result) {
             if (result.next_page_url != null) {
              window.onscroll = checkNeedLoadActivity
             }
@@ -120,7 +116,11 @@ exports.add_activity = function(text,temp_picture){
 
         const params = Object.assign(activity,JSON.parse(localStorage.getItem('sina_access_token')))
 
-        $.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
+        //$.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
+        fetch('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',{
+          method: 'POST',
+          body: JSON.stringify(params)
+        }).then(function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data, true))
             dispatch(add_totals(1))
