@@ -23,18 +23,20 @@ exports.load_activity = function() {
         fetch(ajax.urlAppendData('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params),{
           method: 'GET',
           headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            //'Accept': 'application/json',
+            //'Content-Type': 'application/json'
             //'Accept':'application/json, text/javascript, */*; q=0.01'
             //'Content-type': 'application/json'
           }
           //body: JSON.stringify(encodeFormData)
         }).then(function(result) {
-            console.log(result)
-            console.log(result.body)
-            console.log(result.blob())
+            //console.log(result)
+            //console.log(result.body)
+            //console.log(result.body)
+            //console.log(result.blob())
+            console.log(result.json())
             result = result.json()
-            console.log(result)
+            
              //console.log(result111)
             if (result.next_page_url != null) {
              window.onscroll = checkNeedLoadActivity

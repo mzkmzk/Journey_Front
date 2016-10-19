@@ -22403,10 +22403,10 @@
 	            var activity = _props.activity;
 	            var actions = _props.actions;
 	            var temp_picture = _props.temp_picture;
-
-	            var viewer = new _viewerjs2.default(document.body, {});
-	            console.log(viewer);
+	            //let viewer = new Viewerjs(document.body,{})
+	            //console.log(viewer)
 	            //console.log(actions.add_temp_picture())
+
 	            var add_temp_picture = actions.add_add_temp_picture;
 	            return _react2.default.createElement(
 	                'article',
@@ -35545,19 +35545,21 @@
 	        dispatch(exports.is_fetching());
 	        fetch(_Ajax2.default.urlAppendData('http://inner.journey.404mzk.com/v1/Activity_Controller/query', params), {
 	            method: 'GET',
-	            headers: {
-	                'Accept': 'application/json',
-	                'Content-Type': 'application/json'
-	                //'Accept':'application/json, text/javascript, */*; q=0.01'
-	                //'Content-type': 'application/json'
-	            }
+	            headers: {}
+	            //'Accept': 'application/json',
+	            //'Content-Type': 'application/json'
+	            //'Accept':'application/json, text/javascript, */*; q=0.01'
+	            //'Content-type': 'application/json'
+
 	            //body: JSON.stringify(encodeFormData)
 	        }).then(function (result) {
-	            console.log(result);
-	            console.log(result.body);
-	            console.log(result.blob());
+	            //console.log(result)
+	            //console.log(result.body)
+	            //console.log(result.body)
+	            //console.log(result.blob())
+	            console.log(result.json());
 	            result = result.json();
-	            console.log(result);
+
 	            //console.log(result111)
 	            if (result.next_page_url != null) {
 	                window.onscroll = checkNeedLoadActivity;

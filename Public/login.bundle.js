@@ -29559,6 +29559,7 @@
 	        key: 'render',
 	        value: function render() {
 	            var env = new _Environment2.default();
+	            var url = 'https://api.weibo.com/oauth2/authorize?' + 'client_id=' + env.sinaAppKey + '&scope=all&forcelogin=true&redirect_uri=' + window.location.protocol + '\/\/' + env.innerURL + '/v2/User_Controller/sinaLogin' + encodeURIComponent('?') + 'url=' + window.location.host;
 	            return _react2.default.createElement(
 	                'article',
 	                { className: 'panel' },
@@ -29578,7 +29579,7 @@
 	                            null,
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://api.weibo.com/oauth2/authorize?client_id=' + env.sinaAppKey + '&scope=all&forcelogin=true&redirect_uri=' + window.location.protocol + '\/\/' + env.innerURL + '/v2/User_Controller/sinaLogin' },
+	                                { href: url },
 	                                _react2.default.createElement('i', { className: 'fa fa-weibo ', 'aria-hidden': 'true' })
 	                            )
 	                        )

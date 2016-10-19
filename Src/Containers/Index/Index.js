@@ -66,8 +66,8 @@ class Index extends Component {
 
     render() {
         const { activity, actions, temp_picture } = this.props
-        let viewer = new Viewerjs(document.body,{})
-        console.log(viewer)
+        //let viewer = new Viewerjs(document.body,{})
+        //console.log(viewer)
         //console.log(actions.add_temp_picture())
         const add_temp_picture = actions.add_add_temp_picture
         return (
