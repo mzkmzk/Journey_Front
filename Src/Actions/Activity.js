@@ -1,4 +1,4 @@
-//import $  from 'jquery'
+import $  from 'jquery'
 
 
 import 'whatwg-fetch'
@@ -20,16 +20,18 @@ exports.load_activity = function() {
         params = Object.assign(JSON.parse(localStorage.getItem('sina_access_token')),params)
         window.onscroll = null
         dispatch(exports.is_fetching())
-        fetch(ajax.urlAppendData('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params),{
-          method: 'GET',
-          headers: {
+        /*fetch(ajax.urlAppendData('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params)
+        //{
+          //method: 'GET',
+          //headers: {
             //'Accept': 'application/json',
             //'Content-Type': 'application/json'
-            //'Accept':'application/json, text/javascript, */*; q=0.01'
+            //'Accept':'application/json, text/javascript, 
             //'Content-type': 'application/json'
-          }
+          //}
           //body: JSON.stringify(encodeFormData)
-        }).then(function(result) {
+        //}
+        ).then(function(result) {
             //console.log(result)
             //console.log(result.body)
             //console.log(result.body)
@@ -53,8 +55,8 @@ exports.load_activity = function() {
             //} 
             dispatch(increase_current_page())
             
-        })
-        /*//$.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result) {
+        })*/
+        $.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result) {
             if (result.next_page_url != null) {
              window.onscroll = checkNeedLoadActivity
             }
@@ -70,7 +72,7 @@ exports.load_activity = function() {
             //} 
             dispatch(increase_current_page())
             
-        })*/
+        })
 
          let checkNeedLoadActivity = function(event){    
             if (document.body.scrollTop + window.innerHeight + 500 > document.body.scrollHeight) {
@@ -133,11 +135,11 @@ exports.add_activity = function(text,temp_picture){
 
         const params = Object.assign(activity,JSON.parse(localStorage.getItem('sina_access_token')))
 
-        //$.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
-        fetch('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',{
-          method: 'POST',
-          body: JSON.stringify(params)
-        }).then(function(result) {
+        $.post('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',params,function(result) {
+        //fetch('http://inner.journey.404mzk.com/v2/Activity_Controller/insert',{
+         // method: 'POST',
+         // body: JSON.stringify(params)
+        //}).then(function(result) {
             dispatch(exports.is_fetching())
             dispatch(load_activity_action(result.data, true))
             dispatch(add_totals(1))
