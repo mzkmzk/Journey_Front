@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0167C92A28ED923F75320C9A /* Pods_Journey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02805D75432DB1BE786C460A /* Pods_Journey.framework */; };
+		3AF65E7525C7D7C07D9419B9 /* Pods_JourneyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4521B798401D0EB8533FF0 /* Pods_JourneyTests.framework */; };
+		7E51EE55D6ECB9B79562C9DB /* Pods_JourneyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ADD36C5EC7F3E9BBAE8F67 /* Pods_JourneyUITests.framework */; };
 		EF60A3231DBD05B5006B931B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60A3221DBD05B5006B931B /* AppDelegate.swift */; };
 		EF60A3251DBD05B5006B931B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60A3241DBD05B5006B931B /* MasterViewController.swift */; };
 		EF60A3271DBD05B5006B931B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60A3261DBD05B5006B931B /* DetailViewController.swift */; };
@@ -35,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02805D75432DB1BE786C460A /* Pods_Journey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04ADD36C5EC7F3E9BBAE8F67 /* Pods_JourneyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JourneyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E4BD2431AF7A4B9F51B77A /* Pods-JourneyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JourneyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JourneyTests/Pods-JourneyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C4521B798401D0EB8533FF0 /* Pods_JourneyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JourneyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53577DDAA2DE3B554C886B62 /* Pods-JourneyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JourneyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JourneyUITests/Pods-JourneyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		664E38FAD8E9415C8805E9A1 /* Pods-Journey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journey.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journey/Pods-Journey.release.xcconfig"; sourceTree = "<group>"; };
+		77517C1A4D2C68E623FCE7A4 /* Pods-Journey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journey/Pods-Journey.debug.xcconfig"; sourceTree = "<group>"; };
+		B2C93E5EA2AE4D4C63F50CA7 /* Pods-JourneyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JourneyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JourneyTests/Pods-JourneyTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF60A31F1DBD05B5006B931B /* Journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60A3221DBD05B5006B931B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF60A3241DBD05B5006B931B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +60,7 @@
 		EF60A3401DBD05B5006B931B /* JourneyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF60A3441DBD05B6006B931B /* JourneyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyUITests.swift; sourceTree = "<group>"; };
 		EF60A3461DBD05B6006B931B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F742B24494D1FCFC214BFEBE /* Pods-JourneyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JourneyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JourneyUITests/Pods-JourneyUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0167C92A28ED923F75320C9A /* Pods_Journey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AF65E7525C7D7C07D9419B9 /* Pods_JourneyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E51EE55D6ECB9B79562C9DB /* Pods_JourneyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9F8090A6A77358FE1EB408A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77517C1A4D2C68E623FCE7A4 /* Pods-Journey.debug.xcconfig */,
+				664E38FAD8E9415C8805E9A1 /* Pods-Journey.release.xcconfig */,
+				18E4BD2431AF7A4B9F51B77A /* Pods-JourneyTests.debug.xcconfig */,
+				B2C93E5EA2AE4D4C63F50CA7 /* Pods-JourneyTests.release.xcconfig */,
+				53577DDAA2DE3B554C886B62 /* Pods-JourneyUITests.debug.xcconfig */,
+				F742B24494D1FCFC214BFEBE /* Pods-JourneyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA65FC85EAD0CA3EE20253FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02805D75432DB1BE786C460A /* Pods_Journey.framework */,
+				2C4521B798401D0EB8533FF0 /* Pods_JourneyTests.framework */,
+				04ADD36C5EC7F3E9BBAE8F67 /* Pods_JourneyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF60A3161DBD05B5006B931B = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +121,8 @@
 				EF60A3381DBD05B5006B931B /* JourneyTests */,
 				EF60A3431DBD05B5006B931B /* JourneyUITests */,
 				EF60A3201DBD05B5006B931B /* Products */,
+				A9F8090A6A77358FE1EB408A /* Pods */,
+				BA65FC85EAD0CA3EE20253FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF60A3491DBD05B6006B931B /* Build configuration list for PBXNativeTarget "Journey" */;
 			buildPhases = (
+				35B777998D16C0591436002F /* [CP] Check Pods Manifest.lock */,
 				EF60A31B1DBD05B5006B931B /* Sources */,
 				EF60A31C1DBD05B5006B931B /* Frameworks */,
 				EF60A31D1DBD05B5006B931B /* Resources */,
+				D943102AA6F7C1E66C4F70E8 /* [CP] Embed Pods Frameworks */,
+				A0E05D246B17B6D1983CB807 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF60A34C1DBD05B6006B931B /* Build configuration list for PBXNativeTarget "JourneyTests" */;
 			buildPhases = (
+				6E571DEAA9EB13DF6F1ED6E8 /* [CP] Check Pods Manifest.lock */,
 				EF60A3311DBD05B5006B931B /* Sources */,
 				EF60A3321DBD05B5006B931B /* Frameworks */,
 				EF60A3331DBD05B5006B931B /* Resources */,
+				8E0A2C4F10E08956BF79D41C /* [CP] Embed Pods Frameworks */,
+				48E0BEE93B32809E72C2292A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF60A34F1DBD05B6006B931B /* Build configuration list for PBXNativeTarget "JourneyUITests" */;
 			buildPhases = (
+				A602A11BC898300B3E855988 /* [CP] Check Pods Manifest.lock */,
 				EF60A33C1DBD05B5006B931B /* Sources */,
 				EF60A33D1DBD05B5006B931B /* Frameworks */,
 				EF60A33E1DBD05B5006B931B /* Resources */,
+				D0C15776788BBDFC1D4698B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +304,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35B777998D16C0591436002F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		48E0BEE93B32809E72C2292A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JourneyTests/Pods-JourneyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E571DEAA9EB13DF6F1ED6E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E0A2C4F10E08956BF79D41C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JourneyTests/Pods-JourneyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E05D246B17B6D1983CB807 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Journey/Pods-Journey-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A602A11BC898300B3E855988 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0C15776788BBDFC1D4698B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JourneyUITests/Pods-JourneyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D943102AA6F7C1E66C4F70E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Journey/Pods-Journey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF60A31B1DBD05B5006B931B /* Sources */ = {
@@ -404,6 +575,7 @@
 		};
 		EF60A34A1DBD05B6006B931B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77517C1A4D2C68E623FCE7A4 /* Pods-Journey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Journey/Info.plist;
@@ -415,6 +587,7 @@
 		};
 		EF60A34B1DBD05B6006B931B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 664E38FAD8E9415C8805E9A1 /* Pods-Journey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Journey/Info.plist;
@@ -426,6 +599,7 @@
 		};
 		EF60A34D1DBD05B6006B931B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18E4BD2431AF7A4B9F51B77A /* Pods-JourneyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = JourneyTests/Info.plist;
@@ -438,6 +612,7 @@
 		};
 		EF60A34E1DBD05B6006B931B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2C93E5EA2AE4D4C63F50CA7 /* Pods-JourneyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = JourneyTests/Info.plist;
@@ -450,6 +625,7 @@
 		};
 		EF60A3501DBD05B6006B931B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53577DDAA2DE3B554C886B62 /* Pods-JourneyUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = JourneyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -462,6 +638,7 @@
 		};
 		EF60A3511DBD05B6006B931B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F742B24494D1FCFC214BFEBE /* Pods-JourneyUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = JourneyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
