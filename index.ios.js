@@ -12,6 +12,18 @@ import {
   View
 } from 'react-native';
 
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import './Src/Utils/Font_Awesome/scss/font-awesome.scss'
+
+import Login from './Src/Containers/Login/Login'
+
+import { configure_index_store } from './Src/Store/configure_store.js'
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import './Src/Global/Font/set_font.scss'
+import './Src/Global/CSS/reset.scss'
+
 export default class Journey extends Component {
   render() {
     return (
