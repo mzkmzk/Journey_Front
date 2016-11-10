@@ -1,0 +1,626 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wind",
+				"windowOnerror"
+			],
+			[
+				"win",
+				"windowLoaded"
+			],
+			[
+				"re",
+				"resourceTimeOut"
+			],
+			[
+				"get",
+				"getOptions"
+			],
+			[
+				"def",
+				"defaultOptions"
+			],
+			[
+				"ti",
+				"timing"
+			],
+			[
+				"li",
+				"liMouthType"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"d",
+				"dredge_time"
+			],
+			[
+				"U",
+				"UtilsXL"
+			],
+			[
+				"query",
+				"querySelector"
+			],
+			[
+				"ref",
+				"referfrom"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"inn",
+				"innerHeight"
+			],
+			[
+				"full",
+				"fullArticleUl"
+			],
+			[
+				"fu",
+				"fullArticle"
+			],
+			[
+				"crea",
+				"createElement"
+			],
+			[
+				"e",
+				"element"
+			],
+			[
+				"creat",
+				"createFullArticle"
+			],
+			[
+				"de",
+				"defaultOptions"
+			],
+			[
+				"widw",
+				"window"
+			],
+			[
+				"flex",
+				"flex"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"pand",
+				"padding-top"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"sina",
+				"sina_access_token"
+			],
+			[
+				"En",
+				"Env"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"pre",
+				"prev"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"padd",
+				"padding-top"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/maizhikun/Open_Source/react-native/Examples/Movies/MovieCell.js",
+			"settings":
+			{
+				"buffer_size": 2806,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "Console",
+		"selected_items":
+		[
+			[
+				"Console",
+				"Set Syntax: R Console"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/maizhikun/Open_Source/react-native/Examples",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies",
+		"/Users/maizhikun/Open_Source/react-native/Examples/TicTacToe"
+	],
+	"file_history":
+	[
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Journey.sublime-project",
+		"/Users/maizhikun/Learning/apache_sites/K-JavaScript.sublime-project",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Error_.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/KReport.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/README.md",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/package.json",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/LoadTime.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Example/loadtime/index.html",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Utils.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Network.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Options.js",
+		"/Users/maizhikun/Desktop/1.svg",
+		"/Users/maizhikun/Desktop/2.svg",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Public/index.bundle.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/webpack.config.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/index.js",
+		"/Users/maizhikun/Learning/apache_sites/K-Ajax/Src/singleKAjax.js",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Error.js",
+		"/Users/maizhikun/Open_Source/jquery/src/deferred.js",
+		"/Users/maizhikun/Open_Source/zepto/src/zepto.js",
+		"/Users/maizhikun/Open_Source/jquery/src/core/ready.js",
+		"/Users/maizhikun/Learning/apache_sites/K-Logging/.babelrc",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/.babelrc",
+		"/Users/maizhikun/Learning/apache_sites_back/grouplus_front/trunk/package.json",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Network.j's",
+		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Example/loadtime.html",
+		"/Users/maizhikun/Learning/apache_sites/K-Logging/Src/singleDeepStream.js",
+		"/Users/maizhikun/Learning/apache_sites/K-Logging/Example/Website/website.html",
+		"/Users/maizhikun/Open_Source/jquery/src/manipulation.js",
+		"/Users/maizhikun/Open_Source/jquery/src/ajax/var/location.js",
+		"/Users/maizhikun/Open_Source/jquery/src/ajax/load.js",
+		"/Users/maizhikun/Open_Source/jquery/src/ajax.js",
+		"/Users/maizhikun/Open_Source/jquery/src/event/trigger.js",
+		"/Users/maizhikun/Open_Source/jquery/src/serialize.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/Polyfill.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/SuperPayXL.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/Ajax.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/UtilsXL.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/Event.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/index.html",
+		"/Users/maizhikun/Desktop/hosts",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/index.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/pay.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/js/src/common/superPay.js",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/pay.html",
+		"/Volumes/部门/设计部/需求设计稿/N宁文静/项目/迅雷9嵌入页/提速mini页/index.html",
+		"/Users/maizhikun/Project/迅雷/快鸟插件/speed-mini-xl9/css/style.css",
+		"/Volumes/部门/设计部/需求设计稿/N宁文静/项目/迅雷9嵌入页/提速mini页/支付页.html",
+		"/Users/maizhikun/Project/ImageViewer/webpack.config.js",
+		"/Users/maizhikun/Project/ImageViewer/package.json",
+		"/Users/maizhikun/Project/ImageViewer/README.mdown",
+		"/Users/maizhikun/Project/ImageViewer/.eslintrc",
+		"/Users/maizhikun/Project/ImageViewer/Src/index.js",
+		"/Users/maizhikun/Project/ImageViewer/Src/ImageViewer.js",
+		"/Users/maizhikun/Project/ImageViewer/.babelrc",
+		"/Users/maizhikun/Project/ImageViewer/Example/Simple/index.html",
+		"/Users/maizhikun/Project/ImageViewer/Public/index.bundle.js",
+		"/Users/maizhikun/Project/ImageViewer/Src/DefaultOptions.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Public/login.bundle.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Public/index.bundle.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Panels/Panels.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Actions/activity.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Time_Axis/Time_Axis.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/QiNiu/QiNiu.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Global/JS/Qi_Niu.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Reducers/temp_picture.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Reducers/activity.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Reducers/index.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Index/Index.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Select_Handle/Select_Handle.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Header/Header.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/QiNiu/QiNiu.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Time_Axis/Time_Axis.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/View/Index/index.html",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/View/Login/login.html",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/View/Setting/setting.html",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Index/Index.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Global/Font/set_font.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Select_Handle/Select_Handle.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Global/JS/Environment.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Setting/Setting.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Setting/Setting.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Setting/Setting.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Reducers/setting.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Global/CSS/reset.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/webpack.config.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/package.json",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Public/setting.html",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Public/index.html",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/View/Setting/setting.js",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Header/Header.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Setting/Setting.scss",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/.eslintrc",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Login/Login.scss",
+		"/Users/maizhikun/Project/迅雷/天天美图/act.vip.xunlei.com/wap/source/main.js",
+		"/Users/maizhikun/Project/迅雷/天天美图/act.vip.xunlei.com/ugirls/detail.html",
+		"/Users/maizhikun/Project/迅雷/天天美图/admin.vip_center/application/views/block_htm/block_581.php",
+		"/Users/maizhikun/Project/迅雷/天天美图/act.vip.xunlei.com/wap/source/ugirls1.js",
+		"/Users/maizhikun/Desktop/test.html",
+		"/Users/maizhikun/Open_Source/html2canvas/src/Util.js",
+		"/Users/maizhikun/Open_Source/html2canvas/Gruntfile.js",
+		"/Users/maizhikun/Open_Source/html2canvas/.gitignore",
+		"/Users/maizhikun/Open_Source/html2canvas/package.json",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/actions/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/components/MainSection.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/reducers/todos.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/components/TodoItem.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/constants/ActionTypes.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/store/configureStore.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/package.json",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/components/Header.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/containers/App.js",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/.babelrc",
+		"/Users/maizhikun/Open_Source/redux/examples/counter/index.html",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/index.html",
+		"/Users/maizhikun/Open_Source/redux/examples/todomvc/reducers/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/counter/reducers/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/counter/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/real-world/actions/index.js",
+		"/Users/maizhikun/Open_Source/redux/examples/real-world/containers/App.js",
+		"/Users/maizhikun/Open_Source/redux/examples/async/components/Picker.js",
+		"/Users/maizhikun/Open_Source/redux/examples/async/components/Posts.js",
+		"/Users/maizhikun/Open_Source/redux/examples/async/containers/App.js",
+		"/Users/maizhikun/Open_Source/redux/examples/async/actions/index.js",
+		"/Users/maizhikun/Learning/apache_sites/grouplus_front/trunk/public/ueditor1.4.3/dialogs/video/video.js",
+		"/Users/maizhikun/Open_Source/react-web_/.eslintignore",
+		"/Users/maizhikun/Learning/apache_sites/install_group/trunk/grouplus-admin/.env"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/maizhikun/Open_Source/jquery/src",
+			"/Users/maizhikun/Learning/apache_sites/grouplus_front/trunk/public/ueditor1.4.3",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getEntriesByType",
+			"'getEntriesByType' in performance",
+			"\"",
+			"ready",
+			"Deferred",
+			"completed",
+			"ready(",
+			"document.onreadystatechange",
+			"ready",
+			"readyRE",
+			"readyState",
+			"readyRE",
+			"ready",
+			"更多",
+			"ajaxTransport",
+			"ajax(",
+			"prop",
+			"trigger",
+			"manipulation",
+			"forEach",
+			"fragmentRE",
+			"^",
+			"fragmentRE",
+			"rootNodeRE",
+			"dredge",
+			"pay_price",
+			"externalGetStatus",
+			"external.",
+			"QueryBand",
+			"external.",
+			"external",
+			"alert",
+			"require",
+			"externalGetStatus",
+			"xl9.",
+			"external",
+			"GetUserType",
+			"external",
+			"externalGetUserType",
+			"setTextUserType",
+			"showDebug",
+			"debug-bo",
+			";",
+			"html",
+			"is_fetching",
+			";",
+			"actions",
+			"import RaisedButton from 'material-ui/RaisedButton'",
+			";",
+			"login",
+			"loginAfter",
+			"handleFreeLookIco",
+			"refreshVipUserInfo",
+			"loginAfter",
+			"_login_after_callbacks",
+			"loginAfter",
+			"tipsNotVip",
+			"非会员或",
+			"initUserInfo",
+			"checkOrder",
+			"loginAfter",
+			"myScroll2",
+			"免费",
+			"tipsNotVip",
+			"tips-wp",
+			"tipsNotVip",
+			"loginAfter",
+			"开通会员",
+			"开会员看高清",
+			"_login_after_callbacks",
+			"开通会员",
+			"aTryLokkLast",
+			"tipsNotLogin",
+			"detail\"",
+			"detail",
+			"非会员",
+			"tips-wp",
+			"iScrollPre",
+			".next",
+			"next",
+			"ic-close3",
+			"prev",
+			"fullScreen",
+			"z-index",
+			"handlePicDisplay",
+			"handleUserPower",
+			"detail\"",
+			"登录后",
+			"登录后,",
+			"btn-wp-login btn-wp",
+			"page_show",
+			"continueVipPay",
+			"btn-down-album",
+			"continueVipPay",
+			"续费会员看更多",
+			"detail\"",
+			"非会员",
+			"tipsNotLogin",
+			"detail\"",
+			"免费观看",
+			"非会员只可",
+			"index\"",
+			"detail\"",
+			"baijin",
+			"handleUserPower",
+			"ad_show",
+			"ab_show",
+			"detail\"",
+			"userDown",
+			"download",
+			"down",
+			"userDown",
+			"btn-down",
+			"down\"",
+			".down",
+			"down",
+			"video\"",
+			"\"DOWN",
+			"FileProgress",
+			"FileUploaded",
+			"uptoken_url",
+			"Extend",
+			"svgRendering",
+			"options",
+			"loadImage",
+			"domImages",
+			"onrendered",
+			"sign_success_art"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"install_group"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/maizhikun/Open_Source/react-native/Examples/Movies/MovieCell.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2274,
+								2274
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 814.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "Journey.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 320.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
