@@ -152,10 +152,29 @@
 	"buffers":
 	[
 		{
+			"contents": "/**\n * Sample React Native App\n * https://github.com/facebook/react-native\n * @flow\n */\n\n'use strict';\n\nvar React = require('react');\nvar ReactNative = require('react-native');\nvar {\n  Image,\n  Platform,\n  StyleSheet,\n  Text,\n  TouchableHighlight,\n  TouchableNativeFeedback,\n  View\n} = ReactNative;\n\nvar getStyleFromScore = require('./getStyleFromScore');\nvar getImageSource = require('./getImageSource');\nvar getTextFromScore = require('./getTextFromScore');\n\nclass Journey extends React.Component {\n  render() {\n    var criticsScore = this.props.movie.ratings.critics_score;\n    var TouchableElement = TouchableHighlight;\n    if (Platform.OS === 'android') {\n      TouchableElement = TouchableNativeFeedback;\n    }\n    return (\n      <View>\n        <TouchableElement\n          onPress={this.props.onSelect}\n          onShowUnderlay={this.props.onHighlight}\n          onHideUnderlay={this.props.onUnhighlight}>\n          <View style={styles.row}>\n            <Image\n              source={getImageSource(this.props.movie, 'det')}\n              style={styles.cellImage}\n            />\n            <View style={styles.textContainer}>\n              <Text style={styles.movieTitle} numberOfLines={2}>\n                {this.props.movie.title}\n              </Text>\n              <Text style={styles.movieYear} numberOfLines={1}>\n                {this.props.movie.year}\n                {' '}&bull;{' '}\n                <Text style={getStyleFromScore(criticsScore)}>\n                  Critics {getTextFromScore(criticsScore)}\n                </Text>\n              </Text>\n            </View>\n          </View>\n        </TouchableElement>\n      </View>\n    );\n  }\n}\n\nvar styles = StyleSheet.create({\n  textContainer: {\n    flex: 1,\n  },\n  movieTitliose: {\n    flex: 1,\n    fontSize: 16,\n    fontWeight: '500',\n    marginBottom: 2,\n  },\n  movieYear: {\n    color: '#999999',\n    fontSize: 12,\n  },\n  row: {\n    alignItems: 'center',\n    backgroundColor: 'white',\n    flexDirection: 'row',\n    padding: 5,\n  },\n  cellImage: {\n    backgroundColor: '#dddddd',\n    height: 93,\n    marginRight: 10,\n    width: 60,\n  },\n  cellBorder: {\n    backgroundColor: 'rgba(0, 0, 0, 0.1)',\n    height: StyleSheet.hairlineWidth,\n    marginLeft: 4,\n  },\n});\n\n\nAppRegistry.registerComponent('Journey', () => Journey);\n",
+			"file": "index.ios.js",
+			"file_size": 2285,
+			"file_write_time": 131232641910000000,
+			"settings":
+			{
+				"buffer_size": 2288,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/Users/maizhikun/Open_Source/react-native/Examples/Movies/MovieCell.js",
 			"settings":
 			{
 				"buffer_size": 2806,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "node_modules/react-native/packager/react-packager/src/Resolver/polyfills/require.js",
+			"settings":
+			{
+				"buffer_size": 6091,
 				"line_ending": "Unix"
 			}
 		}
@@ -196,12 +215,28 @@
 	},
 	"expanded_folders":
 	[
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/ReactNative",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src",
+		"/Users/maizhikun/Open_Source/react-native",
 		"/Users/maizhikun/Open_Source/react-native/Examples",
+		"/Users/maizhikun/Open_Source/react-native/Examples/2048",
 		"/Users/maizhikun/Open_Source/react-native/Examples/Movies",
-		"/Users/maizhikun/Open_Source/react-native/Examples/TicTacToe"
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook/react",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook/react/movies",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/Movies.xcodeproj/project.xcworkspace/xcuserdata",
+		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/Movies.xcodeproj/project.xcworkspace/xcuserdata/maizhikun.xcuserdatad"
 	],
 	"file_history":
 	[
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/node_modules/react/lib/ReactCompositeComponent.js",
 		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Journey.sublime-project",
 		"/Users/maizhikun/Learning/apache_sites/K-JavaScript.sublime-project",
 		"/Users/maizhikun/Learning/apache_sites/Try_JS_Error/Src/Error_.js",
@@ -328,12 +363,11 @@
 		"/Users/maizhikun/Open_Source/redux/examples/async/containers/App.js",
 		"/Users/maizhikun/Open_Source/redux/examples/async/actions/index.js",
 		"/Users/maizhikun/Learning/apache_sites/grouplus_front/trunk/public/ueditor1.4.3/dialogs/video/video.js",
-		"/Users/maizhikun/Open_Source/react-web_/.eslintignore",
-		"/Users/maizhikun/Learning/apache_sites/install_group/trunk/grouplus-admin/.env"
+		"/Users/maizhikun/Open_Source/react-web_/.eslintignore"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -502,19 +536,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/maizhikun/Open_Source/react-native/Examples/Movies/MovieCell.js",
-					"semi_transient": true,
+					"file": "index.ios.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2806,
+						"buffer_size": 2288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2274,
-								2274
+								1163,
+								1163
 							]
 						],
 						"settings":
@@ -528,10 +562,77 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 814.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/maizhikun/Open_Source/react-native/Examples/Movies/MovieCell.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								638,
+								2777
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 849.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "node_modules/react-native/packager/react-packager/src/Resolver/polyfills/require.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6091,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1004,
+								1004
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 482.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
