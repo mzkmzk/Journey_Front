@@ -160,14 +160,6 @@
 			}
 		},
 		{
-			"file": "/Users/maizhikun/Open_Source/react-native/Examples/UIExplorer/js/LayoutEventsExample.js",
-			"settings":
-			{
-				"buffer_size": 4889,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/Users/maizhikun/Open_Source/react-native/Examples/2048/Game2048.js",
 			"settings":
 			{
@@ -180,6 +172,14 @@
 			"settings":
 			{
 				"buffer_size": 3049,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Src/Components/Header/Header.js",
+			"settings":
+			{
+				"buffer_size": 2201,
 				"line_ending": "Unix"
 			}
 		},
@@ -229,24 +229,13 @@
 	"expanded_folders":
 	[
 		"/Users/maizhikun/Learning/apache_sites/Journey_Front",
-		"/Users/maizhikun/Learning/apache_sites/Journey_Front/ios",
-		"/Users/maizhikun/Learning/apache_sites/Journey_Front/ios/Journey",
-		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Actions",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src",
 		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components",
-		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Panels",
+		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Components/Header",
 		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers",
 		"/Users/maizhikun/Learning/apache_sites/Journey_Front/Src/Containers/Index",
 		"/Users/maizhikun/Open_Source/react-native",
 		"/Users/maizhikun/Open_Source/react-native/Examples",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook/react",
-		"/Users/maizhikun/Open_Source/react-native/Examples/Movies/android/app/src/main/java/com/facebook/react/movies",
 		"/Users/maizhikun/Open_Source/react-native/Examples/UIExplorer",
 		"/Users/maizhikun/Open_Source/react-native/Examples/UIExplorer/js"
 	],
@@ -547,7 +536,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -570,6 +559,7 @@
 						"settings":
 						{
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
@@ -581,45 +571,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/Users/maizhikun/Open_Source/react-native/Examples/UIExplorer/js/LayoutEventsExample.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 4889,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2457,
-								2457
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"origin_encoding": "ASCII",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "/Users/maizhikun/Open_Source/react-native/Examples/2048/Game2048.js",
 					"semi_transient": false,
 					"settings":
@@ -638,6 +594,7 @@
 						"settings":
 						{
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
@@ -649,11 +606,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "Src/Containers/Index/Index.js",
 					"semi_transient": false,
 					"settings":
@@ -665,13 +622,14 @@
 						"selection":
 						[
 							[
-								2590,
-								2590
+								280,
+								293
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
@@ -680,10 +638,45 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 725.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Src/Components/Header/Header.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								614,
+								614
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"is_init_dirty_state": false,
+							"origin_encoding": "ASCII",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -706,6 +699,7 @@
 						"settings":
 						{
 							"incomplete_sync": null,
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"remote_loading": false,
 							"synced": false,
