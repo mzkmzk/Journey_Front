@@ -36844,7 +36844,7 @@
 
 
 
-	_jquery2.default.getJSON('http://inner.journey.404mzk.com/v1/Activity_Controller/query',params,function(result){
+	_jquery2.default.getJSON('http://inner.journey.404mzk.com/v2/Activity_Controller/query',params,function(result){
 	if(result.next_page_url!=null){
 	window.onscroll=checkNeedLoadActivity;
 	}

@@ -29887,7 +29887,7 @@
 
 	var _Panels=__webpack_require__(439);var _Panels2=_interopRequireDefault(_Panels);
 
-	__webpack_require__(442);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+	__webpack_require__(443);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 	Login=function(_Component){_inherits(Login,_Component);
 
@@ -29916,24 +29916,26 @@
 	var _react=__webpack_require__(1);var _react2=_interopRequireDefault(_react);
 	var _reactDom=__webpack_require__(34);
 
+	var _Utils=__webpack_require__(440);var _Utils2=_interopRequireDefault(_Utils);
 	var _Environment=__webpack_require__(296);var _Environment2=_interopRequireDefault(_Environment);
 
-	__webpack_require__(440);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
+	__webpack_require__(441);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self,call){if(!self){throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call&&(typeof call==="object"||typeof call==="function")?call:self;}function _inherits(subClass,superClass){if(typeof superClass!=="function"&&superClass!==null){throw new TypeError("Super expression must either be null or a function, not "+typeof superClass);}subClass.prototype=Object.create(superClass&&superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__=superClass;}var
 
 	Panels=function(_Component){_inherits(Panels,_Component);function Panels(){_classCallCheck(this,Panels);return _possibleConstructorReturn(this,(Panels.__proto__||Object.getPrototypeOf(Panels)).apply(this,arguments));}_createClass(Panels,[{key:'render',value:function render()
 
 
 	{
-	var env=new _Environment2.default();
-	var url='https://api.weibo.com/oauth2/authorize?'+'client_id='+env.sinaAppKey+'&scope=all&forcelogin=true&redirect_uri='+window.location.protocol+'\/\/'+env.innerURL+'/v2/User_Controller/sinaLogin'+encodeURIComponent('?')+'url='+window.location.host;
+	var env=new _Environment2.default(),
+	jump_url=encodeURIComponent(_Utils2.default.getUrlParam(window.location.search).jump_url||'http://journey.404mzk.com');
+	url='https://api.weibo.com/oauth2/authorize?'+'client_id='+env.sinaAppKey+'&scope=all&forcelogin=true&redirect_uri='+window.location.protocol+'\/\/'+env.innerURL+'/v2/User_Controller/sinaLogin'+encodeURIComponent('?')+'jump_url='+jump_url;
 	return(
-	_react2.default.createElement('article',{className:'panel',__source:{fileName:_jsxFileName,lineNumber:18}},
-	_react2.default.createElement('section',{__source:{fileName:_jsxFileName,lineNumber:19}},
-	_react2.default.createElement('h1',{__source:{fileName:_jsxFileName,lineNumber:20}},'Login Journey'),
+	_react2.default.createElement('article',{className:'panel',__source:{fileName:_jsxFileName,lineNumber:20}},
 	_react2.default.createElement('section',{__source:{fileName:_jsxFileName,lineNumber:21}},
-	_react2.default.createElement('section',{__source:{fileName:_jsxFileName,lineNumber:22}},
-	_react2.default.createElement('a',{href:url,__source:{fileName:_jsxFileName,lineNumber:23}},
-	_react2.default.createElement('i',{className:'fa fa-weibo ','aria-hidden':'true',__source:{fileName:_jsxFileName,lineNumber:24}})))))));
+	_react2.default.createElement('h1',{__source:{fileName:_jsxFileName,lineNumber:22}},'Login Journey'),
+	_react2.default.createElement('section',{__source:{fileName:_jsxFileName,lineNumber:23}},
+	_react2.default.createElement('section',{__source:{fileName:_jsxFileName,lineNumber:24}},
+	_react2.default.createElement('a',{href:url,__source:{fileName:_jsxFileName,lineNumber:25}},
+	_react2.default.createElement('i',{className:'fa fa-weibo ','aria-hidden':'true',__source:{fileName:_jsxFileName,lineNumber:26}})))))));
 
 
 
@@ -29944,12 +29946,32 @@
 
 /***/ },
 /* 440 */
+/***/ function(module, exports) {
+
+	Object.defineProperty(exports,"__esModule",{value:true});exports.default={
+	getUrlParam:function getUrlParam(url){
+	var result={},
+	tmp=[];
+	if(url==='')return result;
+
+	var items=url.substr(1).split('&');
+	if(items&&items.length!==0)result={};
+	for(var i=items.length-1;i>=0;i--){
+	tmp=items[i].split('=');
+	result[tmp[0]]=decodeURIComponent(tmp[1]);
+	}
+
+	return result;
+	}};
+
+/***/ },
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(441);
+	var content = __webpack_require__(442);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(204)(content, {});
@@ -29969,7 +29991,7 @@
 	}
 
 /***/ },
-/* 441 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(202)();
@@ -29983,13 +30005,13 @@
 
 
 /***/ },
-/* 442 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(443);
+	var content = __webpack_require__(444);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(204)(content, {});
@@ -30009,7 +30031,7 @@
 	}
 
 /***/ },
-/* 443 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(202)();
