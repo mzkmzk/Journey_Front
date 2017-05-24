@@ -29,25 +29,20 @@
     "font-awesome": "4.6.3",
     "graceful-fs": "4.1.4",
     "jquery": "3.0.0",
-    "material-ui": "0.15.1",
+    "material-ui": "0.18.1",
     "mustache": "2.2.1",
     "qiniu-js": "1.0.14-beta",
     "qiniu-plugin": "0.0.7",
-    "react": "~15.3.1",
+    "react": "15.3.2",
     "react-dom": "~15.3.1",
-    "react-native": "^0.36.0",
+    "react-native": "0.36.0",
     "react-redux": "4.4.5",
     "react-router": "^2.8.1",
     "redux": "3.5.2",
     "redux-thunk": "2.1.0",
     "underscore": "1.8.3",
     "viewerjs": "0.5.0",
-    "whatwg-fetch": "1.0.0",
-    "react": "15.3.2",
-    "react-native": "0.36.0"
-  },
-  "jest": {
-    "preset": "jest-react-native"
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "babel-core": "6.9.1",
@@ -71,10 +66,6 @@
     "jest": "16.0.2",
     "jest-react-native": "16.0.0",
     "react-test-renderer": "15.3.2",
-    "babel-jest": "16.0.0",
-    "babel-preset-react-native": "1.9.0",
-    "jest": "16.0.2",
-    "jest-react-native": "16.0.0",
-    "react-test-renderer": "15.3.2"
+    "babel-jest": "16.0.0"
   }
 }

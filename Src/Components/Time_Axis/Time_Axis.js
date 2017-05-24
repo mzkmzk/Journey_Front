@@ -16,7 +16,7 @@ class Time_Axis extends Component {
                 {
                     activities.map((activity,index) =>
                             <article key={index}>
-                                <time datatime={activity.created_at}>
+                                <time >{/*datatime={activity.created_at}*/}
                                     <blockquote>{ activity.created_at.slice(TIME_START,SECOND_START)}</blockquote>
                                 </time>
                                 <section >
